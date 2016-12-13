@@ -16,8 +16,6 @@ public class Order {
 	private int productnb;
 	
 	
-	
-	
 	public Order() {
 		super();
 	}
