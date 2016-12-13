@@ -19,7 +19,8 @@ public class Seller extends User implements Serializable {
 	
 	
 
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private static final long serialVersionUID = 1L;
 	
 	private String company_name;
