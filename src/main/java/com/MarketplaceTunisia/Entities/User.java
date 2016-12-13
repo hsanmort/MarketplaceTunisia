@@ -16,6 +16,9 @@ public abstract class User implements Serializable {
 	/**
 	 * 
 	 */
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private static final long serialVersionUID = 1L;
 
 
