@@ -16,8 +16,8 @@ public class Shop implements Serializable {
 		
 		@Id
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
-		private Long id_shop;
-		private String name_shop;
+		private Long idShop;
+		private String nameShop;
 		private String description;
 		private Date dateCreation;
 		private byte[] picture;
@@ -29,16 +29,16 @@ public class Shop implements Serializable {
 			this.picture = picture;
 		}
 		public Long getId_shop() {
-			return id_shop;
+			return idShop;
 		}
 		public void setId_shop(Long id_shop) {
-			this.id_shop = id_shop;
+			this.idShop = id_shop;
 		}
 		public String getName_shop() {
-			return name_shop;
+			return nameShop;
 		}
 		public void setName_shop(String name_shop) {
-			this.name_shop = name_shop;
+			this.nameShop = name_shop;
 		}
 		public String getDescription() {
 			return description;
@@ -54,8 +54,8 @@ public class Shop implements Serializable {
 		}
 		public Shop(Long id_shop, String name_shop, String description, Date dateCreation, byte[] picture) {
 			super();
-			this.id_shop = id_shop;
-			this.name_shop = name_shop;
+			this.idShop = id_shop;
+			this.nameShop = name_shop;
 			this.description = description;
 			this.dateCreation = dateCreation;
 			this.picture = picture;

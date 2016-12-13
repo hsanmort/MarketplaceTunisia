@@ -18,30 +18,30 @@ public class Seller extends User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private String company_name;
+	private String companyName;
 
-	private int company_id;
+	private int companyId;
 
 	public String getCompany_name() {
-		return company_name;
+		return companyName;
 	}
 
 	public void setCompany_name(String company_name) {
-		this.company_name = company_name;
+		this.companyName = company_name;
 	}
 
 	public int getCompany_id() {
-		return company_id;
+		return companyId;
 	}
 
 	public void setCompany_id(int company_id) {
-		this.company_id = company_id;
+		this.companyId = company_id;
 	}
 
 	public Seller(String company_name, int company_id) {
 		super();
-		this.company_name = company_name;
-		this.company_id = company_id;
+		this.companyName = company_name;
+		this.companyId = company_id;
 	}
 
 	public Seller() {
