@@ -1,7 +1,7 @@
 package com.MarketplaceTunisia.Entities;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -17,7 +17,8 @@ public class Buyer extends User implements Serializable {
 		
 
 		private static final long serialVersionUID = 1L;
-		private List<String> hobbies;
+		
+		private ArrayList<String> hobbies=new ArrayList<String>();
 		
 		@OneToMany(mappedBy="buyer")
 		private List<Complaint> complaints;
@@ -25,11 +26,13 @@ public class Buyer extends User implements Serializable {
 		@OneToMany(mappedBy="buyer")
 		private List<Order> orders;
 
-		public List<String> getHobbies() {
+		
+
+		public ArrayList<String> getHobbies() {
 			return hobbies;
 		}
 
-		public void setHobbies(List<String> hobbies) {
+		public void setHobbies(ArrayList<String> hobbies) {
 			this.hobbies = hobbies;
 		}
 
@@ -51,12 +54,13 @@ public class Buyer extends User implements Serializable {
 
 		
 
+	
 		public Buyer(int idUser, String name, String lastName, String mail,
 				String pwd, char gender, long tel, byte[] picture,
-				Boolean status, Adress adress, List<String> hobbies,
+				Adress adress, ArrayList<String> hobbies,
 				List<Complaint> complaints, List<Order> orders) {
 			super(idUser, name, lastName, mail, pwd, gender, tel, picture,
-				 adress);
+					adress);
 			this.hobbies = hobbies;
 			this.complaints = complaints;
 			this.orders = orders;
@@ -68,7 +72,7 @@ public class Buyer extends User implements Serializable {
 			super();
 		}
 
-		public Buyer(List<String> hobbies, List<Complaint> complaints,
+		public Buyer(ArrayList<String> hobbies, List<Complaint> complaints,
 				List<Order> orders) {
 			super();
 			this.hobbies = hobbies;
@@ -78,5 +82,6 @@ public class Buyer extends User implements Serializable {
 
 		}
 
+	
 		
 }
