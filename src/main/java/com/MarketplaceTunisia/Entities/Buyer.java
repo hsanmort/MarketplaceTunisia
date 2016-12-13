@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,23 +19,64 @@ public class Buyer extends User implements Serializable {
 		private static final long serialVersionUID = 1L;
 		private List<String> hobbies;
 		
+		@OneToMany(mappedBy="buyer")
+		private List<Complaint> complaints;
 		
-		public Buyer() {
-			super();
-		}
-		public Buyer(List<String> hobbies) {
-			super();
-			this.hobbies = hobbies;
-		}
+		@OneToMany(mappedBy="buyer")
+		private List<Order> orders;
+
 		public List<String> getHobbies() {
 			return hobbies;
 		}
+
 		public void setHobbies(List<String> hobbies) {
 			this.hobbies = hobbies;
 		}
-		
-		
-		
+
+		public List<Complaint> getComplaints() {
+			return complaints;
+		}
+
+		public void setComplaints(List<Complaint> complaints) {
+			this.complaints = complaints;
+		}
+
+		public List<Order> getOrders() {
+			return orders;
+		}
+
+		public void setOrders(List<Order> orders) {
+			this.orders = orders;
+		}
+
 		
 
+		public Buyer(int idUser, String name, String lastName, String mail,
+				String pwd, char gender, long tel, byte[] picture,
+				Boolean status, Adress adress, List<String> hobbies,
+				List<Complaint> complaints, List<Order> orders) {
+			super(idUser, name, lastName, mail, pwd, gender, tel, picture,
+				 adress);
+			this.hobbies = hobbies;
+			this.complaints = complaints;
+			this.orders = orders;
+			this.setStatus(false);
+
+		}
+
+		public Buyer() {
+			super();
+		}
+
+		public Buyer(List<String> hobbies, List<Complaint> complaints,
+				List<Order> orders) {
+			super();
+			this.hobbies = hobbies;
+			this.complaints = complaints;
+			this.orders = orders;
+			this.setStatus(false);
+
+		}
+
+		
 }

@@ -1,11 +1,13 @@
 package com.MarketplaceTunisia.Entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,25 +21,45 @@ public class Category implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idCategory;
 	private String nameCategory;
+	
+	@OneToMany(mappedBy="category")
+	private List<Product> products;
+
 	public int getIdCategory() {
 		return idCategory;
 	}
+
 	public void setIdCategory(int idCategory) {
 		this.idCategory = idCategory;
 	}
+
 	public String getNameCategory() {
 		return nameCategory;
 	}
+
 	public void setNameCategory(String nameCategory) {
 		this.nameCategory = nameCategory;
 	}
-	public Category(int idCategory, String nameCategory) {
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+	public Category(int idCategory, String nameCategory, List<Product> products) {
 		super();
 		this.idCategory = idCategory;
 		this.nameCategory = nameCategory;
+		this.products = products;
 	}
+
 	public Category() {
 		super();
 	}
+	
+
 
 }

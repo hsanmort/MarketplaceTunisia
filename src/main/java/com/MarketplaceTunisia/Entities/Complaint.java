@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,33 +20,67 @@ public class Complaint implements Serializable {
 	private int idComplaint;
 	private String description;
 	private Date dateComplaint;
+	
+	@ManyToOne
+	@JoinColumn(name="id_buyer")
+	private Buyer buyer;
+	
+	@ManyToOne
+	@JoinColumn(name="id_seller")
+	private Seller seller;
+
 	public int getIdComplaint() {
 		return idComplaint;
 	}
+
 	public void setIdComplaint(int idComplaint) {
 		this.idComplaint = idComplaint;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public Date getDateComplaint() {
 		return dateComplaint;
 	}
+
 	public void setDateComplaint(Date dateComplaint) {
 		this.dateComplaint = dateComplaint;
 	}
-	public Complaint(int idComplaint, String description, Date dateComplaint) {
+
+	public Buyer getBuyer() {
+		return buyer;
+	}
+
+	public void setBuyer(Buyer buyer) {
+		this.buyer = buyer;
+	}
+
+	public Seller getSeller() {
+		return seller;
+	}
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
+
+	public Complaint(int idComplaint, String description, Date dateComplaint,
+			Buyer buyer, Seller seller) {
 		super();
 		this.idComplaint = idComplaint;
 		this.description = description;
 		this.dateComplaint = dateComplaint;
+		this.buyer = buyer;
+		this.seller = seller;
 	}
+
 	public Complaint() {
 		super();
 	}
 	
-
 }

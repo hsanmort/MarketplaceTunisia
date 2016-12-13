@@ -16,7 +16,8 @@ public abstract class User implements Serializable {
 	/**
 	 * 
 	 */
-
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idUser;
@@ -27,27 +28,11 @@ public abstract class User implements Serializable {
 	private char gender;
 	private long tel;
 	private byte[] picture;
+	private Boolean status;
 	
-	
-	private static final long serialVersionUID = 1L;
-
-	
-	public User() {
-		super();
-	}
-
-	public User(int idUser, String name, String lastName,
-			String mail, String pwd, char gender, long tel, byte[] picture) {
-		super();
-		this.idUser = idUser;
-		this.name = name;
-		this.lastName = lastName;
-		this.mail = mail;
-		this.pwd = pwd;
-		this.gender = gender;
-		this.tel = tel;
-		this.picture = picture;
-	}
+	@OneToOne
+	@JoinColumn(name = "id_adress")
+	private Adress adress;
 
 	public int getIdUser() {
 		return idUser;
@@ -113,6 +98,46 @@ public abstract class User implements Serializable {
 		this.picture = picture;
 	}
 
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
+	public Adress getAdress() {
+		return adress;
+	}
+
+	public void setAdress(Adress adress) {
+		this.adress = adress;
+	}
+
+	public User(int idUser, String name, String lastName, String mail,
+			String pwd, char gender, long tel, byte[] picture,
+			Adress adress) {
+		super();
+		this.idUser = idUser;
+		this.name = name;
+		this.lastName = lastName;
+		this.mail = mail;
+		this.pwd = pwd;
+		this.gender = gender;
+		this.tel = tel;
+		this.picture = picture;
+		this.status = true;
+		this.adress = adress;
+	}
+
+	public User() {
+		super();
+	}
+	
+	
+
+
+	
 
 	
 }

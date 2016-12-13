@@ -1,10 +1,14 @@
 package com.MarketplaceTunisia.Entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Entity;
 
@@ -22,26 +26,54 @@ public class ShoppingCart implements Serializable{
 	private int qte;
 	
 	
-	
+	@ManyToMany
+	@JoinTable(name="cart_list",
+	joinColumns=@JoinColumn(name="id_cart",referencedColumnName="idCart"),
+	inverseJoinColumns=@JoinColumn(name="id_product",referencedColumnName="idProduct"))
+	private List<Product> products;
+
+
 	public int getIdCart() {
 		return idCart;
 	}
+
+
 	public void setIdCart(int idCart) {
 		this.idCart = idCart;
 	}
+
+
 	public int getQte() {
 		return qte;
 	}
+
+
 	public void setQte(int qte) {
 		this.qte = qte;
 	}
-	
-	public ShoppingCart(int idCart, int qte) {
+
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+
+	public ShoppingCart(int idCart, int qte, List<Product> products) {
 		super();
 		this.idCart = idCart;
 		this.qte = qte;
+		this.products = products;
 	}
+
+
 	public ShoppingCart() {
 		super();
 	}
+	
+
 }

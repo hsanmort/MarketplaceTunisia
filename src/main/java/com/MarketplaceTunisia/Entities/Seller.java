@@ -1,10 +1,11 @@
 package com.MarketplaceTunisia.Entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.MarketplaceTunisia.Entities.User;
@@ -19,32 +20,74 @@ public class Seller extends User implements Serializable {
 	private String companyName;
 
 	private int companyId;
+	
+	@OneToMany(mappedBy="seller")
+	private List<Shop> shops;
+	
+	@OneToMany(mappedBy="seller")
+	private List<Complaint> complaints;
 
-	public String getCompany_name() {
+	public String getCompanyName() {
 		return companyName;
 	}
 
-	public void setCompany_name(String company_name) {
-		this.companyName = company_name;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
-	public int getCompany_id() {
+	public int getCompanyId() {
 		return companyId;
 	}
 
-	public void setCompany_id(int company_id) {
-		this.companyId = company_id;
+	public void setCompanyId(int companyId) {
+		this.companyId = companyId;
 	}
 
-	public Seller(String company_name, int company_id) {
+	public List<Shop> getShops() {
+		return shops;
+	}
+
+	public void setShops(List<Shop> shops) {
+		this.shops = shops;
+	}
+
+	public List<Complaint> getComplaints() {
+		return complaints;
+	}
+
+	public void setComplaints(List<Complaint> complaints) {
+		this.complaints = complaints;
+	}
+
+
+
+	public Seller(int idUser, String name, String lastName, String mail,
+			String pwd, char gender, long tel, byte[] picture,
+			Adress adress, String companyName, int companyId, List<Shop> shops,
+			List<Complaint> complaints) {
+		super(idUser, name, lastName, mail, pwd, gender, tel, picture,
+				adress);
+		this.companyName = companyName;
+		this.companyId = companyId;
+		this.shops = shops;
+		this.complaints = complaints;
+		this.setStatus(false);
+	}
+
+	public Seller(String companyName, int companyId, List<Shop> shops,
+			List<Complaint> complaints) {
 		super();
-		this.companyName = company_name;
-		this.companyId = company_id;
+		this.companyName = companyName;
+		this.companyId = companyId;
+		this.shops = shops;
+		this.complaints = complaints;
+		this.setStatus(false);
+
 	}
 
 	public Seller() {
 		super();
 	}
-	
+
 
 }
