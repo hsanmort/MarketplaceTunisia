@@ -20,20 +20,25 @@ public class Buyer extends User implements Serializable {
 		
 
 		private static final long serialVersionUID = 1L;
-		private List hobbies;
-		public List getHobbies() {
-			return hobbies;
-		}
-		public void setHobbies(List hobbies) {
-			this.hobbies = hobbies;
-		}
-		public Buyer(List hobbies) {
-			super();
-			this.hobbies = hobbies;
-		}
+		private List<String> hobbies;
+		
+		
 		public Buyer() {
 			super();
 		}
+		public Buyer(List<String> hobbies) {
+			super();
+			this.hobbies = hobbies;
+		}
+		public List<String> getHobbies() {
+			return hobbies;
+		}
+		public void setHobbies(List<String> hobbies) {
+			this.hobbies = hobbies;
+		}
+		
+		
+		
 		
 
 }
