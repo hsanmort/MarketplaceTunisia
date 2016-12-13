@@ -22,6 +22,16 @@ public class AdressService {
 		adressRepository.save(adress);
 	}
 	
+	@RequestMapping(value="/adress/delete")
+	public void deleteAdress(int idAdress){
+		adressRepository.delete(idAdress);
+	}
+	
+	@RequestMapping(value="/adress/update")
+	public Adress updateAdress(Adress adress){
+		return adressRepository.saveAndFlush(adress);
+	}
+	
 	@RequestMapping(value="/adress/all", method=RequestMethod.GET)
 	public List<Adress> liste() {
 		return adressRepository.findAll();

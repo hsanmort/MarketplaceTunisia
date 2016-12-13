@@ -1,0 +1,40 @@
+package com.MarketplaceTunisia.Services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.MarketplaceTunisia.DAO.CategoryRepository;
+import com.MarketplaceTunisia.Entities.Category;
+
+@RestController
+public class CategoryService {
+	
+	@Autowired
+	CategoryRepository categoryRepository;
+	
+	@RequestMapping(value="/category/save",method=RequestMethod.POST)
+	public void saveCategory(@RequestBody Category category){
+		categoryRepository.save(category);
+	}
+	
+	@RequestMapping(value="/category/delete")
+	public void deleteCategory(int idCategory){
+		categoryRepository.delete(idCategory);
+	}
+	
+	@RequestMapping(value="/category/update")
+	public Category updateAdress(Category category){
+		return categoryRepository.saveAndFlush(category);
+	}
+	
+	@RequestMapping(value="/category/all", method=RequestMethod.GET)
+	public List<Category> liste() {
+		return categoryRepository.findAll();
+	}
+	
+}
