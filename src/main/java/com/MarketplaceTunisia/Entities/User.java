@@ -22,13 +22,12 @@ public abstract class User implements Serializable {
 	private int idUser;
 	private String name;
 	private String lastName;
-	private String adress;
 	private String mail;
 	private String pwd;
 	private char gender;
 	private long tel;
 	private byte[] picture;
-	private String country;
+	
 	
 	private static final long serialVersionUID = 1L;
 
@@ -37,20 +36,17 @@ public abstract class User implements Serializable {
 		super();
 	}
 
-	public User(int idUser, String name, String lastName, String adress,
-			String mail, String pwd, char gender, long tel, byte[] picture,
-			String country) {
+	public User(int idUser, String name, String lastName,
+			String mail, String pwd, char gender, long tel, byte[] picture) {
 		super();
 		this.idUser = idUser;
 		this.name = name;
 		this.lastName = lastName;
-		this.adress = adress;
 		this.mail = mail;
 		this.pwd = pwd;
 		this.gender = gender;
 		this.tel = tel;
 		this.picture = picture;
-		this.country = country;
 	}
 
 	public int getIdUser() {
@@ -75,14 +71,6 @@ public abstract class User implements Serializable {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public String getAdress() {
-		return adress;
-	}
-
-	public void setAdress(String adress) {
-		this.adress = adress;
 	}
 
 	public String getMail() {
@@ -123,14 +111,6 @@ public abstract class User implements Serializable {
 
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 
