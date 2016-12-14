@@ -1,6 +1,7 @@
 package com.MarketplaceTunisia.Entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
@@ -72,6 +73,12 @@ public class Seller extends User implements Serializable {
 		this.shops = shops;
 		this.complaints = complaints;
 		this.setStatus(false);
+		
+		//ajout role seller
+		List<Role> listRoles=new ArrayList<Role>();
+		listRoles=super.getRoles();
+		listRoles.add(new Role("SELLER"));
+		this.setRoles(listRoles);
 	}
 
 	public Seller(String companyName, int companyId, List<Shop> shops,
@@ -83,11 +90,35 @@ public class Seller extends User implements Serializable {
 		this.complaints = complaints;
 		this.setStatus(false);
 
+		//ajout role SELLER
+		List<Role> listRoles=new ArrayList<Role>();
+		listRoles=super.getRoles();
+		listRoles.add(new Role("SELLER"));
+		this.setRoles(listRoles);
 	}
 
 	public Seller() {
 		super();
+		
+		//ajout role seller
+		List<Role> listRoles=new ArrayList<Role>();
+		listRoles=super.getRoles();
+		listRoles.add(new Role("SELLER"));
+		this.setRoles(listRoles);
 	}
 
+	public Seller(String name, String lastName, String mail,
+			String pwd) {
+		super(name, lastName, mail, pwd);
+
+		this.setStatus(false);
+		
+		//ajout role bseller
+		List<Role> listRoles=new ArrayList<Role>();
+		listRoles=super.getRoles();
+		listRoles.add(new Role("SELLER"));
+		this.setRoles(listRoles);
+
+	}	
 
 }

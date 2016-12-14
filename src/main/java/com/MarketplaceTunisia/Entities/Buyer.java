@@ -65,11 +65,22 @@ public class Buyer extends User implements Serializable {
 			this.complaints = complaints;
 			this.orders = orders;
 			this.setStatus(false);
+			
+			//ajout role buyer 
+			List<Role> listRoles=new ArrayList<Role>();
+			listRoles=super.getRoles();
+			listRoles.add(new Role("BUYER"));
+			this.setRoles(listRoles);
 
 		}
 
 		public Buyer() {
 			super();
+			//ajout role buyer 
+			List<Role> listRoles=new ArrayList<Role>();
+			listRoles=super.getRoles();
+			listRoles.add(new Role("BUYER"));
+			this.setRoles(listRoles);
 		}
 
 		public Buyer(ArrayList<String> hobbies, List<Complaint> complaints,
@@ -79,9 +90,29 @@ public class Buyer extends User implements Serializable {
 			this.complaints = complaints;
 			this.orders = orders;
 			this.setStatus(false);
-
+			
+			//ajout role buyer 
+			List<Role> listRoles=new ArrayList<Role>();
+			listRoles=super.getRoles();
+			listRoles.add(new Role("BUYER"));
+			this.setRoles(listRoles);
+		
 		}
 
 	
-		
+		public Buyer(String name, String lastName, String mail,
+				String pwd) {
+			super(name, lastName, mail, pwd);
+
+			this.setStatus(false);
+			
+			//ajout role buyer 
+			List<Role> listRoles=new ArrayList<Role>();
+			listRoles=this.getRoles();
+			Role r=new Role("BUYER");
+
+			listRoles.add(r);
+			this.setRoles(listRoles);
+
+		}	
 }

@@ -1,8 +1,12 @@
 package com.MarketplaceTunisia.Entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
+
+import com.arjuna.ats.internal.arjuna.objectstore.jdbc.drivers.oracle_driver;
 
 
 
@@ -34,6 +38,10 @@ public abstract class User implements Serializable {
 	@JoinColumn(name = "id_adress")
 	private Adress adress;
 
+	@ManyToMany(cascade=CascadeType.REMOVE)
+	@JoinTable(name="USERS_ROLES")
+	private List<Role> roles;
+	
 	public int getIdUser() {
 		return idUser;
 	}
@@ -113,6 +121,15 @@ public abstract class User implements Serializable {
 	public void setAdress(Adress adress) {
 		this.adress = adress;
 	}
+	
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
 
 	public User(String name, String lastName, String mail,
 			String pwd, char gender, long tel, byte[] picture,
@@ -127,10 +144,24 @@ public abstract class User implements Serializable {
 		this.picture = picture;
 		this.status = true;
 		this.adress = adress;
+		this.roles=new ArrayList<Role>();
+		this.roles.add(new Role("INVITE"));
 	}
 
 	public User() {
 		super();
+		this.roles=new ArrayList<Role>();
+		this.roles.add(new Role("INVITE"));
+	}
+
+	public User(String name, String lastName, String mail, String pwd) {
+		super();
+		this.name = name;
+		this.lastName = lastName;
+		this.mail = mail;
+		this.pwd = pwd;
+		this.roles=new ArrayList<Role>();
+		this.roles.add(new Role("INVITE"));
 	}
 	
 	
