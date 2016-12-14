@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.arjuna.ats.internal.arjuna.objectstore.jdbc.drivers.oracle_driver;
 
 
 
