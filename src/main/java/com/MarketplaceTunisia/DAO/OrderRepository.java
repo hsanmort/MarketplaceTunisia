@@ -15,6 +15,6 @@ import com.MarketplaceTunisia.Entities.Order;
 public interface OrderRepository extends JpaRepository<Order, Integer>{
 
 	
-	public Page<Order> findBydate(Date date0, Pageable pageable);
-	//public Page<Order> findAll(Pageable p);
+	public Page<Order> findBydateO(Date date, Pageable pageable);
+	public Page<Order> findAll(Pageable p);
 }
