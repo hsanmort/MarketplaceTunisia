@@ -99,10 +99,9 @@ public class Adress implements Serializable{
 		super();
 	}
 
-	public Adress(int idAdress, String street, int postalCode, String city,
+	public Adress(String street, int postalCode, String city,
 			String country, User user, List<Order> orders) {
 		super();
-		this.idAdress = idAdress;
 		this.street = street;
 		this.postalCode = postalCode;
 		this.city = city;

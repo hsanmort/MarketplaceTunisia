@@ -61,11 +61,11 @@ public class Seller extends User implements Serializable {
 
 
 
-	public Seller(int idUser, String name, String lastName, String mail,
+	public Seller(String name, String lastName, String mail,
 			String pwd, char gender, long tel, byte[] picture,
 			Adress adress, String companyName, int companyId, List<Shop> shops,
 			List<Complaint> complaints) {
-		super(idUser, name, lastName, mail, pwd, gender, tel, picture,
+		super(name, lastName, mail, pwd, gender, tel, picture,
 				adress);
 		this.companyName = companyName;
 		this.companyId = companyId;

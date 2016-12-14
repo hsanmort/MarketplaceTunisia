@@ -98,11 +98,10 @@ public class Shop implements Serializable {
 			super();
 		}
 
-		public Shop(Long idShop, String nameShop, String description,
+		public Shop(String nameShop, String description,
 				Date dateCreation, byte[] picture, Seller seller,
 				List<Product> products) {
 			super();
-			this.idShop = idShop;
 			this.nameShop = nameShop;
 			this.description = description;
 			this.dateCreation = dateCreation;

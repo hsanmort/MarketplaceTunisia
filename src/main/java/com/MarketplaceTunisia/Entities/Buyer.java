@@ -55,11 +55,11 @@ public class Buyer extends User implements Serializable {
 		
 
 	
-		public Buyer(int idUser, String name, String lastName, String mail,
+		public Buyer(String name, String lastName, String mail,
 				String pwd, char gender, long tel, byte[] picture,
 				Adress adress, ArrayList<String> hobbies,
 				List<Complaint> complaints, List<Order> orders) {
-			super(idUser, name, lastName, mail, pwd, gender, tel, picture,
+			super(name, lastName, mail, pwd, gender, tel, picture,
 					adress);
 			this.hobbies = hobbies;
 			this.complaints = complaints;

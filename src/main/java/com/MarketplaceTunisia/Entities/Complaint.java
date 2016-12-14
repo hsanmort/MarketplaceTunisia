@@ -69,10 +69,9 @@ public class Complaint implements Serializable {
 		this.seller = seller;
 	}
 
-	public Complaint(int idComplaint, String description, Date dateComplaint,
+	public Complaint(String description, Date dateComplaint,
 			Buyer buyer, Seller seller) {
 		super();
-		this.idComplaint = idComplaint;
 		this.description = description;
 		this.dateComplaint = dateComplaint;
 		this.buyer = buyer;

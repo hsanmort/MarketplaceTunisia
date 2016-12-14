@@ -103,10 +103,9 @@ public class Order {
 		this.buyer = buyer;
 	}
 
-	public Order(int idOrder, Date dateO, double price, Date dateDelev,
+	public Order(Date dateO, double price, Date dateDelev,
 			int productnb, List<Product> products, Adress adress, Buyer buyer) {
 		super();
-		this.idOrder = idOrder;
 		this.dateO = dateO;
 		this.price = price;
 		this.dateDelev = dateDelev;

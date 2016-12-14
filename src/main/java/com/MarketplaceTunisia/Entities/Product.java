@@ -155,12 +155,11 @@ public class Product implements Serializable{
 		super();
 	}
 
-	public Product(int idProduct, String nameProduct, String description,
+	public Product(String nameProduct, String description,
 			double price, Date dateAdd, int qte, boolean discount,
 			byte[] picture, double reviews, Shop shop, List<Order> orders,
-			Category category, List<ShoppingCart> shoppingCarts) {
+			Category category) {
 		super();
-		this.idProduct = idProduct;
 		this.nameProduct = nameProduct;
 		this.description = description;
 		this.price = price;
@@ -172,7 +171,6 @@ public class Product implements Serializable{
 		this.shop = shop;
 		this.orders = orders;
 		this.category = category;
-		this.shoppingCarts = shoppingCarts;
 	}
 	
 

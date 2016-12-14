@@ -63,9 +63,8 @@ public class ShoppingCart implements Serializable{
 	}
 
 
-	public ShoppingCart(int idCart, int qte, List<Product> products) {
+	public ShoppingCart( int qte, List<Product> products) {
 		super();
-		this.idCart = idCart;
 		this.qte = qte;
 		this.products = products;
 	}

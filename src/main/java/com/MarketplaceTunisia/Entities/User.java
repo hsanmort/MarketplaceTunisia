@@ -114,11 +114,10 @@ public abstract class User implements Serializable {
 		this.adress = adress;
 	}
 
-	public User(int idUser, String name, String lastName, String mail,
+	public User(String name, String lastName, String mail,
 			String pwd, char gender, long tel, byte[] picture,
 			Adress adress) {
 		super();
-		this.idUser = idUser;
 		this.name = name;
 		this.lastName = lastName;
 		this.mail = mail;
