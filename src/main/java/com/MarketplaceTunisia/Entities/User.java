@@ -38,7 +38,9 @@ public abstract class User implements Serializable {
 	private Adress adress;
 
 	@ManyToMany
-	@JoinTable(name="USERS_ROLES")
+	@JoinTable(name="USERS_ROLES",
+	joinColumns=@JoinColumn(name="user_id_user",referencedColumnName="idUser"),
+	inverseJoinColumns=@JoinColumn(name="roles_role",referencedColumnName="role"))
 	private List<Role> roles;
 	
 	public int getIdUser() {

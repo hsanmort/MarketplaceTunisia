@@ -59,6 +59,11 @@ public class Category implements Serializable{
 	public Category() {
 		super();
 	}
+
+	public Category(String nameCategory) {
+		super();
+		this.nameCategory = nameCategory;
+	}
 	
 
 

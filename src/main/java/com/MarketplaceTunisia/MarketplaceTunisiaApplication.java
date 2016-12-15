@@ -6,10 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.MarketplaceTunisia.DAO.BuyerRepository;
-
+import com.MarketplaceTunisia.DAO.CategoryRepository;
 import com.MarketplaceTunisia.DAO.SellerRepository;
 import com.MarketplaceTunisia.DAO.UserRepository;
 import com.MarketplaceTunisia.Entities.Buyer;
+import com.MarketplaceTunisia.Entities.Category;
 import com.MarketplaceTunisia.Entities.Seller;
 import com.MarketplaceTunisia.Entities.User;
 
@@ -23,8 +24,8 @@ public class MarketplaceTunisiaApplication {
 		ApplicationContext ctx=SpringApplication.run(MarketplaceTunisiaApplication.class, args);
 		
 		SellerRepository sellerRepository=ctx.getBean(SellerRepository.class);
-
-
+//		CategoryRepository categoryRepository=ctx.getBean(CategoryRepository.class);
+//		categoryRepository.save(new Category("Info"));
 		sellerRepository.save(new Seller("hsan", "akrout", "hsan.akrout@gmail.com", "mimi"));
 //		Seller u = new Seller("hsan", "akrout", "hsan.akrout@gmail.com", "mimi");	
 //		System.out.println(u.getPwd());

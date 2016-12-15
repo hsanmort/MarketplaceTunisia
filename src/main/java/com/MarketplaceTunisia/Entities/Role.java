@@ -1,9 +1,11 @@
 package com.MarketplaceTunisia.Entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Role implements Serializable {
@@ -17,6 +19,8 @@ private String role;
 
 private String description;
 
+@ManyToMany(mappedBy="roles")
+private List<User> users;
 
 public Role() {
 	super();
