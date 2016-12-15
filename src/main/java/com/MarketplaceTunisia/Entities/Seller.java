@@ -75,10 +75,10 @@ public class Seller extends User implements Serializable {
 		this.setStatus(false);
 		
 		//ajout role seller
-		List<Role> listRoles=new ArrayList<Role>();
-		listRoles=super.getRoles();
-		listRoles.add(new Role("SELLER"));
-		this.setRoles(listRoles);
+//		List<Role> listRoles=new ArrayList<Role>();
+//		listRoles=super.getRoles();
+//		listRoles.add(new Role("SELLER"));
+//		this.setRoles(listRoles);
 		
 	}
 
@@ -92,20 +92,20 @@ public class Seller extends User implements Serializable {
 		this.setStatus(false);
 
 		//ajout role SELLER
-		List<Role> listRoles=new ArrayList<Role>();
-		listRoles=super.getRoles();
-		listRoles.add(new Role("SELLER"));
-		this.setRoles(listRoles);
+//		List<Role> listRoles=new ArrayList<Role>();
+//		listRoles=super.getRoles();
+//		listRoles.add(new Role("SELLER"));
+//		this.setRoles(listRoles);
 	}
 
 	public Seller() {
 		super();
 		
 		//ajout role seller
-		List<Role> listRoles=new ArrayList<Role>();
-		listRoles=super.getRoles();
-		listRoles.add(new Role("SELLER"));
-		this.setRoles(listRoles);
+//		List<Role> listRoles=new ArrayList<Role>();
+//		listRoles=super.getRoles();
+//		listRoles.add(new Role("SELLER"));
+//		this.setRoles(listRoles);
 	}
 
 	public Seller(String name, String lastName, String mail,
@@ -115,10 +115,10 @@ public class Seller extends User implements Serializable {
 		this.setStatus(false);
 		
 		//ajout role bseller
-		List<Role> listRoles=new ArrayList<Role>();
-		listRoles=super.getRoles();
-		listRoles.add(new Role("SELLER"));
-		this.setRoles(listRoles);
+//		List<Role> listRoles=new ArrayList<Role>();
+//		listRoles=super.getRoles();
+//		listRoles.add(new Role("SELLER"));
+//		this.setRoles(listRoles);
 
 	}	
 
