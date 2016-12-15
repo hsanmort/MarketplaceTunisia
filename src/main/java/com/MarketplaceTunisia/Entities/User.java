@@ -37,7 +37,7 @@ public abstract class User implements Serializable {
 	@JoinColumn(name = "id_adress")
 	private Adress adress;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="USERS_ROLES",
 	joinColumns=@JoinColumn(name="user_id_user",referencedColumnName="idUser"),
 	inverseJoinColumns=@JoinColumn(name="roles_role",referencedColumnName="role"))
@@ -146,13 +146,13 @@ public abstract class User implements Serializable {
 		this.status = true;
 		this.adress = adress;
 		this.roles=new ArrayList<Role>();
-		this.roles.add(new Role("INVITE"));
+		//this.roles.add(new Role("INVITE"));
 	}
 
 	public User() {
 		super();
 		this.roles=new ArrayList<Role>();
-		this.roles.add(new Role("INVITE"));
+		//this.roles.add(new Role("INVITE"));
 	}
 
 	public User(String name, String lastName, String mail, String pwd) {
@@ -162,7 +162,7 @@ public abstract class User implements Serializable {
 		this.mail = mail;
 		this.pwd = pwd;
 		this.roles=new ArrayList<Role>();
-		this.roles.add(new Role("INVITE"));
+		//this.roles.add(new Role("INVITE"));
 	}
 	
 	
