@@ -6,11 +6,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.MarketplaceTunisia.DAO.BuyerRepository;
+<<<<<<< HEAD
 import com.MarketplaceTunisia.DAO.SellerRepository;
 import com.MarketplaceTunisia.DAO.UserRepository;
 import com.MarketplaceTunisia.Entities.Buyer;
 import com.MarketplaceTunisia.Entities.Seller;
 import com.MarketplaceTunisia.Entities.User;
+=======
+import com.MarketplaceTunisia.Entities.Buyer;
+>>>>>>> origin/master
 
 
 @SpringBootApplication
@@ -19,6 +23,7 @@ public class MarketplaceTunisiaApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx=SpringApplication.run(MarketplaceTunisiaApplication.class, args);
 		
+<<<<<<< HEAD
 		SellerRepository sellerRepository=ctx.getBean(SellerRepository.class);
 
 
@@ -31,6 +36,13 @@ public class MarketplaceTunisiaApplication {
 //		Buyer u1 = new Buyer("xxx", "xx", "xxx", "xx");
 //		buyerRepository.save(u1);
 
+=======
+		Buyer u = new Buyer("aa", "bb", "hsan.akrout@gmail.com", "mimi");
+		System.out.println(u.getName()+" "+u.getLastName()+" "+u.getMail()+" "+u.getPwd());
+		
+		buyerRepository.save(u);
+		
+>>>>>>> origin/master
 //		Buyer u2= new Buyer("haythem", "gara", "haythem.gara@gmail.com", "papi");
 //		
 //		Seller u3=new Seller("naoufel", "akrout", "baw.akrout@gmail.com", "lili");
