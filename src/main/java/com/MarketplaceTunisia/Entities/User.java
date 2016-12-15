@@ -38,7 +38,7 @@ public abstract class User implements Serializable {
 	@JoinColumn(name = "id_adress")
 	private Adress adress;
 
-	@ManyToMany(cascade=CascadeType.REMOVE)
+	@ManyToMany
 	@JoinTable(name="USERS_ROLES")
 	private List<Role> roles;
 	

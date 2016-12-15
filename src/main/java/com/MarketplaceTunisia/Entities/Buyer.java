@@ -13,9 +13,6 @@ import javax.persistence.Table;
 @Table(name = "t_buyer")
 public class Buyer extends User implements Serializable {
 
-		
-		
-
 		private static final long serialVersionUID = 1L;
 		
 		private ArrayList<String> hobbies=new ArrayList<String>();
@@ -25,8 +22,6 @@ public class Buyer extends User implements Serializable {
 		
 		@OneToMany(mappedBy="buyer")
 		private List<Order> orders;
-
-		
 
 		public ArrayList<String> getHobbies() {
 			return hobbies;
@@ -52,9 +47,7 @@ public class Buyer extends User implements Serializable {
 			this.orders = orders;
 		}
 
-		
 
-	
 		public Buyer(String name, String lastName, String mail,
 				String pwd, char gender, long tel, byte[] picture,
 				Adress adress, ArrayList<String> hobbies,
@@ -110,7 +103,6 @@ public class Buyer extends User implements Serializable {
 			List<Role> listRoles=new ArrayList<Role>();
 			listRoles=this.getRoles();
 			Role r=new Role("BUYER");
-
 			listRoles.add(r);
 			this.setRoles(listRoles);
 

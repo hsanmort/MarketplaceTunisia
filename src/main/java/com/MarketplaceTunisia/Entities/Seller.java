@@ -79,6 +79,7 @@ public class Seller extends User implements Serializable {
 		listRoles=super.getRoles();
 		listRoles.add(new Role("SELLER"));
 		this.setRoles(listRoles);
+		
 	}
 
 	public Seller(String companyName, int companyId, List<Shop> shops,
