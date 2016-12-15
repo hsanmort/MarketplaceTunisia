@@ -30,32 +30,26 @@ public class MarketplaceTunisiaApplication {
 		
 		SellerRepository sellerRepository=ctx.getBean(SellerRepository.class);
 		RoleRepository roleRepository=ctx.getBean(RoleRepository.class);
+		BuyerRepository buyerRepository=ctx.getBean(BuyerRepository.class);
 		
-//		CategoryRepository categoryRepository=ctx.getBean(CategoryRepository.class);
-//		categoryRepository.save(new Category("Info"));
-		Seller s1=new Seller("hsan", "akrout", "hsan.akrout@gmail.com", "mimi");
-		List<Role> liste=new ArrayList<Role>();
-		liste=s1.getRoles();
-		Role r1=new Role();
-		r1=roleRepository.getOne("INVITE");
-		
-		liste.add(r1);
-		s1.setRoles(liste);
-		sellerRepository.save(s1);
-		
-//		Seller u = new Seller("hsan", "akrout", "hsan.akrout@gmail.com", "mimi");	
-//		System.out.println(u.getPwd());
-//		sellerRepository.flush();
-//		sellerRepository.save(u);
-//		buyerRepository.save(u);
-//		Buyer u1 = new Buyer("xxx", "xx", "xxx", "xx");
-//		buyerRepository.save(u1);
-
-
-//		Buyer u2= new Buyer("haythem", "gara", "haythem.gara@gmail.com", "papi");
+//		List<Role> liste=new ArrayList<Role>();
+//		Role r1=new Role();
+//		r1=roleRepository.getOne("INVITE");
+////ajout de seller
+//		Seller s1=new Seller("hsan", "akrout", "hsan.akrout@gmail.com", "mimi");
+//		liste=s1.getRoles();
 //		
-//		Seller u3=new Seller("naoufel", "akrout", "baw.akrout@gmail.com", "lili");
-//		Seller u4= new Seller("zeineb", "gara", "zinou.gara@gmail.com", "zizi");
+//		liste.add(r1);
+//		s1.setRoles(liste);
+//		sellerRepository.save(s1);
+////ajout de buyer
+//		Buyer s2=new Buyer("haythem", "gara", "haythem.gara@gmail.com", "toto");
+//		liste=s2.getRoles();
+//		
+//		liste.add(r1);
+//		buyerRepository.save(s2);
+
+
 		
 	}
 }

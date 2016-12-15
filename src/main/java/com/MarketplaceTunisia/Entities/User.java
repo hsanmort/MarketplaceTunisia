@@ -6,6 +6,10 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.MarketplaceTunisia.DAO.RoleRepository;
+
 
 
 

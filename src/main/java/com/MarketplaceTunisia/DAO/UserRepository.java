@@ -20,5 +20,5 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	public User findBymail(String mail);
 	public Page<User> findBystatus(Boolean status, Pageable pageable);
 	public Page<User> findByadress(Adress adress, Pageable pageable);
-	
+		
 }
