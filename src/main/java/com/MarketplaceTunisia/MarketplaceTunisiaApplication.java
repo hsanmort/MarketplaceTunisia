@@ -15,7 +15,8 @@ public class MarketplaceTunisiaApplication {
 		ApplicationContext ctx=SpringApplication.run(MarketplaceTunisiaApplication.class, args);
 		BuyerRepository buyerRepository=ctx.getBean(BuyerRepository.class);
 		
-		Buyer u = new Buyer("hsan", "akrout", "hsan.akrout@gmail.com", "mimi");
+		Buyer u = new Buyer("aa", "bb", "hsan.akrout@gmail.com", "mimi");
+		System.out.println(u.getName()+" "+u.getLastName()+" "+u.getMail()+" "+u.getPwd());
 		
 		buyerRepository.save(u);
 		

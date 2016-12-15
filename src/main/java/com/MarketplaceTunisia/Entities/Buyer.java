@@ -110,7 +110,6 @@ public class Buyer extends User implements Serializable {
 			List<Role> listRoles=new ArrayList<Role>();
 			listRoles=this.getRoles();
 			Role r=new Role("BUYER");
-
 			listRoles.add(r);
 			this.setRoles(listRoles);
 
