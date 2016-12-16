@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void globalConfig(AuthenticationManagerBuilder auth, DataSource dataSource) throws Exception{
-//		auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
 //		auth.inMemoryAuthentication().withUser("hsan").password("123").roles("BUYER");
 //		auth.inMemoryAuthentication().withUser("admin").password("123").roles("SELLER");
 		auth.jdbcAuthentication()
@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //		.authenticated()
 //		.and()
 //		.formLogin()
-//		.loginPage("/login")
+//		.loginPage("/login.html")
 //		.defaultSuccessUrl("/adress/all")
 //		.failureUrl("/login")
 //		.permitAll()
