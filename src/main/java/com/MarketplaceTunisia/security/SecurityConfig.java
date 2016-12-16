@@ -16,13 +16,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void globalConfig(AuthenticationManagerBuilder auth, DataSource dataSource) throws Exception{
-		auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
+//		auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
 //		auth.inMemoryAuthentication().withUser("hsan").password("123").roles("BUYER");
 //		auth.inMemoryAuthentication().withUser("admin").password("123").roles("SELLER");
 		auth.jdbcAuthentication()
 		.dataSource(dataSource)
-		.usersByUsernameQuery("select id_user as userId, pwd as password from user where mail = ?")
-		.authoritiesByUsernameQuery("select user_id_user as userId, roles_role as role from users_roles where user_id_user = ?")
+		//.usersByUsernameQuery("select id_user as userId, pwd as password from user where mail = ?")
+		//.authoritiesByUsernameQuery("select user_id_user as userId, roles_role as role from users_roles where user_id_user = ?")
+		.usersByUsernameQuery("select user.name, user.pwd , 1 from user where user.name = ?")
+		.authoritiesByUsernameQuery("select user.name, role.role from user join users_roles on user.id_user = users_roles.user_id_user join role on users_roles.roles_role = role.role where user.name = ?")
 		.rolePrefix("ROLE_");
 	}
 	
