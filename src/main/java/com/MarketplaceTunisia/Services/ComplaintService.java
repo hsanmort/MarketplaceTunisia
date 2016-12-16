@@ -36,7 +36,7 @@ public class ComplaintService {
 	}
 	
 	@RequestMapping(value="/complaint/all", method=RequestMethod.GET)
-	public List<Complaint> liste() {
+	public List<Complaint> allComplaints() {
 		return complaintrepository.findAll();
 	}
 	

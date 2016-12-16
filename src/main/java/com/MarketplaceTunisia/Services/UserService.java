@@ -26,7 +26,7 @@ import com.MarketplaceTunisia.Entities.Role;
 import com.MarketplaceTunisia.Entities.User;
 
 @RestController
-//@Secured(value={"ROLE_ADMIN"})
+@Secured(value={"ROLE_ADMIN"})
 public class UserService {
 
 	@Autowired
@@ -51,7 +51,7 @@ public class UserService {
 	}
 	
 	@RequestMapping(value="/user/all", method=RequestMethod.GET)
-	public List<User> liste() {
+	public List<User> allUsers() {
 		return userRepository.findAll();
 	}
 	
@@ -94,24 +94,4 @@ public class UserService {
 		return params;
 	}
 	
-	//methodes ajout + liste role
-	@RequestMapping(value="/user/role/save",method=RequestMethod.POST)
-	public void saveRole(@RequestBody Role role){
-		roleRepository.save(role);
-	}
-	
-	@RequestMapping(value="/user/role/all", method=RequestMethod.GET)
-	public List<Role> allRoles() {
-		return roleRepository.findAll();
-	}
-	
-	@RequestMapping(value="/user/role/addRoleToUser")
-	public User addRoleToUser(String mail, String role)
-	{
-		User u=userRepository.findBymail(mail);
-		Role r=roleRepository.findOne(role);
-		u.getRoles().add(r);
-		userRepository.save(u);
-		return u;
-	}
 }

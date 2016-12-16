@@ -23,7 +23,7 @@ public class ShopService {
 	ShopRepository shopRepository;
 	
 	@RequestMapping(value="/shop/save",method=RequestMethod.POST)
-	public void saveShoppingCart(@RequestBody Shop shop){
+	public void saveShop(@RequestBody Shop shop){
 		shopRepository.save(shop);
 	}
 	
@@ -38,7 +38,7 @@ public class ShopService {
 	}
 	
 	@RequestMapping(value="/shop/all", method=RequestMethod.GET)
-	public List<Shop> liste() {
+	public List<Shop> allShops() {
 		return shopRepository.findAll();
 	}
 	

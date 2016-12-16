@@ -8,11 +8,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import com.MarketplaceTunisia.DAO.AdminRepository;
 import com.MarketplaceTunisia.DAO.BuyerRepository;
 import com.MarketplaceTunisia.DAO.CategoryRepository;
 import com.MarketplaceTunisia.DAO.RoleRepository;
 import com.MarketplaceTunisia.DAO.SellerRepository;
 import com.MarketplaceTunisia.DAO.UserRepository;
+import com.MarketplaceTunisia.Entities.Administrator;
 import com.MarketplaceTunisia.Entities.Buyer;
 import com.MarketplaceTunisia.Entities.Category;
 import com.MarketplaceTunisia.Entities.Role;
@@ -31,17 +33,18 @@ public class MarketplaceTunisiaApplication {
 		SellerRepository sellerRepository=ctx.getBean(SellerRepository.class);
 		RoleRepository roleRepository=ctx.getBean(RoleRepository.class);
 		BuyerRepository buyerRepository=ctx.getBean(BuyerRepository.class);
+		AdminRepository adminRepository=ctx.getBean(AdminRepository.class);
 		
 //		List<Role> liste=new ArrayList<Role>();
 //		Role r1=new Role();
-//		r1=roleRepository.getOne("INVITE");
+//		r1=roleRepository.getOne("ADMIN");
 ////ajout de seller
-//		Seller s1=new Seller("hsan", "akrout", "hsan.akrout@gmail.com", "mimi");
-//		liste=s1.getRoles();
+//		Administrator admin=new Administrator("admin", "admin", "admin.admin@gmail.com", "admin");
+//		liste=admin.getRoles();
 //		
 //		liste.add(r1);
-//		s1.setRoles(liste);
-//		sellerRepository.save(s1);
+//		admin.setRoles(liste);
+//		adminRepository.save(admin);
 ////ajout de buyer
 //		Buyer s2=new Buyer("haythem", "gara", "haythem.gara@gmail.com", "toto");
 //		liste=s2.getRoles();

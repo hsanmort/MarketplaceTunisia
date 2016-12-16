@@ -34,7 +34,7 @@ public class ShoppingCartService {
 	}
 	
 	@RequestMapping(value="/shoppingCart/all", method=RequestMethod.GET)
-	public List<ShoppingCart> liste() {
+	public List<ShoppingCart> allShoppingCarts() {
 		return shoppingCartRepository.findAll();
 	}
 }

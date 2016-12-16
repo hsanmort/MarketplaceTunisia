@@ -28,12 +28,12 @@ public class CategoryService {
 	}
 	
 	@RequestMapping(value="/category/update")
-	public Category updateAdress(Category category){
+	public Category updateCategory(Category category){
 		return categoryRepository.saveAndFlush(category);
 	}
 	
 	@RequestMapping(value="/category/all", method=RequestMethod.GET)
-	public List<Category> liste() {
+	public List<Category> allCategories() {
 		return categoryRepository.findAll();
 	}
 	

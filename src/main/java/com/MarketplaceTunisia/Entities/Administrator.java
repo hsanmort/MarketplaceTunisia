@@ -16,9 +16,12 @@ public class Administrator extends User implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public Administrator() {
-		super();
+	public Administrator(String name, String lastName, String mail,
+			String pwd) {
+		super(name, lastName, mail, pwd);
 	}
 
-	
+	public Administrator(){
+		super();
+	}
 }

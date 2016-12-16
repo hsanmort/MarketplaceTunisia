@@ -33,7 +33,7 @@ public class AdressService {
 	}
 	
 	@RequestMapping(value="/adress/all", method=RequestMethod.GET)
-	public List<Adress> liste() {
+	public List<Adress> allAdress() {
 		return adressRepository.findAll();
 	}
 }

@@ -46,7 +46,7 @@ public class ProductService {
 	}
 	
 	@RequestMapping(value="/product/all", method=RequestMethod.GET)
-	public List<Product> liste() {
+	public List<Product> allProducts() {
 		return productRepository.findAll();
 	}
 	
@@ -55,32 +55,32 @@ public class ProductService {
 		return productRepository.findByMc("%"+mc+"%", new PageRequest(page,5));
 	}
 	
-	@RequestMapping("/complaint/findByCategory")
+	@RequestMapping("/product/findByCategory")
 	public Page<Product> getProductsByCategory(Category category, int page){
 	return productRepository.findByCategory(category, new PageRequest(page,5));
 	}
 	
-	@RequestMapping("/complaint/findByShop")
+	@RequestMapping("/product/findByShop")
 	public Page<Product> getProductsByShop(Shop shop, int page){
 	return productRepository.findByShop(shop, new PageRequest(page,5));
 	}
 	
-	@RequestMapping("/complaint/findByNameProd")
+	@RequestMapping("/product/findByNameProd")
 	public Page<Product> getProductsByNameProduct(String name, int page){
 	return productRepository.findBynameProduct(name, new PageRequest(page,5));
 	}
 	
-	@RequestMapping("/complaint/findByDiscount")
+	@RequestMapping("/product/findByDiscount")
 	public Page<Product> getProductsByDiscount(Boolean discount, int page){
 	return productRepository.findBydiscount(discount, new PageRequest(page,5));
 	}
 	
-	@RequestMapping("/complaint/findByPrice")
+	@RequestMapping("/product/findByPrice")
 	public Page<Product> getProductsByPrice(double price, int page){
 	return productRepository.findByprice(price, new PageRequest(page,5));
 	}
 	
-	@RequestMapping("/complaint/findByReviews")
+	@RequestMapping("/product/findByReviews")
 	public Page<Product> getProductsByReviews(double reviews, int page){
 	return productRepository.findByReviews(reviews, new PageRequest(page,5));
 	}
