@@ -29,23 +29,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.rolePrefix("ROLE_");
 	}
 	
-//	@Override
-//	protected void configure(HttpSecurity http) throws Exception {
-//		http
-//		.csrf().disable()
-//		.authorizeRequests()
-//		.anyRequest()
-//		.authenticated()
-//		.and()
-//		.formLogin()
-//		.loginPage("/login.html")
-//		.defaultSuccessUrl("/adress/all")
-//		.failureUrl("/login")
-//		.permitAll()
-//		.and()
-//		.logout()
-//		.invalidateHttpSession(true)
-//		.logoutUrl("/logout")
-//		.permitAll();
-//	}
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+		.csrf().disable()
+		.authorizeRequests()
+		.anyRequest()
+		.authenticated()
+		.and()
+		.formLogin()
+		//.loginPage("/login")
+		.defaultSuccessUrl("/adress/all")
+		.failureUrl("/login")
+		.permitAll()
+		.and()
+		.logout()
+		.invalidateHttpSession(true)
+		.logoutUrl("/logout")
+		.permitAll();
+	}
 }

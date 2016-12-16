@@ -79,20 +79,20 @@ public class UserService {
 		return userRepository.findByadress(adress, new PageRequest(page,5));
 	}
 	
-//	@RequestMapping(value="/getLogedUser")
-//	public Map<String,Object> getLogedUser(HttpServletRequest httpServletRequest){
-//		HttpSession httpSession=httpServletRequest.getSession();
-//		SecurityContext securityContext=(SecurityContext) httpSession.getAttribute("SPRING_SECURITY_CONTEXT");
-//		String username=securityContext.getAuthentication().getName();
-//		List<String> roles=new ArrayList<>();
-//		for(GrantedAuthority ga:securityContext.getAuthentication().getAuthorities()){
-//			roles.add(ga.getAuthority());
-//		}
-//		Map<String, Object> params=new HashMap<>();
-//		params.put("username", username);
-//		params.put("roles", roles);
-//		return params;
-//	}
+	@RequestMapping(value="/getLogedUser")
+	public Map<String,Object> getLogedUser(HttpServletRequest httpServletRequest){
+		HttpSession httpSession=httpServletRequest.getSession();
+		SecurityContext securityContext=(SecurityContext) httpSession.getAttribute("SPRING_SECURITY_CONTEXT");
+		String username=securityContext.getAuthentication().getName();
+		List<String> roles=new ArrayList<>();
+		for(GrantedAuthority ga:securityContext.getAuthentication().getAuthorities()){
+			roles.add(ga.getAuthority());
+		}
+		Map<String, Object> params=new HashMap<>();
+		params.put("username", username);
+		params.put("roles", roles);
+		return params;
+	}
 	
 	//methodes ajout + liste role
 	@RequestMapping(value="/user/role/save",method=RequestMethod.POST)
