@@ -11,9 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContext;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +24,6 @@ import com.MarketplaceTunisia.Entities.Role;
 import com.MarketplaceTunisia.Entities.User;
 
 @RestController
-@Secured(value={"ROLE_ADMIN"})
 public class UserService {
 
 	@Autowired
@@ -79,19 +76,6 @@ public class UserService {
 		return userRepository.findByadress(adress, new PageRequest(page,5));
 	}
 	
-	@RequestMapping(value="/getLogedUser")
-	public Map<String,Object> getLogedUser(HttpServletRequest httpServletRequest){
-		HttpSession httpSession=httpServletRequest.getSession();
-		SecurityContext securityContext=(SecurityContext) httpSession.getAttribute("SPRING_SECURITY_CONTEXT");
-		String username=securityContext.getAuthentication().getName();
-		List<String> roles=new ArrayList<>();
-		for(GrantedAuthority ga:securityContext.getAuthentication().getAuthorities()){
-			roles.add(ga.getAuthority());
-		}
-		Map<String, Object> params=new HashMap<>();
-		params.put("username", username);
-		params.put("roles", roles);
-		return params;
-	}
+	
 	
 }
