@@ -1,18 +1,559 @@
 <!DOCTYPE html>
-<!--[if IE 8]>    <html class="ie8" lang="en-US"> <![endif]-->
-<!--[if IE 9]>    <html class="ie9" lang="en-US"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)] lang="en-US"><![endif]-->
-<html lang="en-US" id="ng-app" ng-app="app" >
-<head>
-<ng-include src="'/views/includes/header.html'"></ng-include>
-header should be here <br> 
-</head>
-<body class="home-page home page page-id-278 page-template page-template-visual_builder page-template-visual_builder-php separate_sidebar_bg colored_bg no_bg_wrap wpb-js-composer js-comp-ver-100 vc_responsive no-js">
-<ng-include src="'/views/includes/menu.html'"></ng-include>
-menu should be here <br>
-<ng-include src="'/views/includes/content.html'"></ng-include>
-content should be here <br>
-<ng-include src="'/views/includes/footer.html'"></ng-include>
-footer should be here <br>
-</body>
+<html lang="fr" ng-app="routeApp">
+    <head>
+        <meta charset="utf-8" />
+        <title>Route App</title>        
+        <link rel="stylesheet" href="web/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+        
+        <script type="text/javascript" src="angular-1.3.11/angular.min.js"></script>
+        <script type="text/javascript" src="angular-1.3.11/angular-route.min.js"></script>
+        <script type="text/javascript" src="angular-1.3.11/angular-route.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta charset="utf-8">
+    <meta content="width=device-width" name="viewport"><!-- feeds & pingback -->
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <link href="xmlrpc.php" rel="pingback"><!--[if lt IE 9]><script src="http://revendor.wpsoul.net/wp-content/themes/rehub/js/html5shiv.js"></script><![endif]-->
+    <!-- added -->
+    
+
+    <script type="text/javascript">
+    document.documentElement.className = document.documentElement.className + ' yes-js js_active js'
+    </script>
+    <title>MultiVendor site Revendor &#8211; MultiVendor site Revendor</title>
+    <style>
+                   .wishlist_table .add_to_cart, a.add_to_wishlist.button.alt { border-radius: 16px; -moz-border-radius: 16px; -webkit-border-radius: 16px; }          
+    </style>
+    <script type="text/javascript">
+                   var yith_wcwl_plugin_ajax_web_url = 'http://revendor.wpsoul.net/wp-admin/admin-ajax.php';
+    </script>
+    <link href='http://maps.googleapis.com/' rel='dns-prefetch'>
+    <link href='http://fonts.googleapis.com/' rel='dns-prefetch'>
+    <link href='http://s.w.org/' rel='dns-prefetch'>
+    <link href="feed/index.html" rel="alternate" title="MultiVendor site Revendor &raquo; Feed" type="application/rss+xml">
+    <link href="comments/feed/index.html" rel="alternate" title="MultiVendor site Revendor &raquo; Comments Feed" type="application/rss+xml">
+    <meta content="MultiVendor site Revendor" property="og:site_name">
+    <meta content="http://revendor.wpsoul.net/" property="og:url">
+    <meta content="Home 3" property="og:title">
+    <meta content="article" property="og:type">
+    <script type="text/javascript">
+               window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/revendor.wpsoul.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.6.1"}};
+               !function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+    img.wp-smiley,
+    img.emoji {
+       display: inline !important;
+       border: none !important;
+       box-shadow: none !important;
+       height: 1em !important;
+       width: 1em !important;
+       margin: 0 .07em !important;
+       vertical-align: -0.1em !important;
+       background: none !important;
+       padding: 0 !important;
+    }
+    </style>
+    <link href='wp-content/themes/rehub/buddypress/css/buddypresseed8.css?ver=2.7.2' id='bp-parent-css-css' media='screen' rel='stylesheet' type='text/css'>
+    <link href='wp-includes/css/dashicons.min1c9b.css?ver=4.6.1' id='dashicons-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/plugins/geo-my-wp/assets/css/style4df7.css?ver=2.6.6.3' id='gmw-style-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/plugins/geo-my-wp/assets/css/gmw-cl-style-dep4df7.css?ver=2.6.6.3' id='gmw-cl-style-dep-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/plugins/geo-my-wp/plugins/friends/assets/css/style1c9b.css?ver=4.6.1' id='gmw-fl-style-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/plugins/yith-woocommerce-compare/assets/css/colorbox1c9b.css?ver=4.6.1' id='jquery-colorbox-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/plugins/woocommerce/assets/css/prettyPhoto005e.css?ver=3.1.6' id='woocommerce_prettyPhoto_css-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/plugins/yith-woocommerce-wishlist/assets/css/jquery.selectBox7359.css?ver=1.2.0' id='jquery-selectBox-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/plugins/yith-woocommerce-wishlist/assets/css/style9c6b.css?ver=2.0.16' id='yith-wcwl-main-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/themes/rehub/style1c9b.css?ver=4.6.1' id='parent-style-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/themes/rehub-vendor/style1c9b.css?ver=4.6.1' id='style-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/themes/rehub/css/responsive1c9b.css?ver=4.6.1' id='responsive-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/themes/rehub/shortcodes/css/css1c9b.css?ver=4.6.1' id='rehub_shortcode-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/themes/rehub/vafpress-framework/public/css/vendor/font-awesome.min1c9b.css?ver=4.6.1' id='fontawesome-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto%3A300%2C400%2C700&amp;subset=latin%2Ccyrillic&amp;ver=4.6.1' id='default_font-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/themes/rehub/css/woocommerce1c9b.css?ver=4.6.1' id='rehub-woocommerce-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/themes/rehub/css/wcvendor1c9b.css?ver=4.6.1' id='rhwcvendor-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/plugins/mycred/assets/css/mycred-front93f6.css?ver=1.7.5' id='mycred-front-css' media='all' rel='stylesheet' type='text/css'>
+    <link href='wp-content/plugins/js_composer/assets/css/js_composer.mind751.css?ver=100' id='js_composer_front-css' media='all' rel='stylesheet' type='text/css'>
+    <script src='wp-includes/js/jquery/jqueryb8ff.js?ver=1.12.4' type='text/javascript'>
+    </script>
+    <script src='wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1' type='text/javascript'>
+    </script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var BP_Confirm = {"are_you_sure":"Are you sure?"};
+    /* ]]> */
+    </script>
+    <script src='wp-content/plugins/buddypress/bp-core/js/confirm.mineed8.js?ver=2.7.2' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/buddypress/bp-core/js/widget-members.mineed8.js?ver=2.7.2' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/buddypress/bp-core/js/jquery-query.mineed8.js?ver=2.7.2' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/buddypress/bp-core/js/vendor/jquery-cookie.mineed8.js?ver=2.7.2' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/buddypress/bp-core/js/vendor/jquery-scroll-to.mineed8.js?ver=2.7.2' type='text/javascript'>
+    </script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var BP_DTheme = {"accepted":"Accepted","close":"Close","comments":"comments","leave_group_confirm":"Are you sure you want to leave this group?","mark_as_fav":"Favorite","my_favs":"My Favorites","rejected":"Rejected","remove_fav":"Remove Favorite","show_all":"Show all","show_all_comments":"Show all comments for this thread","show_x_comments":"Show all %d comments","unsaved_changes":"Your profile has unsaved changes. If you leave the page, the changes will be lost.","view":"View"};
+    /* ]]> */
+    </script>
+    <script src='wp-content/plugins/buddypress/bp-templates/bp-legacy/js/buddypress.mineed8.js?ver=2.7.2' type='text/javascript'>
+    </script>
+    <script src='http://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyBTCbrLs5-Emt3FUe4C3jI82BELYkHNGj8&amp;region=US&amp;language=EN&amp;sansor=false&amp;ver=2.6.6.3' type='text/javascript'>
+    </script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View Cart","cart_url":"http:\/\/revendor.wpsoul.net\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+    /* ]]> */
+    </script>
+    <script src='wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min91ac.js?ver=2.6.8' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cartd751.js?ver=100' type='text/javascript'>
+    </script>
+    <script src='wp-content/themes/rehub/js/modernizr653d.js?ver=2.7.1' type='text/javascript'>
+    </script>
+    <link href='wp-json/index.html' rel='https://api.w.org/'>
+    <link href="xmlrpc0db0.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml">
+    <link href="wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml">
+    <meta content="WordPress 4.6.1" name="generator">
+    <meta content="WooCommerce 2.6.8" name="generator">
+    <link href="index.html" rel="canonical">
+    <link href='index.html' rel='shortlink'>
+    <link href="wp-json/oembed/1.0/embed64b0.json?url=http%3A%2F%2Frevendor.wpsoul.net%2F" rel="alternate" type="application/json+oembed">
+    <link href="wp-json/oembed/1.0/embedaba4?url=http%3A%2F%2Frevendor.wpsoul.net%2F&amp;format=xml" rel="alternate" type="text/xml+oembed">
+    <script type="text/javascript">
+    var ajaxurl = 'http://revendor.wpsoul.net/wp-admin/admin-ajax.php';
+    </script>
+    <style type="text/css">
+    @media (min-width:768px){header .logo-section{padding-top:15px;}}@media (min-width:768px){header .logo-section{padding-bottom:10px;}}.header_six_style .user-dropdown-intop,.header_six_style .wpsm-button,.header_six_style .head_search,.header_six_style #re_menu_near_logo{margin-top:15px;margin-bottom:15px}.header_seven_style .search,.header_seven_style .header-actions-logo{margin-top:10px;margin-bottom:10px} .rehub-main-color-border{border-color:#22bdb1;}.widget .title:after{border-bottom:2px solid #22bdb1;}.wpsm_promobox.rehub_promobox{border-left-color:#22bdb1!important;}.top_rating_block .top_rating_item .rating_col a.read_full,.color_link{color:#22bdb1 !important;}nav.top_menu > ul:not(.off-canvas) > li > a:hover,nav.top_menu > ul:not(.off-canvas) > li.current-menu-item a,.search-header-contents{border-top-color:#22bdb1;}nav.top_menu > ul > li ul,.main-nav.dark_style{border-bottom:2px solid #22bdb1;}.wpb_content_element.wpsm-tabs.n_b_tab .wpb_tour_tabs_wrapper .wpb_tabs_nav .ui-state-active a{border-bottom:3px solid #22bdb1 !important}.featured_slider:hover .score,.top_chart_controls .controls:hover,article.post .wpsm_toplist_heading:before{border-color:#22bdb1;}.btn_more:hover,.small_post .overlay .btn_more:hover{border:1px solid #22bdb1;color:#fff}.wpsm-tabs ul.ui-tabs-nav .ui-state-active a,.rehub_woo_review .rehub_woo_tabs_menu li.current{border-top:3px solid #22bdb1;}.wps_promobox{border-left:3px solid #22bdb1;}.gallery-pics .gp-overlay{box-shadow:0 0 0 4px #22bdb1 inset;}.post .rehub_woo_tabs_menu li.current,.woocommerce div.product .woocommerce-tabs ul.tabs li.active{border-top:2px solid #22bdb1;}.rething_item a.cat{border-bottom-color:#22bdb1}nav.top_menu ul li ul{border-bottom:2px solid #22bdb1;}.widget.deal_daywoo{border:3px solid #22bdb1;padding:20px;background:#fff;box-sizing:border-box;}.deal_daywoo .wpsm-bar-bar{background-color:#22bdb1 !important} #buddypress div.item-list-tabs ul li.selected a span,#buddypress div.item-list-tabs ul li.current a span,#buddypress div.item-list-tabs ul li a span,.user-profile-div .user-menu-tab > li.active > a,.user-profile-div .user-menu-tab > li.active > a:focus,.user-profile-div .user-menu-tab > li.active > a:hover,.slide .news_cat a,.news_in_thumb:hover .news_cat a,.news_out_thumb:hover .news_cat a,.col-feat-grid:hover .news_cat a,.alphabet-filter .return_to_letters span,.carousel-style-deal .re_carousel .controls,.re_carousel .controls:hover,.openedprevnext .postNavigation a,.postNavigation a:hover,.top_chart_pagination a.selected,.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,.woocommerce-page .widget_price_filter .ui-slider .ui-slider-handle,.main_slider .flex-control-paging li a.flex-active,.main_slider .flex-control-paging li a:hover,.widget_edd_cart_widget .edd-cart-number-of-items .edd-cart-quantity,.btn_more:hover,.news_out_tabs > ul > li:hover,.news_out_tabs > ul > li.current,.featured_slider:hover .score,#bbp_user_edit_submit,.bbp-topic-pagination a,.bbp-topic-pagination a,.widget.tabs > ul > li:hover,.custom-checkbox label.checked:after,.post_slider .caption,.slider_post .caption,ul.postpagination li.active a,ul.postpagination li:hover a,ul.postpagination li a:focus,.post_slider .flex-control-nav li a.flex-active,.post_slider .flex-control-nav li a:hover,.top_theme h5 strong,.re_carousel .text:after,.widget.tabs .current,#topcontrol:hover,.featured_slider .flex-control-paging li a.flex-active,.featured_slider .flex-control-paging li a:hover,.main_slider .flex-overlay:hover a.read-more,.rehub_chimp #mc_embed_signup input#mc-embedded-subscribe,#rank_1.top_rating_item .rank_count,#toplistmenu > ul li:before,.rehub_chimp:before,.wpsm-members > strong:first-child,.r_catbox_btn,.wpcf7 .wpcf7-submit,.rh_woocartmenu-icon,.comm_meta_wrap .rh_user_s2_label,.wpsm_pretty_hover li:hover,.rehub-main-color-bg{background:#22bdb1;}@media (max-width:767px){.postNavigation a{background:#22bdb1;}} a,.carousel-style-deal .deal-item .priced_block .price_count ins,nav.top_menu ul li.menu-item-has-children ul li.menu-item-has-children > a:before,.top_chart_controls .controls:hover,.flexslider .fa-pulse,.footer-bottom .widget .f_menu li a:hover,.comment_form h3 a,.bbp-body li.bbp-forum-info > a:hover,.bbp-body li.bbp-topic-title > a:hover,#subscription-toggle a:before,#favorite-toggle a:before,.aff_offer_links .aff_name a,.rh-deal-price,.rehub_feat_block .start_price span,.news_lettr p a,.sidebar .featured_slider .link,.commentlist .comment-content small a,.related_articles .title_cat_related a,article em.emph,.campare_table table.one td strong.red,.sidebar .tabs-item .detail p a,.category_tab h5 a:hover,.footer-bottom .widget .title span,footer p a,.welcome-frase strong,.news_lettr:after,article.post .wpsm_toplist_heading:before,article.post a.color_link,.categoriesbox:hover h3 a:after,.bbp-body li.bbp-forum-info > a,.bbp-body li.bbp-topic-title > a,.widget .title i,.woocommerce-MyAccount-navigation ul li.is-active a,.category-vendormenu li.current a,.deal_daywoo .title,.rehub-main-color{color:#22bdb1;} span.re_filtersort_btn:hover,span.active.re_filtersort_btn,.page-link > span:not(.page-link-title),.postimagetrend .title,.widget.widget_affegg_widget .title,.widget.top_offers .title,header .header_first_style .search form.search-form [type="submit"],.more_post a,.more_post span,.filter_home_pick span.active,.filter_home_pick span:hover,.filter_product_pick span.active,.filter_product_pick span:hover,.rh_tab_links a.active,.rh_tab_links a:hover,.wcv-navigation ul.menu li.active,.wcv-navigation ul.menu li:hover a,header .header_seven_style .search form.search-form [type="submit"],.title_deal_wrap,.rehub-sec-color-bg{background:#000000 !important;color:#fff !important;}.widget.widget_affegg_widget .title:after,.widget.top_offers .title:after,.vc_tta-tabs.wpsm-tabs .vc_tta-tab.vc_active,.vc_tta-tabs.wpsm-tabs .vc_tta-panel.vc_active .vc_tta-panel-heading{border-top-color:#000000 !important;}.page-link > span:not(.page-link-title){border:1px solid #000000;}.page-link > span:not(.page-link-title),.header_first_style .search form.search-form [type="submit"] i{color:#fff !important;}.rh_tab_links a.active,.rh_tab_links a:hover,.rehub-sec-color-border{border-color:#000000}.rh_wrapper_video_playlist .rh_video_currently_playing,.rh_wrapper_video_playlist .rh_video_currently_playing.rh_click_video:hover{background-color:#000000;box-shadow:1200px 0 0 #000000 inset;}.rehub-sec-color{color:#000000}  .woocommerce .summary .masked_coupon,.woocommerce a.woo_loop_btn,.woocommerce input.button.alt,.woocommerce .checkout-button.button,.woocommerce a.add_to_cart_button,.woocommerce-page a.add_to_cart_button,.woocommerce .single_add_to_cart_button,.woocommerce div.product form.cart .button,.priced_block .btn_offer_block,.rh-deal-compact-btn,input.mdf_button,#buddypress input[type="submit"],#buddypress input[type="button"],#buddypress input[type="reset"],#buddypress button.submit,.ap-pro-form-field-wrapper input[type="submit"],.btn_block_part .btn_offer_block,.wpsm-button.rehub_main_btn,.wcv-grid a.button,input.gmw-submit,#ws-plugin--s2member-profile-submit{background:none #ff4e0c !important;color:#fff !important;border:none !important;text-decoration:none !important;outline:0;border-radius:0 !important;box-shadow:0 2px 2px #E7E7E7 !important;}.woocommerce a.woo_loop_btn:hover,.woocommerce input.button.alt:hover,.woocommerce .checkout-button.button:hover,.woocommerce a.add_to_cart_button:hover,.woocommerce-page a.add_to_cart_button:hover,.woocommerce a.single_add_to_cart_button:hover,.woocommerce-page a.single_add_to_cart_button:hover,.woocommerce div.product form.cart .button:hover,.woocommerce-page div.product form.cart .button:hover,.priced_block .btn_offer_block:hover,.wpsm-button.rehub_main_btn:hover,#buddypress input[type="submit"]:hover,#buddypress input[type="button"]:hover,#buddypress input[type="reset"]:hover,#buddypress button.submit:hover,.small_post .btn:hover,.ap-pro-form-field-wrapper input[type="submit"]:hover,.btn_block_part .btn_offer_block:hover,.wcv-grid a.button:hover,#ws-plugin--s2member-profile-submit:hover{background:none #ff4e0c !important;color:#fff !important;opacity:0.8;box-shadow:none !important;border-color:transparent;}.woocommerce a.woo_loop_btn:active,.woocommerce .button.alt:active,.woocommerce .checkout-button.button:active,.woocommerce a.add_to_cart_button:active,.woocommerce-page a.add_to_cart_button:active,.woocommerce a.single_add_to_cart_button:active,.woocommerce-page a.single_add_to_cart_button:active,.woocommerce div.product form.cart .button:active,.woocommerce-page div.product form.cart .button:active,.wpsm-button.rehub_main_btn:active,#buddypress input[type="submit"]:active,#buddypress input[type="button"]:active,#buddypress input[type="reset"]:active,#buddypress button.submit:active,.ap-pro-form-field-wrapper input[type="submit"]:active,.btn_block_part .btn_offer_block:active,.wcv-grid a.button:active,#ws-plugin--s2member-profile-submit:active{background:none #ff4e0c !important;box-shadow:none;top:2px;color:#fff !important;}.re_thing_btn .rehub_offer_coupon.masked_coupon:after{border:1px dashed #ff4e0c;border-left:none;}.re_thing_btn.continue_thing_btn a,.re_thing_btn .rehub_offer_coupon.not_masked_coupon{color:#ff4e0c !important;}.re_thing_btn a,.re_thing_btn .rehub_offer_coupon{background-color:#ff4e0c;border:1px solid #ff4e0c;}.main_slider .re_thing_btn a,.widget_merchant_list .buttons_col{background-color:#ff4e0c !important;}.re_thing_btn .rehub_offer_coupon{border-style:dashed;}.re_thing_btn a:hover,.re_thing_btn.continue_thing_btn a:hover{background-color:#CC940F;border:1px solid #CC940F;color:#fff !important}.rehub_offer_coupon.zeroclipboard-is-hover{border:1px dashed #CC940F;}.rehub_offer_coupon.zeroclipboard-is-hover i.fa{color:#CC940F}.re_thing_btn .rehub_offer_coupon.not_masked_coupon.zeroclipboard-is-hover{color:#CC940F !important}.deal_daywoo .price{color:#ff4e0c}
+    </style>
+    <meta content="Powered by Visual Composer - drag and drop page builder for WordPress." name="generator"><!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://revendor.wpsoul.net/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
+    <style data-type="vc_shortcodes-custom-css" type="text/css">
+    .vc_custom_1468679238667{background: #f5f5f5 url(wp-content/uploads/2016/07/kirpichbg-1b540.jpg?id=297) !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}.vc_custom_1468684105603{padding-right: 20px !important;padding-left: 20px !important;background-image: url(http://revendor.wpsoul.net/wp-content/uploads/2016/07/mainbg2.jpg?id=127) !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}.vc_custom_1468683694583{padding-right: 25px !important;padding-left: 25px !important;}.vc_custom_1468689431405{background: #f5f5f5 url(http://revendor.wpsoul.net/wp-content/uploads/2016/07/kirpichbg-1.jpg?id=297) !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}.vc_custom_1468715242622{background-color: #00c2b4 !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}.vc_custom_1468350649939{padding-right: 50px !important;}.vc_custom_1468683655138{margin-bottom: -50px !important;}.vc_custom_1468348714897{margin-bottom: 15px !important;}.vc_custom_1468350562639{margin-bottom: 25px !important;}.vc_custom_1468350569164{margin-bottom: 25px !important;}.vc_custom_1468714514794{margin-bottom: -200px !important;}
+    </style><noscript>
+    <style type="text/css">
+    .wpb_animate_when_almost_visible { opacity: 1; }
+    </style></noscript>
+
+
+    </head>
+    <body>
+    <!-- HEADER -->
+    <header class="white_style" id="main_header">
+        <div class="header_wrap">
+            <div id="top_ankor"></div>
+            <!-- Logo section -->
+            <div class="logo_section_wrap">
+                <div class="logo-section header_seven_style clearfix">
+                    <div class="logo">
+                        <a class="logo_image" href="index.html"><img alt="MultiVendor site Revendor" height="42" src="wp-content/uploads/2016/07/revendor.png" width="171"></a>
+                    </div>
+                    <div class="search head_search">
+                        <form action="http://revendor.wpsoul.net/" class="search-form" method="get" role="search">
+                            <input autocomplete="off" class="re-ajax-search" data-posttype="product" name="s" placeholder="Search" type="text"> <input name="post_type" type="hidden" value="product"> <button class="btnsearch" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                        <div class="re-aj-search-wrap"></div>
+                    </div>
+                    <div class="header-actions-logo">
+                        <div class="tabledisplay">
+                            <div class="celldisplay link-add-cell">
+                                <a class="act_rehub_login_popup" href="my-account/index.html">Create store</a>
+                            </div>
+                            <div class="celldisplay login-btn-cell">
+                                <span class="act-rehub-login-popup wpsm-button white medium mobileinmenu floatright" data-type="login"><i class="fa fa-sign-in"></i> <span>Login / Register</span></span>
+                            </div>
+                            <div class="celldisplay rh_woocartmenu_cell">
+                                <a class="rh_woocartmenu-link icon-in-main-menu menu-item-one-line cart-contents cart_count_0" href="cart/index.html"><span class="rh_woocartmenu-icon"><strong>0</strong> <span class="rh_woocartmenu-icon-handle"></span></span> <span class="rh_woocartmenu-amount"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>0.00</span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Logo section -->
+            <!-- Main Navigation -->
+            <div class="main-nav dark_style">
+                <nav class="top_menu">
+                    <ul class="menu" id="menu-main-menu">
+                        <li class="floatright menu-item menu-item-type-post_type menu-item-object-page" id="menu-item-409">
+                            <a class="menu-item-one-line" href="wishlist/index.html"><i aria-hidden="true" class="fa fa-heart-o"></i> My wishlist</a>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children" id="menu-item-504">
+                            <a class="menu-item-one-line" href="#">Home</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page" id="menu-item-506">
+                                    <a class="menu-item-one-line" href="home-first/index.html">Home 1</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page" id="menu-item-505">
+                                    <a class="menu-item-one-line" href="home-second/index.html">Home 2</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item- object-page current-menu-item page_item page-item-278 current_page_item" id="menu-item-507">
+                                    <a class="menu-item-one-line" href="index.html">Home 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children" id="menu-item-524">
+                            <a class="menu-item-one-line" href="#">Categories</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page" id="menu-item-503">
+                                    <a class="menu-item-one-line" href="vendor_dashboard/index.html">WCV Free Dashboard</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page" id="menu-item-281">
+                                    <a class="menu-item-one-line" href="dashboard/index.html">WCV Pro Dashboard</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page" id="menu-item-284">
+                                    <a class="menu-item-one-line" href="my-account/index.html">Buyer Account</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom" id="menu-item-525">
+                            <a class="menu-item-one-line" href="vendors/demovendor-store/index.html">Vendor store page</a>
+                        </li>
+                        
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page" id="menu-item-630">
+                            <a class="menu-item-one-line" href="store-locator/index.html">Store locator</a>
+                        </li>
+                        <li class="menu-item rehub-custom-menu-item top-search-onclick">
+                            <a class="icon-search-onclick icon-in-main-menu menu-item-one-line"></a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="responsive_nav_wrap"></div>
+                <div class="search-header-contents">
+                    <form action="http://revendor.wpsoul.net/" class="search-form" method="get" role="search">
+                        <input autocomplete="off" class="re-ajax-search" data-posttype="product" name="s" placeholder="Search" type="text"> <input name="post_type" type="hidden" value="product"> <button class="btnsearch" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                    <div class="re-aj-search-wrap"></div>
+                </div>
+            </div><!-- /Main Navigation -->
+        </div>
+    </header>
+
+
+        <div ng-view>
+        </div>
+
+            <!-- FOOTER -->
+    <div class="footer-bottom white_style">
+        <div class="container no_padding_wrap clearfix">
+            <div class="rh-flex-eq-height col_wrap_three">
+                <div class="footer_widget col_item">
+                    <div class="widget widget_text" id="text-2">
+                        <div class="title">
+                            Contacts
+                        </div>
+                        <div class="textwidget">
+                            <div class="tabledisplay footer-contact">
+                                <span class="left-f-contact celldisplay"><i aria-hidden="true" class="fa fa-phone"></i></span>
+                                <div class="fcontact-body celldisplay">
+                                    <span class="call-us-text">Got Questions? Call us 24/7!</span> <span class="call-us-number">(800) 5000-8888</span> <span class="other-fcontact"><a href="#">test@gmail.com</a></span>
+                                </div>
+                            </div>
+                            <div class="social_icon small_i">
+                                <a class="author-social tw" href="#" rel="nofollow"><i class="fa fa-twitter"></i></a> <a class="author-social gp" href="#" rel="nofollow"><i class="fa fa-google-plus"></i></a> <a class="author-social yt" href="#" rel="nofollow"><i class="fa fa-youtube"></i></a> <a class="author-social fb" href="#" rel="nofollow"><i class="fa fa-facebook"></i></a> <a class="author-social ins" href="#" rel="nofollow"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_widget col_item">
+                    <div class="widget widget_search" id="search-3">
+                        <div class="title">
+                            Search
+                        </div>
+                        <form action="http://revendor.wpsoul.net/" class="search-form" method="get" role="search">
+                            <input autocomplete="off" class="re-ajax-search" data-posttype="product" name="s" placeholder="Search" type="text"> <input name="post_type" type="hidden" value="product"> <button class="btnsearch" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                        <div class="re-aj-search-wrap"></div>
+                    </div>
+                    <div class="widget widget_nav_menu" id="nav_menu-2">
+                        <div class="title">
+                            Quick Links
+                        </div>
+                        <div class="menu-footer-menu-container">
+                            <ul class="menu" id="menu-footer-menu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-311" id="menu-item-311">
+                                    <a href="wishlist/index.html">Wishlist</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-313" id="menu-item-313">
+                                    <a href="dashboard/index.html">Pro Dashboard</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-314" id="menu-item-314">
+                                    <a href="vendor_dashboard/index.html">Vendor Dashboard</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-315" id="menu-item-315">
+                                    <a href="cart/index.html">Cart</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-316" id="menu-item-316">
+                                    <a href="shop/index.html">Shop</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_widget col_item last"></div>
+            </div>
+        </div>
+    </div>
+    <footer class="white_style" id='theme_footer'>
+        <div class="container clearfix">
+            <div class="footer_most_bottom">
+                <div class="f_text">
+                    © Revendor. All rights reserved.
+                    <div class="floatright ml15 mr15"><img alt="MultiVendor site Revendor" src="wp-content/uploads/2016/07/paypal_visa-1.png"></div>
+                </div>
+            </div>
+        </div>
+    </footer><!-- FOOTER --><span class="rehub_scroll" data-scrollto="#top_ankor" id="topcontrol"><i class="fa fa-chevron-up"></i></span>
+    <div class="gmw-cl-form-wrapper" id="gmw-cl-form-wrapper">
+        <span id="gmw-cl-close-btn">X</span>
+        <form id="gmw-cl-form" name="gmw_cl_form" onsubmit="return false">
+            <div id="gmw-cl-info-wrapper">
+                <div id="gmw-cl-location-message">
+                    - Enter Your Location -
+                </div>
+                <div id="gmw-cl-input-fields">
+                    <input id="gmw-cl-address" name="gmw-cl_address" placeholder="zipcode or full address..." type="text" value=""><input id="gmw-cl-submit-address" type="submit" value="go">
+                </div>
+                <div>
+                    - or -
+                </div>
+                <div id="gmw-cl-get-location">
+                    <a href="#" id="gmw-cl-trigger">Get your current location</a>
+                </div>
+            </div>
+            <div id="gmw-cl-respond-wrapper" style="display:none;">
+                <div id="gmw-cl-spinner"><img src="wp-content/plugins/geo-my-wp/assets/images/gmw-loader.gif"></div>
+                <div id="gmw-cl-message"></div>
+                <div id="gmw-cl-map" style="width:100%;height:100px;display:none;"></div>
+            </div>
+        </form>
+    </div>
+    <div id="gmw-cl-hidden-form-wrapper">
+        <form id="gmw-cl-hidden-form" method="post" name="gmw-cl-hidden-form">
+            <input id="gmw-cl-street" name="gmw_cl_location[street]" type="hidden" value=""> <input id="gmw-cl-city" name="gmw_cl_location[city]" type="hidden" value=""> <input id="gmw-cl-state" name="gmw_cl_location[state]" type="hidden" value=""> <input id="gmw-cl-state-long" name="gmw_cl_location[state_long]" type="hidden" value=""> <input id="gmw-cl-zipcode" name="gmw_cl_location[zipcode]" type="hidden" value=""> <input id="gmw-cl-country" name="gmw_cl_location[country]" type="hidden" value=""> <input id="gmw-cl-country-long" name="gmw_cl_location[country_long]" type="hidden" value=""> <input id="gmw-cl-org-address" name="gmw_cl_location[address]" type="hidden" value=""> <input id="gmw-cl-formatted-address" name="gmw_cl_location[formatted_address]" type="hidden" value=""> <input id="gmw-cl-lat" name="gmw_cl_location[lat]" type="hidden" value=""> <input id="gmw-cl-lng" name="gmw_cl_location[lng]" type="hidden" value=""> <input id="gmw-cl-action" name="gmw_cl_action" type="hidden" value="post">
+        </form>
+    </div>
+    <div id="rehub-login-popup-block">
+        <!-- Register form -->
+        <div id="rehub-register-popup">
+            <div class="rehub-register-popup">
+                <div class="re_title_inmodal">
+                    Register New Buyer Account
+                </div>
+                <form action="http://revendor.wpsoul.net/" id="rehub_registration_form_modal" method="post" name="rehub_registration_form_modal">
+                    <div class="re-form-group mb20">
+                        <label>Username</label> <input class="re-form-input required" name="rehub_user_login" type="text">
+                    </div>
+                    <div class="re-form-group mb20">
+                        <label for="rehub_user_email">Email</label> <input class="re-form-input required" id="rehub_user_email" name="rehub_user_email" type="email">
+                    </div>
+                    <div class="re-form-group mb20">
+                        <label for="rehub_user_signonpassword">Password<span class="alignright font90">Minimum 6 symbols</span></label> <input class="re-form-input required" id="rehub_user_signonpassword" name="rehub_user_signonpassword" type="password">
+                    </div>
+                    <div class="re-form-group mb20">
+                        <label for="rehub_user_confirmpassword">Confirm password</label> <input class="re-form-input required" id="rehub_user_confirmpassword" name="rehub_user_confirmpassword" type="password">
+                    </div>
+                    <div class="xprofile_hidename" id="xp-woo-profile-details-section">
+                        <div class="editfield re-form-group mb20 field_1 field_name required-field visibility-public field_type_textbox">
+                            <label for="field_1">Name <span class="bp-required-field-label">(required)</span></label> <input aria-required="true" id="field_1" name="field_1" type="text" value="">
+                            <p class="xp-woo-description"></p>
+                        </div>
+                        <div class="editfield re-form-group mb20 field_2 field_vendor-category optional-field visibility-public alt field_type_selectbox">
+                            <label for="field_2">Vendor category</label> <select id="field_2" name="field_2">
+                                <option value="">
+                                    ----
+                                </option>
+                                <option value="Category first">
+                                    Category first
+                                </option>
+                                <option value="Category second">
+                                    Category second
+                                </option>
+                                <option value="Category third">
+                                    Category third
+                                </option>
+                                <option value="Category four">
+                                    Category four
+                                </option>
+                                <option value="Category five">
+                                    Category five
+                                </option>
+                            </select>
+                            <p class="xp-woo-description"></p>
+                        </div><input id="signup_profile_field_ids" name="signup_profile_field_ids" type="hidden" value="1,2">
+                    </div><!-- #profile-details-section -->
+                    <div class="re-form-group mb20">
+                        <div class="checkbox">
+                            <label><input name="rehub_terms" type="checkbox"> I accept the <a href="index.html" target="_blank">Terms & Conditions</a></label>
+                        </div>
+                    </div>
+                    <div class="re-form-group mb20">
+                        <div class="checkbox">
+                            <label><input name="wcv_apply_as_vendor" type="checkbox"> Apply as vendor?</label>
+                        </div>
+                    </div>
+                    <div class="re-form-group mb20">
+                        <input name="action" type="hidden" value="rehub_register_member_popup_function"> <button class="wpsm-button rehub_main_btn" type="submit">Sign up</button>
+                    </div><input id="register-security" name="register-security" type="hidden" value="4677fc2856"><input name="_wp_http_referer" type="hidden" value="/">
+                </form>
+                <div class="rehub-errors"></div>
+                <div class="rehub-login-popup-footer">
+                    Already have an account? <span class="act-rehub-login-popup color_link" data-type="login">Login</span>
+                </div>
+            </div>
+        </div><!-- Login form -->
+        <div id="rehub-login-popup">
+            <div class="rehub-login-popup">
+                <div class="re_title_inmodal">
+                    Login
+                </div>
+                <form action="http://revendor.wpsoul.net/" id="rehub_login_form_modal" method="post" name="rehub_login_form_modal">
+                    <div class="re-form-group mb20">
+                        <label>Username</label> <input class="re-form-input required" name="rehub_user_login" type="text">
+                    </div>
+                    <div class="re-form-group mb20">
+                        <label for="rehub_user_pass">Password</label> <input class="re-form-input required" id="rehub_user_pass" name="rehub_user_pass" type="password"> <span class="act-rehub-login-popup color_link alignright" data-type="resetpass">Lost Password?</span>
+                    </div>
+                    <div class="re-form-group mb20">
+                        <label for="rehub_remember"><input id="rehub_remember" name="rehub_remember" type="checkbox" value="forever"> Remember me</label>
+                    </div>
+                    <div class="re-form-group mb20">
+                        <input name="action" type="hidden" value="rehub_login_member_popup_function"> <button class="wpsm-button rehub_main_btn" type="submit">Login</button>
+                    </div><input id="loginsecurity" name="loginsecurity" type="hidden" value="4677fc2856"><input name="_wp_http_referer" type="hidden" value="/">
+                </form>
+                <div class="rehub-errors"></div>
+                <div class="rehub-login-popup-footer">
+                    Don't have an account? <span class="act-rehub-login-popup color_link" data-type="register">Sign Up</span>
+                </div>
+            </div>
+        </div><!-- Lost Password form -->
+        <div id="rehub-reset-popup">
+            <div class="rehub-reset-popup">
+                <div class="re_title_inmodal">
+                    Reset Password
+                </div>
+                <form action="http://revendor.wpsoul.net/" id="rehub_reset_password_form_modal" method="post" name="rehub_reset_password_form_modal">
+                    <div class="re-form-group mb20">
+                        <label for="rehub_user_or_email">Username or E-mail</label> <input class="re-form-input required" id="rehub_user_or_email" name="rehub_user_or_email" type="text">
+                    </div>
+                    <div class="re-form-group mb20">
+                        <input name="action" type="hidden" value="rehub_reset_password_popup_function"> <button class="wpsm-button rehub_main_btn" type="submit">Get new password</button>
+                    </div><input id="password-security" name="password-security" type="hidden" value="4677fc2856"><input name="_wp_http_referer" type="hidden" value="/">
+                </form>
+                <div class="rehub-errors"></div>
+                <div class="rehub-login-popup-footer">
+                    Already have an account? <span class="act-rehub-login-popup color_link" data-type="login">Login</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="from-right" id="re-compare-bar">
+        <div id="re-compare-bar-wrap">
+            <div id="re-compare-bar-heading">
+                <h5 class="rehub-main-color">Compare items<i aria-hidden="true" class="fa fa-times-circle closecomparepanel floatright"></i></h5>
+            </div>
+            <div id="re-compare-bar-tabs">
+                <ul class="rhhidden">
+                    <li class="re-compare-tab-1389 no-multicats" data-page="1389" data-url="product-compare/index.html">Total (<span>0</span>)</li>
+                </ul>
+                <div>
+                    <div class="re-compare-wrap re-compare-wrap-1389"></div>
+                </div><span class="re-compare-destin wpsm-button rehub_main_btn" data-compareurl="">Compare<i aria-hidden="true" class="fa fa-arrow-circle-right"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="rhhidden" id="re-compare-icon-fixed">
+        <span class="re-compare-icon-toggle"><i aria-hidden="true" class="fa fa-balance-scale"></i><span class="re-compare-notice">0</span></span>
+    </div>
+</div>
+
+    <link href='wp-content/plugins/js_composer/assets/lib/bower/animate-css/animate.mind751.css?ver=100' id='animate-css-css' media='' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C700%2C700italic%2C900%2C900italic&amp;ver=4.6.1' id='vc_google_fonts_roboto100100italic300300italicregularitalic500500italic700700italic900900italic-css' media='all' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var translation = {"back":"back","ajax_url":"\/wp-admin\/admin-ajax.php","templateurl":"http:\/\/revendor.wpsoul.net\/wp-content\/themes\/rehub","fin":"That's all","your_rating":"Your Rating:","nonce":"fb91b22634","hotnonce":"c10fe65c61","rating_tabs_id":"99fd665228","max_temp":"10","min_temp":"-10"};
+    /* ]]> */
+    </script>
+    <script src='wp-content/themes/rehub/js/custom1c9b.js?ver=4.6.1' type='text/javascript'>
+    </script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var comparechart = {"item_error_add":"Please, add items to this compare group or choose not empty group","item_error_comp":"Please, add more items to compare"};
+    /* ]]> */
+    </script>
+    <script src='wp-content/themes/rehub/js/comparechartf269.js?ver=1.0.1' type='text/javascript'>
+    </script>
+    <script src='wp-includes/js/comment-reply.min1c9b.js?ver=4.6.1' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/wc-vendors-pro/public/assets/js/wcvendors-pro-public.minedfb.js?ver=1.3.8' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min44fd.js?ver=2.70' type='text/javascript'>
+    </script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+    /* ]]> */
+    </script>
+    <script src='wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min91ac.js?ver=2.6.8' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.min330a.js?ver=1.4.1' type='text/javascript'>
+    </script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","fragment_name":"wc_fragments"};
+    /* ]]> */
+    </script>
+    <script src='wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min91ac.js?ver=2.6.8' type='text/javascript'>
+    </script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var yith_woocompare = {"ajaxurl":"\/?wc-ajax=%%endpoint%%","actionadd":"yith-woocompare-add-product","actionremove":"yith-woocompare-remove-product","actionview":"yith-woocompare-view-table","added_label":"Added","table_title":"Product Comparison","auto_open":"yes","loader":"http:\/\/revendor.wpsoul.net\/wp-content\/plugins\/yith-woocommerce-compare\/assets\/images\/loader.gif","button_text":"Compare"};
+    /* ]]> */
+    </script>
+    <script src='wp-content/plugins/yith-woocommerce-compare/assets/js/woocompare.min3c94.js?ver=2.1.0' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/yith-woocommerce-compare/assets/js/jquery.colorbox-min13ac.js?ver=1.4.21' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.minc6bd.js?ver=3.1.5' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.init.min91ac.js?ver=2.6.8' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.selectBox.min7359.js?ver=1.2.0' type='text/javascript'>
+    </script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var yith_wcwl_l10n = {"ajax_url":"\/wp-admin\/admin-ajax.php","redirect_to_cart":"no","multi_wishlist":"","hide_add_button":"1","is_user_logged_in":"","ajax_loader_url":"http:\/\/revendor.wpsoul.net\/wp-content\/plugins\/yith-woocommerce-wishlist\/assets\/images\/ajax-loader.gif","remove_from_wishlist_after_add_to_cart":"yes","labels":{"cookie_disabled":"We are sorry, but this feature is available only if cookies are enabled on your browser.","added_to_cart_message":"<div class=\"woocommerce-message\">Product correctly added to cart<\/div>"},"actions":{"add_to_wishlist_action":"add_to_wishlist","remove_from_wishlist_action":"remove_from_wishlist","move_to_another_wishlist_action":"move_to_another_wishlsit","reload_wishlist_and_adding_elem_action":"reload_wishlist_and_adding_elem"}};
+    /* ]]> */
+    </script>
+    <script src='wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.yith-wcwl9c6b.js?ver=2.0.16' type='text/javascript'>
+    </script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var cplus_var = {"url":"http:\/\/revendor.wpsoul.net\/wp-admin\/admin-ajax.php","nonce":"953bc00546"};
+    /* ]]> */
+    </script>
+    <script src='wp-content/themes/rehub/js/commentplus_re5152.js?ver=1.0' type='text/javascript'>
+    </script>
+    <script src='wp-includes/js/wp-embed.min1c9b.js?ver=4.6.1' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/js_composer/assets/js/dist/js_composer_front.mind751.js?ver=100' type='text/javascript'>
+    </script>
+    <script src='wp-content/plugins/js_composer/assets/lib/waypoints/waypoints.mind751.js?ver=100' type='text/javascript'>
+    </script>
+    <script src='wp-content/themes/rehub/js/zeroclipboard/ZeroClipboard.min784e.js?ver=2.1.6' type='text/javascript'>
+    </script>
+    <script src='wp-content/themes/rehub/js/jquery.lwtCountdown-1.01c9b.js?ver=4.6.1' type='text/javascript'>
+    </script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var gmwSettings = {"general_settings":{"google_api":"AIzaSyBTCbrLs5-Emt3FUe4C3jI82BELYkHNGj8","language_code":"EN","country_code":"US","results_page":"34","url_px":"gmw_","js_geocode":false,"auto_locate":false}};
+    var gmwMapOptions = [];
+    /* ]]> */
+    </script>
+    <script src='wp-content/plugins/geo-my-wp/assets/js/gmw.min4df7.js?ver=2.6.6.3' type='text/javascript'>
+    </script>
+    
+       
+    </body>
 </html>

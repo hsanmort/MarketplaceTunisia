@@ -35,73 +35,118 @@
 //app.controller("contentCtrl", function($scope){
 //    //...    
 //});
+
+//logic 1
+
+//'use strict';
+//
+//define(['js/routeResolver'], function () {
+//
+//    var app = angular.module('customersApp', ['ngRoute', 'ngAnimate', 'routeAppControllers']);
+//
+//    app.config(['$routeProvider', 'routeResolverProvider', '$controllerProvider',
+//                '$compileProvider', '$filterProvider', '$provide', '$httpProvider',
+//
+//        function ($routeProvider, routeResolverProvider, $controllerProvider,
+//                  $compileProvider, $filterProvider, $provide, $httpProvider) {
+//
+//            //Change default views and controllers directory using the following:
+//            routeResolverProvider.routeConfig.setBaseDirectories('/views', '/controllers');
+//
+//            app.register =
+//            {
+//                controller: $controllerProvider.register,
+//                directive: $compileProvider.directive,
+//                filter: $filterProvider.register,
+//                factory: $provide.factory,
+//                service: $provide.service
+//            };
+//
+//            //Define routes - controllers will be loaded dynamically
+//            //var route = routeResolverProvider.route;
+//
+//            $routeProvider
+//                //route.resolve() now accepts the convention to use (name of controller & view) as well as the 
+//                //path where the controller or view lives in the controllers or views folder if it's in a sub folder. 
+//                //For example, the controllers for customers live in controllers/customers and the views are in views/customers.
+//                
+//            	.when('/vendors',
+//                    {
+//                        templateUrl: '/vendors/vendors',
+//                        controller: 'vendorsController'
+//                        //resolve: resolveController('/vendorsController.js')
+//                    })
+//               
+//                .otherwise({ redirectTo: '/vendors' });
+//
+//    }]);
+//
+// 
+//
+//    return app;
+//
+//});
+
+//logic 2
+// js/app.js
 'use strict';
 
-define(['routeResolver'], function () {
 
-    var app = angular.module('customersApp', ['ngRoute', 'ngAnimate']);
+/**
+ * Déclaration de l'application routeApp
+ */
+var routeApp = angular.module('routeApp', [
+    // Dépendances du "module"
+    'ngRoute',
+    'routeAppControllers'
+]);
 
-    app.config(['$routeProvider', 'routeResolverProvider', '$controllerProvider',
-                '$compileProvider', '$filterProvider', '$provide', '$httpProvider',
-
-        function ($routeProvider, routeResolverProvider, $controllerProvider,
-                  $compileProvider, $filterProvider, $provide, $httpProvider) {
-
-            //Change default views and controllers directory using the following:
-            //routeResolverProvider.routeConfig.setBaseDirectories('/app/views', '/app/controllers');
-
-            app.register =
-            {
-                controller: $controllerProvider.register,
-                directive: $compileProvider.directive,
-                filter: $filterProvider.register,
-                factory: $provide.factory,
-                service: $provide.service
-            };
-
-            //Define routes - controllers will be loaded dynamically
-            //var route = routeResolverProvider.route;
-
-            $routeProvider
-                //route.resolve() now accepts the convention to use (name of controller & view) as well as the 
-                //path where the controller or view lives in the controllers or views folder if it's in a sub folder. 
-                //For example, the controllers for customers live in controllers/customers and the views are in views/customers.
-                //The controllers for orders live in controllers/orders and the views are in views/orders
-                //The second parameter allows for putting related controllers/views into subfolders to better organize large projects
-            	.when('/vendors',
-                    {
-                        templateUrl: '/vendors',
-                        resolve: resolveController('/vendorsController.js')
-                    })
-                
-                .when('/about', route.resolve('About', '', 'vm'))
-                .when('/login/:redirect*?', route.resolve('Login', '', 'vm'))
-                .otherwise({ redirectTo: '/vendors' });
-
-    }]);
-
-    app.run(['$rootScope', '$location', 'authService',
-        function ($rootScope, $location, authService) {
-            
-            //Client-side security. Server-side framework MUST add it's 
-            //own security as well since client-based security is easily hacked
-            $rootScope.$on("$routeChangeStart", function (event, next, current) {
-                if (next && next.$$route && next.$$route.secure) {
-                    if (!authService.user.isAuthenticated) {
-                        $rootScope.$evalAsync(function () {
-                            authService.redirectToLogin();
-                        });
-                    }
-                }
-            });
-
-    }]);
-
-    return app;
-
-});
+/**
+ * Configuration du module principal : routeApp
+ */
+routeApp.config(['$routeProvider',
+    function($routeProvider) { 
+        
+        // Système de routage
+        $routeProvider
+        .when('/home', {
+            templateUrl: 'views/home.html',
+            controller: 'homeCtrl'
+        })
+        .when('/vendors', {
+            templateUrl: 'views/vendors/vendors.html',
+            controller: 'vendorsController',
+            //resolve: resolveController('/controllers/vendorsController.js')
+        })
+        .when('/RegBuyer', {
+            templateUrl: 'views/security/Account_login_Buyer.html',
+            controller: '/controllers/registerController.js'
+        })
+        .when('/RegSeller', {
+            templateUrl: 'views/security/Account_login_Seller.html',
+            controller: '/controllers/registerController.js'
+        })
+       
+        .otherwise({
+            redirectTo: '/home'
+        });
+    }
+]);
 
 
+
+/**
+ * Définition des contrôleurs
+ */
+var routeAppControllers = angular.module('routeAppControllers', []);
+
+
+// Contrôleur de la page d'accueil
+routeAppControllers.controller('homeCtrl', ['$scope',
+    function($scope){
+        $scope.message = "Bienvenue sur la page d'accueil";
+    }
+]);
 
 
 
