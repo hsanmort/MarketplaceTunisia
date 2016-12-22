@@ -104,8 +104,9 @@ var routeApp = angular.module('routeApp', [
 /**
  * Configuration du module principal : routeApp
  */
-routeApp.config(['$routeProvider',
-    function($routeProvider) { 
+routeApp.config(['$routeProvider', 'routeResolverProvider', '$controllerProvider','$compileProvider', '$filterProvider', '$provide', '$httpProvider',
+    function($routeProvider, routeResolverProvider, $controllerProvider,
+          $compileProvider, $filterProvider, $provide, $httpProvider) { 
         
         // Système de routage
         $routeProvider
@@ -116,6 +117,7 @@ routeApp.config(['$routeProvider',
         .when('/vendors', {
             templateUrl: 'views/vendors/vendors.html',
             controller: 'vendorsController',
+            resolve: resolveController('/controllers/vendorsController.js')
             //resolve: resolveController('/controllers/vendorsController.js')
         })
         .when('/RegBuyer', {
