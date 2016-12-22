@@ -60,7 +60,7 @@ define(['routeResolver'], function () {
             };
 
             //Define routes - controllers will be loaded dynamically
-            var route = routeResolverProvider.route;
+            //var route = routeResolverProvider.route;
 
             $routeProvider
                 //route.resolve() now accepts the convention to use (name of controller & view) as well as the 
@@ -68,17 +68,15 @@ define(['routeResolver'], function () {
                 //For example, the controllers for customers live in controllers/customers and the views are in views/customers.
                 //The controllers for orders live in controllers/orders and the views are in views/orders
                 //The second parameter allows for putting related controllers/views into subfolders to better organize large projects
-            	.when('/customers',
+            	.when('/vendors',
                     {
-                        templateUrl: '/customers',
-                        resolve: resolveController('/customersController.js')
+                        templateUrl: '/vendors',
+                        resolve: resolveController('/vendorsController.js')
                     })
-                .when('/customerorders/:customerId', route.resolve('CustomerOrders', 'customers/', 'vm'))
-                .when('/customeredit/:customerId', route.resolve('CustomerEdit', 'customers/', 'vm', true))
-                .when('/orders', route.resolve('Orders', 'orders/', 'vm'))
+                
                 .when('/about', route.resolve('About', '', 'vm'))
                 .when('/login/:redirect*?', route.resolve('Login', '', 'vm'))
-                .otherwise({ redirectTo: '/customers' });
+                .otherwise({ redirectTo: '/vendors' });
 
     }]);
 
