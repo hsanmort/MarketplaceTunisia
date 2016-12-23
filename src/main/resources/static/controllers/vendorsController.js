@@ -1,10 +1,12 @@
-var routeAppControllers = angular.module('routeAppControllers', []);
+//var routeAppControllers = angular.module('routeAppControllers', []);
 
 
 //Contrôleur de la page vendors
-routeAppControllers.controller('vendorsController', ['$scope','$http',
+
+angular.module('routeApp').controller('vendorsController', ['$scope','$http',
 function($scope,$http){
 		$scope.users=[];
+		$scope.visible=true;
    $scope.message = "Bienvenue sur la page du vendeur";
    
    function chargerAll(){
