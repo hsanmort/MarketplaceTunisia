@@ -3,6 +3,7 @@ package com.MarketplaceTunisia.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,7 +25,7 @@ public class RegistrationController {
 	@Autowired
 	private RoleRepository roleRepository;
 	
-	@RequestMapping(value="/user/buyerReg",method=RequestMethod.POST)
+	@RequestMapping(value="/user/buyerReg",method=RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public void RegistrationBuyer(@RequestBody Buyer u){
 		Role r2=roleRepository.findOne("INVITE");
 		Role r=roleRepository.findOne("BUYER");
