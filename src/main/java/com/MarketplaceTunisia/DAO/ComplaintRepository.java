@@ -22,4 +22,6 @@ public interface ComplaintRepository extends JpaRepository<Complaint, Integer> {
 	public Page<Complaint> findByMc(@Param("x") String mc, Pageable pageable);
 	public Page<Complaint> findBydateComplaint(Date date, Pageable pageable);
 	
+	
+	
 }

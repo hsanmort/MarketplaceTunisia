@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="routeComp">
 <head>
 <meta charset="UTF-8">
 <title>Complaint</title>
@@ -17,7 +17,7 @@
 <script src="js/lumino.glyphs.js"></script>
   
 </head>
-<body ng-app="routeApp" ng-controller="ContComplaint" >
+<body ng-app="routeComp" ng-controller="ContComplaint" >
 
 <!-- 
 <div class="col-md-4">
@@ -63,7 +63,7 @@
 -->
 <div class="col-md-6">
 				<div class="panel panel-orange">
-					<div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>List Of New Users</div>
+					<div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>List Of Complaint</div>
 					<div class="panel-body">
 						<div class="input-group">
 						<form>
@@ -110,7 +110,13 @@
 							<button  ng-click="supprimerCompl(C)" class="btn btn-red" >Supprimer</button>
 							
 							<button type="submit" ng-click="ModifierCompl(C)" class="btn btn-primary">Modifier</button> 
-							<button  ng-click="supprimerCompl(C)" class="btn btn-green" >Detail</button>
+							<form role="form" ng-submit="Ajouter()"> 
+				<input id="btn-input" type="text" class="form-control input-md"  name="idComplaint" ng-model="C.idComplaint" >
+				<input id="btn-input" type="text" class="form-control input-md"  name="description" ng-model="C.description" >
+							<input value="DetailCompl" type="submit" class="btn btn-green" id="btn-todo">
+							
+							<!-- <button value="Detail" type="submit" ng-click="DetailCompl(C)" class="btn btn-green" ></button>-->
+							</form>
 							</td>
 							</tr>
 							</tbody>

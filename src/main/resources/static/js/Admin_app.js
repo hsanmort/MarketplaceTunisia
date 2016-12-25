@@ -11,6 +11,11 @@
 	                         templateUrl: 'Admin/Complaint.html',
 	                         controller: 'ContComplaint'
 	                     })
+	                   /* .when('/Complaint', {
+	                         templateUrl: 'Admin/Chat_Complaint.html',
+	                         controller: 'ContComplaint'
+	                     })
+	                    */
 	                     .when('/Category', {
 	                         templateUrl: 'Admin/Category.html',
 	                         controller: 'ContCategory'
@@ -19,6 +24,7 @@
 
 	             ]);
 
+	
 	
 	/*******************************Gérer les inscription**********************************/
 	//var routeApp=angular.module("MyCat",[]);
@@ -196,12 +202,18 @@
 		});
 		
 		};
+		/*
+		$scope.DetailCompl=function(C){
+			templateUrl: 'Admin/Chat_Complaint.html'	
+			
+		}	
+		*/
 		
 		
-	$scope.Ajouter = function(){		
+	$scope.DetailCompl = function(){		
 					
 			var dataObj = {
-					nameCategory : $scope.nameCategory
+					description : $scope.description
 					
 			};	
 			var res = $http.post('/category/save', dataObj);
