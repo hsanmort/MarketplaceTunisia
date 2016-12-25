@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @DiscriminatorValue("BU")
 @Table(name = "t_buyer")
@@ -31,6 +33,7 @@ public class Buyer extends User implements Serializable {
 			this.hobbies = hobbies;
 		}
 
+		@JsonIgnore
 		public List<Complaint> getComplaints() {
 			return complaints;
 		}

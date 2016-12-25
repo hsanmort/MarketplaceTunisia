@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "t_complaint")
 public class Complaint implements Serializable {
@@ -53,6 +55,7 @@ public class Complaint implements Serializable {
 		this.dateComplaint = dateComplaint;
 	}
 
+	@JsonIgnore
 	public Buyer getBuyer() {
 		return buyer;
 	}
@@ -61,6 +64,7 @@ public class Complaint implements Serializable {
 		this.buyer = buyer;
 	}
 
+	@JsonIgnore
 	public Seller getSeller() {
 		return seller;
 	}

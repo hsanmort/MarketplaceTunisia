@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.MarketplaceTunisia.Entities.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @DiscriminatorValue("SE")
@@ -52,6 +53,7 @@ public class Seller extends User implements Serializable {
 		this.shops = shops;
 	}
 
+	@JsonIgnore
 	public List<Complaint> getComplaints() {
 		return complaints;
 	}
