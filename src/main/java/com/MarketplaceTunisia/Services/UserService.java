@@ -52,6 +52,11 @@ public class UserService {
 		return userRepository.findAll();
 	}
 	
+	@RequestMapping("/NewUser/all")
+	public Page<User> allUsers(int page){
+	return userRepository.findAll(new PageRequest(page, 5));
+	}
+	
 	@RequestMapping("/user/findByMc")
 	public Page<User> getUsersByMc(String mc, int page){
 		return userRepository.findByMc("%"+mc+"%", new PageRequest(page,5));

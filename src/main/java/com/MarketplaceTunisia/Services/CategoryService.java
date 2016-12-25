@@ -3,6 +3,8 @@ package com.MarketplaceTunisia.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,10 +33,14 @@ public class CategoryService {
 	public Category updateCategory(Category category){
 		return categoryRepository.saveAndFlush(category);
 	}
-	
+	/*
 	@RequestMapping(value="/category/all", method=RequestMethod.GET)
 	public List<Category> allCategories() {
 		return categoryRepository.findAll();
 	}
-	
+	*/
+	@RequestMapping("/category/all")
+	public Page<Category> allCategories(int page){
+	return categoryRepository.findAll(new PageRequest(page, 5));
+	}
 }
