@@ -7,10 +7,10 @@
 	                         templateUrl: 'Admin/NewUsers.html',
 	                         controller: 'CatController'
 	                     })
-	                  /*   .when('/', {
-	                         templateUrl: 'Admin_index.html',
-	                         controller: 'CatController'
-	                     })*/
+	                    .when('/Complaint', {
+	                         templateUrl: 'Admin/Complaint.html',
+	                         controller: 'ContComplaint'
+	                     })
 	                     .when('/Category', {
 	                         templateUrl: 'Admin/Category.html',
 	                         controller: 'ContCategory'
@@ -152,6 +152,81 @@
 	if ($scope.motCle == null){ 
 		chargerC();
 	}
+	
+
+	};
+	});
+	
+	
+	
+	
+	/*******************************Gérer reclamation**********************************/
+	//var routeApp=angular.module("MyCat",[]);
+	routeApp.controller("ContComplaint",function($scope,$http){
+	$scope.Complaint=[];
+	$scope.motCle=null;
+	$scope.pageCourante=0;
+
+
+	function chargerCompl(){
+	$http.get("/complaint/all?&page="+$scope.pageCourante)
+	.success(function(data){
+	$scope.Complaint=data;
+	$scope.pages=new Array(data.totalPages)
+	});
+	};
+	
+
+	chargerCompl();
+	$scope.charger=function(){
+		$http.get("/complaint/findByMc?mc="+$scope.motCle+"&page="+$scope.pageCourante)
+		.success(function(data){
+		$scope.Complaint=data;
+		$scope.pages=new Array(data.totalPages)
+		});
+		};
+		
+		
+		
+	$scope.supprimerCompl=function(C){
+		
+		$http.get("/complaint/delete?idComplaint="+C.idComplaint)
+		.success(function(){
+			$scope.gotoPage($scope.pageCourante);
+		});
+		
+		};
+		
+		
+	$scope.Ajouter = function(){		
+					
+			var dataObj = {
+					nameCategory : $scope.nameCategory
+					
+			};	
+			var res = $http.post('/category/save', dataObj);
+			res.success(function(data, status, headers, config) {
+				$scope.message = data;
+			});
+			res.error(function(data, status, headers, config) {
+				alert( "failure message: " + JSON.stringify({data: data}));
+			});		
+			
+			$scope.nameCategory='';
+			
+			chargerCompl();
+		};
+		
+		
+		$scope.gotoPage=function(p){
+			$scope.pageCourante=p;
+
+			if ($scope.motCle == null){ 
+				chargerCompl();
+			} else { 
+				
+				$scope.charger();
+			}
 	
 
 	};

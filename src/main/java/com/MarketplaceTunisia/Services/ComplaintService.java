@@ -36,8 +36,8 @@ public class ComplaintService {
 	}
 	
 	@RequestMapping(value="/complaint/all", method=RequestMethod.GET)
-	public List<Complaint> allComplaints() {
-		return complaintrepository.findAll();
+	public Page<Complaint> allComplaints(int page) {
+		return complaintrepository.findAll(new PageRequest(page,5));
 	}
 	
 	@RequestMapping("/complaint/findByMc")

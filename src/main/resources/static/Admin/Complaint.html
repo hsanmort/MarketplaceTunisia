@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>NewUsers</title>
+<title>Complaint</title>
 <link rel="stylesheet" type="text/css" href= "bootstrap-3.3.6/dist/css/bootstrap.min.css"   />
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
 <script src="js/lumino.glyphs.js"></script>
   
 </head>
-<body ng-app="routeApp" ng-controller="CatController" >
+<body ng-app="routeApp" ng-controller="ContComplaint" >
 
 <!-- 
 <div class="col-md-4">
@@ -83,28 +83,28 @@
 						    <thead>
 						    <tr>
 						        <th> ID</th>
-						        <th> Name</th>
-						        <th> Last name</th>
-						        <th> Mail</th>
-						        <th> Status</th>
+						        <th> Date</th>
+						        <th> Description</th>
+						        <th> ID_Buyer</th>
+						        <th> ID_Seller</th>
 						       <th> Operation</th>
 						    
 						    </tr>
 						    </thead>
 						   <tbody>
-							<tr ng-repeat="U in Users.content">
-							<td>{{U.idUser}}</td>
-							<td>{{U.name}}</td>
-							<td>{{U.lastName}}</td>
-							<td>{{U.mail}}</td>
-							<td>{{U.status}}</td>
+							<tr ng-repeat="C in Complaint.content">
+							<td>{{C.idComplaint}}</td>
+							<td>{{C.dateComplaint}}</td>
+							<td>{{C.description}}</td>
+							 <td></td>
+							<td></td>
 							
 						
 							<td class="clickable">  
-							<a ng-click="supprimer(U)">Supprimer  </a>
+							<a ng-click="supprimerCompl(C)">Supprimer  </a>
 							
 							 
-							<a ng-click="Modifier(U)" >Modifier</a>
+							<a ng-click="Modifier(C)" >Modifier</a>
 							 
 							</td>
 							</tr>
