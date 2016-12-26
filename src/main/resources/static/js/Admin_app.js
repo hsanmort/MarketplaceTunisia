@@ -11,15 +11,16 @@
 	                         templateUrl: 'Admin/Complaint.html',
 	                         controller: 'ContComplaint'
 	                     })
-	                   /* .when('/Complaint', {
+	                   .when('/ListComplaint/:id', {
 	                         templateUrl: 'Admin/Chat_Complaint.html',
-	                         controller: 'ContComplaint'
+	                         controller: 'appartementCtrl'
 	                     })
-	                    */
+	                   
 	                     .when('/Category', {
 	                         templateUrl: 'Admin/Category.html',
 	                         controller: 'ContCategory'
-	                     });
+	                     })
+	                     ;
 	                 }
 
 	             ]);
@@ -133,7 +134,7 @@
 		
 		
 	$scope.Ajouter = function(){		
-					
+			
 			var dataObj = {
 					nameCategory : $scope.nameCategory
 					
@@ -209,26 +210,30 @@
 		}	
 		*/
 		
-		
-	$scope.DetailCompl = function(){		
+	/*	
+	$scope.AjouterRecla= function(){		
 					
 			var dataObj = {
+					id : $scope.id
 					description : $scope.description
 					
 			};	
-			var res = $http.post('/category/save', dataObj);
-			res.success(function(data, status, headers, config) {
+			var resu = $http.post('/complaint/save', dataObj);
+			resu.success(function(data, status, headers, config) {
 				$scope.message = data;
 			});
-			res.error(function(data, status, headers, config) {
+			resu.error(function(data, status, headers, config) {
 				alert( "failure message: " + JSON.stringify({data: data}));
 			});		
 			
-			$scope.nameCategory='';
 			
-			chargerCompl();
 		};
-		
+		*/
+		$scope.DetailCompl=function(C){
+			$scope.Complaint=C;
+			//$scope.prix=P.idUser;
+			$scope.DES="dd";
+			};
 		
 		$scope.gotoPage=function(p){
 			$scope.pageCourante=p;
@@ -243,4 +248,31 @@
 
 	};
 	});
+	
+	
+	// Le contrôleur appartementCtrl
+	/*routeApp.controller('appartementCtrl',function($scope){
+        $scope.tel='95 109 199';
+        $scope.nom='idriss.hammami@esprit.tn';
+    
+	/*['$scope', '$routeParams',
+	    function($scope, $routeParams){
+	        // Pour afficher les informations
+	        $scope.immeuble = $routeParams.imble;  
+	        $scope.nom = 'sss';// ici 57
+	       
+	    }
+	]*///}
+	//);
+	
+	routeApp.controller('appartementCtrl', ['$scope', '$routeParams',
+	                                                    function($scope, $routeParams){
+	                                                        // Pour afficher les informations
+	                                                        $scope.id = $routeParams.id;       // ici 57
+	                                                        $scope.description = $routeParams.description;   // ici 10
+	                                                        $scope.date =$routeParams.date;              // ici "dupont"
+	                                                    }
+	                                                ]);
+	
+	
 	

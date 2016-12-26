@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="routeComp">
+<html ng-app="routeApp">
 <head>
 <meta charset="UTF-8">
 <title>Complaint</title>
@@ -17,7 +17,7 @@
 <script src="js/lumino.glyphs.js"></script>
   
 </head>
-<body ng-app="routeComp" ng-controller="ContComplaint" >
+<body ng-app="routeApp" ng-controller="ContComplaint" >
 
 <!-- 
 <div class="col-md-4">
@@ -109,14 +109,13 @@
 							
 							<button  ng-click="supprimerCompl(C)" class="btn btn-red" >Supprimer</button>
 							
-							<button type="submit" ng-click="ModifierCompl(C)" class="btn btn-primary">Modifier</button> 
-							<form role="form" ng-submit="Ajouter()"> 
-				<input id="btn-input" type="text" class="form-control input-md"  name="idComplaint" ng-model="C.idComplaint" >
-				<input id="btn-input" type="text" class="form-control input-md"  name="description" ng-model="C.description" >
-							<input value="DetailCompl" type="submit" class="btn btn-green" id="btn-todo">
 							
-							<!-- <button value="Detail" type="submit" ng-click="DetailCompl(C)" class="btn btn-green" ></button>-->
-							</form>
+				
+				 		<form role="form" ng-submit="Ajouter()" > 
+			<a href="#ListComplaint/{{C.idComplaint}}?date={{C.dateComplaint}}&description={{C.description}}" onclick="this.form.submit();"> 
+			<input value="Detail" type="submit" class="btn btn-green" id="btn-todo">
+							
+						 </form> 
 							</td>
 							</tr>
 							</tbody>
