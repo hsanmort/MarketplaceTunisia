@@ -368,3 +368,52 @@
 //		};
 //	});
 	
+	/***************************gérer Users*****************************/
+	routeApp.controller("ContUsers",function($scope,$http){
+		$scope.Category=[];
+		$scope.motCle=null;
+		$scope.pageCourante=0;
+
+
+		function chargerBuyer(){
+		$http.get("/buyer/all?&page="+$scope.pageCourante)
+		.success(function(data){
+		$scope.Category=data;
+		$scope.pages=new Array(data.totalPages)
+		});
+		};
+
+		function chargerSeller(){
+			$http.get("/seller/all?&page="+$scope.pageCourante)
+			.success(function(data){
+			$scope.Category=data;
+			$scope.pages=new Array(data.totalPages)
+			});
+			};
+
+		chargerC();
+
+		$scope.supprimerC=function(C){
+			
+			$http.get("/category/delete?idCategory="+C.idCategory)
+			.success(function(){
+				$scope.gotoPage($scope.pageCourante);
+			});
+			
+			};
+			
+			
+			
+			/********Modifier**********///buyer/update?idUser=2&status=1	
+		
+					
+					$scope.gotoPage=function(p){
+		$scope.pageCourante=p;
+
+		if ($scope.motCle == null){ 
+			chargerC();
+		}
+		
+
+		};
+		});

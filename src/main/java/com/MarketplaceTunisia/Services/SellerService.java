@@ -3,6 +3,8 @@ package com.MarketplaceTunisia.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,8 +35,8 @@ public class SellerService {
 	}
 	
 	@RequestMapping(value="/seller/all", method=RequestMethod.GET)
-	public List<Seller> allSellers() {
-		return sellerRepository.findAll();
+	public Page<Seller> allSellers(int page) {
+		return sellerRepository.findAll(new PageRequest(page, 5));
 	}
 	
 }
