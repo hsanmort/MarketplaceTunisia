@@ -251,26 +251,7 @@
 	                                                        $scope.id = $routeParams.id;       // ici 57
 	                                                        $scope.desc = $routeParams.description;   // ici 10
 	                                                        $scope.date =$routeParams.date;              // ici "dupont"
-	                                                    	routeApp.controller("ReclaAjouter",function($scope,$http){
-	                                                    		$scope.AjouterRecla= function(){		
-	                                                    			
-	                                                    			var Obj = {
-	                                                    				
-	                                                    					description :$scope.rec
-	                                                    					
-	                                                    			};	
-	                                                    			var resu = $http.post('/complaint/save', Obj);
-	                                                    			resu.success(function(data, status, headers, config) {
-	                                                    				$scope.message = data;
-	                                                    			});
-	                                                    			resu.error(function(data, status, headers, config) {
-	                                                    				alert( "failure message: " + JSON.stringify({data: data}));
-	                                                    			});		
-	                                                    			//$scope.recla=$scope.description;
-	                                                    			//$scope.description='';
-	                                                    			
-	                                                    		};
-	                                                    	})                              
+	                                                                               
 	                                                        
 	}
 	                                                ]
