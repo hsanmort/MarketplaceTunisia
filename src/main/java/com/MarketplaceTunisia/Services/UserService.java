@@ -42,8 +42,8 @@ public class UserService {
 	}
 	
 	@RequestMapping(value="/user/all", method=RequestMethod.GET)
-	public List<User> allUsers() {
-		return userRepository.findAll();
+	public Page<User> allUsers(int page) {
+		return userRepository.findAll(new PageRequest(page, 5));
 	}
 	
 	@RequestMapping("/user/findByMc")

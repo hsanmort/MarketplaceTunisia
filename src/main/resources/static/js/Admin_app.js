@@ -37,7 +37,7 @@
 
 
 		function chargerU(){
-		$http.get("/NewUser/all?&page="+$scope.pageCourante)
+		$http.get("/user/all?&page="+$scope.pageCourante)
 		.success(function(data){
 		$scope.Users=data;
 		$scope.pages=new Array(data.totalPages)
@@ -84,13 +84,7 @@
 		});
 		
 		};
-/*
-	$scope.Modifier=function(P){
-		$scope.Users=P;
-		$scope.prix=P.idUser;
-		$scope.DES=P.name;
-		};
-	*/	
+	
 	$scope.gotoPage=function(p){
 	$scope.pageCourante=p;
 
@@ -233,11 +227,12 @@
 	});
 	*/
 	
-	routeApp.controller('ContComplaint',function($scope,$http) {
+	routeApp.controller('ContComplaint',function($scope,$http,$routeParams) {
 			$scope.Complaint=[];
 			$scope.motCle=null;
 			$scope.pageCourante=0;
-						//				afficher All complaiment
+			$scope.id = $routeParams.id;  
+						//afficher All complaiment
 			function chargerCompl(){
 				$http.get("/complaint/all?&page="+$scope.pageCourante)
 				.success(function(data){
