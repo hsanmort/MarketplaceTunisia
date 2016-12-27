@@ -13,8 +13,8 @@
 	                     })
 	                   .when('/ListComplaint/:id', {
 	                         templateUrl: 'Admin/Chat_Complaint.html',
-	                         controller: 'appartementCtrl'//,
-	                        // controller: 'ReclaAjouter'
+	                       controller: 'appartementCtrl' 
+	                       //  controller: 'ReclaAjouter'
 	                     })
 	                   
 	                     .when('/Category', {
@@ -36,7 +36,7 @@
 	$scope.pageCourante=0;
 
 
-	function charger1(){
+	function chargerU(){
 	$http.get("/NewUser/all?&page="+$scope.pageCourante)
 	.success(function(data){
 	$scope.Users=data;
@@ -45,7 +45,7 @@
 	};
 
 
-	charger1();
+	chargerU();
 	$scope.charger=function(){
 	$http.get("/user/findByMc?mc="+$scope.motCle+"&page="+$scope.pageCourante)
 	.success(function(data){
@@ -94,7 +94,7 @@
 	$scope.pageCourante=p;
 
 	if ($scope.motCle == null){ 
-	charger1();
+	chargerU();
 	} else { 
 		
 		$scope.charger();
@@ -251,31 +251,32 @@
 	                                                        $scope.id = $routeParams.id;       // ici 57
 	                                                        $scope.desc = $routeParams.description;   // ici 10
 	                                                        $scope.date =$routeParams.date;              // ici "dupont"
-	                                                   
-	/*
-	
-	                                                        $scope.AjouterRecla= function(){		
-		                                            			
-		                                            			var Obj = {
-		                                            				
-		                                            					description :$scope.rec
-		                                            					
-		                                            			};	
-		                                            			var resu = $http.post('/complaint/save', Obj);
-		                                            			resu.success(function(data, status, headers, config) {
-		                                            				$scope.message = data;
-		                                            			});
-		                                            			resu.error(function(data, status, headers, config) {
-		                                            				alert( "failure message: " + JSON.stringify({data: data}));
-		                                            			});		
-		                                            			//$scope.recla=$scope.description;
-		                                            			//$scope.description='';
-		                                            			
-		                                            		};*/
+	                                                    	routeApp.controller("ReclaAjouter",function($scope,$http){
+	                                                    		$scope.AjouterRecla= function(){		
+	                                                    			
+	                                                    			var Obj = {
+	                                                    				
+	                                                    					description :$scope.rec
+	                                                    					
+	                                                    			};	
+	                                                    			var resu = $http.post('/complaint/save', Obj);
+	                                                    			resu.success(function(data, status, headers, config) {
+	                                                    				$scope.message = data;
+	                                                    			});
+	                                                    			resu.error(function(data, status, headers, config) {
+	                                                    				alert( "failure message: " + JSON.stringify({data: data}));
+	                                                    			});		
+	                                                    			//$scope.recla=$scope.description;
+	                                                    			//$scope.description='';
+	                                                    			
+	                                                    		};
+	                                                    	})                              
+	                                                        
 	}
 	                                                ]
 	                                                
 	);
+	
 	
 	
 	routeApp.controller("ReclaAjouter",function($scope,$http){
