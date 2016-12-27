@@ -30,6 +30,9 @@
 //	}).when('/RegSeller', {
 //		templateUrl : 'views/security/Account_login_Seller.html',
 //		controller : 'registerSellerController'
+//	}).when('/cart', {
+//		templateUrl : 'views/client/cart.html',
+//		controller : 'cartController'
 //	})
 //
 //	.otherwise({
@@ -92,6 +95,19 @@
 //			chargerAll();
 //		} ]);
 
+////Controleur de la page client panier
+//routeApp.controller('cartController',['$scope','$http',
+//		function($scope, $http) {
+//			$scope.users = [];
+//			$scope.message = "Bienvenue sur la page client";
+//			function chargerAll() {
+//				$http.get("/shoppingCart/all").success(function(data) {
+//					$scope.users = data;
+//				});
+//			}
+//			;
+//			chargerAll();
+//		} ]);
 
 'use strict';
 var myApp = myApp || {};
