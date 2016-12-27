@@ -1,12 +1,7 @@
 package com.MarketplaceTunisia.Services;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.MarketplaceTunisia.DAO.RoleRepository;
 import com.MarketplaceTunisia.DAO.UserRepository;
 import com.MarketplaceTunisia.Entities.Adress;
-import com.MarketplaceTunisia.Entities.Role;
 import com.MarketplaceTunisia.Entities.User;
 
 @RestController
@@ -50,11 +44,6 @@ public class UserService {
 	@RequestMapping(value="/user/all", method=RequestMethod.GET)
 	public List<User> allUsers() {
 		return userRepository.findAll();
-	}
-	
-	@RequestMapping("/NewUser/all")
-	public Page<User> allUsers(int page){
-	return userRepository.findAll(new PageRequest(page, 5));
 	}
 	
 	@RequestMapping("/user/findByMc")
