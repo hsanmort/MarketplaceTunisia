@@ -1,24 +1,30 @@
 package com.MarketplaceTunisia.Services;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.MarketplaceTunisia.DAO.BuyerRepository;
 import com.MarketplaceTunisia.DAO.ComplaintRepository;
+import com.MarketplaceTunisia.DAO.SellerRepository;
+import com.MarketplaceTunisia.Entities.Buyer;
 import com.MarketplaceTunisia.Entities.Complaint;
+import com.MarketplaceTunisia.Entities.Seller;
 
 @RestController
 public class ComplaintService {
 	@Autowired
 	ComplaintRepository complaintrepository;
+	@Autowired
+	BuyerRepository buyerRepository;
+	@Autowired
+	SellerRepository sellerRepository;
 	
 	@RequestMapping(value="/complaint/save",method=RequestMethod.POST)
 	public void saveComplaint(@RequestBody Complaint complaint){
@@ -45,9 +51,21 @@ public class ComplaintService {
 		return complaintrepository.findByMc("%"+mc+"%", new PageRequest(page,5));
 	}
 	
-	@RequestMapping("/complaint/findByDate")
-	public Page<Complaint> getComplaintsByDate(Date date, int page){
-	return complaintrepository.findBydateComplaint(date, new PageRequest(page,5));
+//	@RequestMapping("/complaint/findByDate")
+//	public Page<Complaint> getComplaintsByDate(Date date, int page){
+//	return complaintrepository.findBydateComplaint(date, new PageRequest(page,5));
+//	}
+	
+	@RequestMapping("/complaint/findByBuyer")
+	public Page<Complaint> getComplaintsByBuyer(int idBuyer, int page){
+		Buyer buyer=buyerRepository.findOne(idBuyer);
+	return complaintrepository.findByBuyer(buyer,new PageRequest(page,5));
+	}
+	
+	@RequestMapping("/complaint/findBySeller")
+	public Page<Complaint> getComplaintsBySeller(int idSeller, int page){
+		Seller seller=sellerRepository.findOne(idSeller);
+	return complaintrepository.findBySeller(seller,new PageRequest(page,5));
 	}
 	
 	}
