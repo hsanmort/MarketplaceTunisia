@@ -19,7 +19,7 @@ public class Buyer extends User implements Serializable {
 		
 		private ArrayList<String> hobbies=new ArrayList<String>();
 		
-		@OneToMany(mappedBy="buyer")
+		@OneToMany(mappedBy="buyer",orphanRemoval=true)
 		private List<Complaint> complaints;
 		
 		@OneToMany(mappedBy="buyer")

@@ -26,7 +26,7 @@ public class Seller extends User implements Serializable {
 	@OneToMany(mappedBy="seller")
 	private List<Shop> shops;
 	
-	@OneToMany(mappedBy="seller")
+	@OneToMany(mappedBy="seller",orphanRemoval=true)
 	private List<Complaint> complaints;
 
 	public String getCompanyName() {
