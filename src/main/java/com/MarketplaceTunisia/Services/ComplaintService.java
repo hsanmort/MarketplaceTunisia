@@ -49,5 +49,9 @@ public class ComplaintService {
 	public Page<Complaint> getComplaintsByDate(Date date, int page){
 	return complaintrepository.findBydateComplaint(date, new PageRequest(page,5));
 	}
+	@RequestMapping("/complaint/findById")
+	public Complaint getComplaintsById(Integer id){
+	return complaintrepository.findByidComplaint(id);
+	}
 	
 	}

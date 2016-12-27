@@ -13,7 +13,7 @@
 	                     })
 	                   .when('/ListComplaint/:id', {
 	                         templateUrl: 'Admin/Chat_Complaint.html',
-	                       controller: 'appartementCtrl' 
+	                       controller: 'ContComplaint' 
 	                       //  controller: 'ReclaAjouter'
 	                     })
 	                   
@@ -36,16 +36,17 @@
 	$scope.pageCourante=0;
 
 
-	function chargerU(){
-	$http.get("/NewUser/all?&page="+$scope.pageCourante)
-	.success(function(data){
-	$scope.Users=data;
-	$scope.pages=new Array(data.totalPages)
-	});
-	};
+		function chargerU(){
+		$http.get("/NewUser/all?&page="+$scope.pageCourante)
+		.success(function(data){
+		$scope.Users=data;
+		$scope.pages=new Array(data.totalPages)
+		});
+		};
 
 
-	chargerU();
+		chargerU();
+		
 	$scope.charger=function(){
 	$http.get("/user/findByMc?mc="+$scope.motCle+"&page="+$scope.pageCourante)
 	.success(function(data){
@@ -169,30 +170,30 @@
 	
 	
 	/*******************************Gérer reclamation**********************************/
-	//var routeApp=angular.module("MyCat",[]);
-	routeApp.controller("ContComplaint",function($scope,$http){
+//var routeApp=angular.module("MyCat",[]);
+	/*routeApp.controller("ContComplaint",function($scope,$http){
 	$scope.Complaint=[];
 	$scope.motCle=null;
 	$scope.pageCourante=0;
 
 
-	function chargerCompl(){
-	$http.get("/complaint/all?&page="+$scope.pageCourante)
-	.success(function(data){
-	$scope.Complaint=data;
-	$scope.pages=new Array(data.totalPages)
-	});
-	};
-	
-
-	chargerCompl();
-	$scope.charger=function(){
-		$http.get("/complaint/findByMc?mc="+$scope.motCle+"&page="+$scope.pageCourante)
+		function chargerCompl(){
+		$http.get("/complaint/all?&page="+$scope.pageCourante)
 		.success(function(data){
 		$scope.Complaint=data;
 		$scope.pages=new Array(data.totalPages)
 		});
 		};
+	
+
+		chargerCompl();
+		$scope.charger=function(){
+			$http.get("/complaint/findByMc?mc="+$scope.motCle+"&page="+$scope.pageCourante)
+			.success(function(data){
+			$scope.Complaint=data;
+			$scope.pages=new Array(data.totalPages)
+			});
+			};
 		
 		
 		
@@ -207,13 +208,6 @@
 	
 		
 		
-	
-		
-		$scope.DetailCompl=function(C){
-			$scope.Complaint=C;
-			//$scope.prix=P.idUser;
-			$scope.DES="dd";
-			};
 		
 		$scope.gotoPage=function(p){
 			$scope.pageCourante=p;
@@ -227,7 +221,79 @@
 	
 
 	};
+	
+
+	     
+	        
+	        
+	        
+	        
+	                                   			
+
 	});
+	*/
+	
+	routeApp.controller('ContComplaint',function($scope,$http) {
+			$scope.Complaint=[];
+			$scope.motCle=null;
+			$scope.pageCourante=0;
+						//				afficher All complaiment
+			function chargerCompl(){
+				$http.get("/complaint/all?&page="+$scope.pageCourante)
+				.success(function(data){
+				$scope.Complaint=data;
+				$scope.pages=new Array(data.totalPages)
+				});
+				};
+				
+				chargerCompl();
+				
+				$scope.charger=function(){
+					$http.get("/complaint/findByMc?mc="+$scope.motCle+"&page="+$scope.pageCourante)
+					.success(function(data){
+					$scope.Complaint=data;
+					$scope.pages=new Array(data.totalPages)
+					});
+					};
+					
+				$scope.gotoPage=function(p){
+						$scope.pageCourante=p;
+						if ($scope.motCle == null){ 
+							chargerCompl();
+						} else { 
+							
+							$scope.charger();
+						}
+					};
+					
+					/*function ReclaAjouter() {
+				        var Obj = {
+				        description :$scope.rec};	
+				        var resu = $http.post('/complaint/save', Obj);
+				        resu.success(function(data, status, headers, config) {
+				        $scope.message = data;});
+				        resu.error(function(data, status, headers, config) {
+				        alert( "failure message: " + JSON.stringify({data: data}));
+				        });		
+				        };
+				        
+				        function afficheDetail(id) {
+				        	var resu = $http.get('/complaint/findById');
+				        	.success(function(data){
+								$scope.resu=data;
+								});
+				         
+				        	};
+				        	*/
+				
+		
+			}
+		);
+	
+	
+	
+	
+	
 	
 	
 	// Le contrôleur appartementCtrl
@@ -260,24 +326,24 @@
 	
 	
 	
-	routeApp.controller("ReclaAjouter",function($scope,$http){
-		$scope.AjouterRecla= function(){		
-			
-			var Obj = {
-				
-					description :$scope.rec
-					
-			};	
-			var resu = $http.post('/complaint/save', Obj);
-			resu.success(function(data, status, headers, config) {
-				$scope.message = data;
-			});
-			resu.error(function(data, status, headers, config) {
-				alert( "failure message: " + JSON.stringify({data: data}));
-			});		
-			//$scope.recla=$scope.description;
-			//$scope.description='';
-			
-		};
-	});
+//	routeApp.controller("ReclaAjouter",function($scope,$http){
+//		$scope.AjouterRecla= function(){		
+//			
+//			var Obj = {
+//				
+//					description :$scope.rec
+//					
+//			};	
+//			var resu = $http.post('/complaint/save', Obj);
+//			resu.success(function(data, status, headers, config) {
+//				$scope.message = data;
+//			});
+//			resu.error(function(data, status, headers, config) {
+//				alert( "failure message: " + JSON.stringify({data: data}));
+//			});		
+//			//$scope.recla=$scope.description;
+//			//$scope.description='';
+//			
+//		};
+//	});
 	
