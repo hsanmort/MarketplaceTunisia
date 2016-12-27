@@ -45,7 +45,7 @@
 								</span>
 								<div class="chat-body clearfix">
 									<div class="header">
-										<strong class="primary-font">Complaint</strong> <small class="text-muted">{{date}}</small>
+										<strong class="primary-font">Complaint</strong> <small class="text-muted">{{date | date:'yyyy-MM-dd'}}</small>
 									</div>
 									<p>
 										{{desc}}
@@ -58,7 +58,7 @@
 								</span>
 								<div class="chat-body clearfix">
 									<div class="header">
-										<strong class="pull-left primary-font">Administrator</strong> 
+										<strong class="pull-left primary-font">Administrator</strong> <small class="text-muted">{{dateRep | date:'yyyy-MM-dd'}}</small>
 									</div>
 									<p>
 										{{recla}}
@@ -74,7 +74,7 @@
 						<form  role="form" ng-submit="AjouterRecla()">
 						<textarea class="form-control" type="text" rows="3" cols="100" name="rec" ng-model="rec"></textarea>
 							<span class="input-group-btn">
-							<!-- <input id="btn-input" type="text" name="rec" ng-model="rec" class="form-control input-md" placeholder="Type your message here..." /> -->
+						<input type="text" name="idUser" ng-model="idUser" />
 							
 							<input value="Send" type="submit" class="btn btn-green" id="btn-todo">
 							</span>

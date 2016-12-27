@@ -235,13 +235,15 @@
 			$scope.id = $routeParams.id;  
 			$scope.desc = $routeParams.description;  
 			$scope.date = $routeParams.date;  
-			
+			$scope.idUser = $routeParams.idUser;
+			$scope.date=new Date();
 			$scope.AjouterRecla= function(){		
-				
+				//var objId={idUser:$scope.idUser};
 				var Obj = {
 					
-						description :$scope.rec
-						
+						description :$scope.rec,
+						//dateComplaint = $scope.date,
+						buyer:{idUser:$scope.idUser}
 				};	
 				var resu = $http.post('/complaint/save', Obj);
 				resu.success(function(data, status, headers, config) {
@@ -251,6 +253,7 @@
 					alert( "failure message: " + JSON.stringify({data: data}));
 				});		
 				$scope.recla=$scope.rec;
+				$scope.dateRep = new Date();
 				$scope.rec='';
 				
 			};
