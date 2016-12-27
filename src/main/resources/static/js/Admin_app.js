@@ -250,8 +250,8 @@
 				resu.error(function(data, status, headers, config) {
 					alert( "failure message: " + JSON.stringify({data: data}));
 				});		
-				//$scope.recla=$scope.description;
-				//$scope.description='';
+				$scope.recla=$scope.rec;
+				$scope.rec='';
 				
 			};
 			
