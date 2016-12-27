@@ -13,7 +13,8 @@
 	                     })
 	                   .when('/ListComplaint/:id', {
 	                         templateUrl: 'Admin/Chat_Complaint.html',
-	                         controller: 'appartementCtrl'
+	                         controller: 'appartementCtrl'//,
+	                        // controller: 'ReclaAjouter'
 	                     })
 	                   
 	                     .when('/Category', {
@@ -203,32 +204,11 @@
 		});
 		
 		};
-		/*
-		$scope.DetailCompl=function(C){
-			templateUrl: 'Admin/Chat_Complaint.html'	
-			
-		}	
-		*/
+	
 		
-	/*	
-	$scope.AjouterRecla= function(){		
-					
-			var dataObj = {
-					id : $scope.id
-					description : $scope.description
-					
-			};	
-			var resu = $http.post('/complaint/save', dataObj);
-			resu.success(function(data, status, headers, config) {
-				$scope.message = data;
-			});
-			resu.error(function(data, status, headers, config) {
-				alert( "failure message: " + JSON.stringify({data: data}));
-			});		
-			
-			
-		};
-		*/
+		
+	
+		
 		$scope.DetailCompl=function(C){
 			$scope.Complaint=C;
 			//$scope.prix=P.idUser;
@@ -269,10 +249,53 @@
 	                                                    function($scope, $routeParams){
 	                                                        // Pour afficher les informations
 	                                                        $scope.id = $routeParams.id;       // ici 57
-	                                                        $scope.description = $routeParams.description;   // ici 10
+	                                                        $scope.desc = $routeParams.description;   // ici 10
 	                                                        $scope.date =$routeParams.date;              // ici "dupont"
-	                                                    }
-	                                                ]);
+	                                                   
+	/*
+	
+	                                                        $scope.AjouterRecla= function(){		
+		                                            			
+		                                            			var Obj = {
+		                                            				
+		                                            					description :$scope.rec
+		                                            					
+		                                            			};	
+		                                            			var resu = $http.post('/complaint/save', Obj);
+		                                            			resu.success(function(data, status, headers, config) {
+		                                            				$scope.message = data;
+		                                            			});
+		                                            			resu.error(function(data, status, headers, config) {
+		                                            				alert( "failure message: " + JSON.stringify({data: data}));
+		                                            			});		
+		                                            			//$scope.recla=$scope.description;
+		                                            			//$scope.description='';
+		                                            			
+		                                            		};*/
+	}
+	                                                ]
+	                                                
+	);
 	
 	
+	routeApp.controller("ReclaAjouter",function($scope,$http){
+		$scope.AjouterRecla= function(){		
+			
+			var Obj = {
+				
+					description :$scope.rec
+					
+			};	
+			var resu = $http.post('/complaint/save', Obj);
+			resu.success(function(data, status, headers, config) {
+				$scope.message = data;
+			});
+			resu.error(function(data, status, headers, config) {
+				alert( "failure message: " + JSON.stringify({data: data}));
+			});		
+			//$scope.recla=$scope.description;
+			//$scope.description='';
+			
+		};
+	});
 	
