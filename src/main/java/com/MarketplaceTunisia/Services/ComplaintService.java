@@ -68,7 +68,7 @@ public class ComplaintService {
 	return complaintrepository.findBySeller(seller,new PageRequest(page,5));
 	}
 	@RequestMapping("/complaint/findById")
-	public Complaint getComplaintsById(Integer id){
+	public Complaint getComplaintsById(int id){
 	return complaintrepository.findByidComplaint(id);
 	}
 	

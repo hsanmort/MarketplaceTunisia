@@ -229,9 +229,32 @@
 	
 	routeApp.controller('ContComplaint',function($scope,$http,$routeParams) {
 			$scope.Complaint=[];
+			$scope.DetailComp=[];
 			$scope.motCle=null;
 			$scope.pageCourante=0;
 			$scope.id = $routeParams.id;  
+			$scope.desc = $routeParams.description;  
+			$scope.date = $routeParams.date;  
+			
+			$scope.AjouterRecla= function(){		
+				
+				var Obj = {
+					
+						description :$scope.rec
+						
+				};	
+				var resu = $http.post('/complaint/save', Obj);
+				resu.success(function(data, status, headers, config) {
+					$scope.message = data;
+				});
+				resu.error(function(data, status, headers, config) {
+					alert( "failure message: " + JSON.stringify({data: data}));
+				});		
+				//$scope.recla=$scope.description;
+				//$scope.description='';
+				
+			};
+			
 						//afficher All complaiment
 			function chargerCompl(){
 				$http.get("/complaint/all?&page="+$scope.pageCourante)
@@ -306,7 +329,7 @@
 	]*///}
 	//);
 	
-	routeApp.controller('appartementCtrl', ['$scope', '$routeParams',
+/*	routeApp.controller('appartementCtrl', ['$scope', '$routeParams',
 	                                                    function($scope, $routeParams){
 	                                                        // Pour afficher les informations
 	                                                        $scope.id = $routeParams.id;       // ici 57
@@ -318,7 +341,7 @@
 	                                                ]
 	                                                
 	);
-	
+	*/
 	
 	
 //	routeApp.controller("ReclaAjouter",function($scope,$http){
