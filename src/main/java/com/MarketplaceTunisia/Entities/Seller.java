@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -26,7 +27,7 @@ public class Seller extends User implements Serializable {
 	@OneToMany(mappedBy="seller")
 	private List<Shop> shops;
 	
-	@OneToMany(mappedBy="seller",orphanRemoval=true)
+	@OneToMany(mappedBy="seller",cascade=CascadeType.REMOVE)
 	private List<Complaint> complaints;
 
 	public String getCompanyName() {
