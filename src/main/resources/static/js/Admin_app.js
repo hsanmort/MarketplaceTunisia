@@ -32,7 +32,7 @@
 	//var routeApp=angular.module("MyCat",[]);
 	routeApp.controller("CatController",function($scope,$http){
 	$scope.Users=[];
-	$scope.motCleS=null;
+	$scope.motCle=null;
 	$scope.pageCourante=0;
 	//$scope.pageCourante=0;
 
@@ -373,15 +373,17 @@
 	routeApp.controller("ContUsers",function($scope,$http){
 		$scope.Buyer=[];
 		$scope.Seller=[];
-		$scope.motCle=null;
+		$scope.motCleS=null;
+		$scope.motCleB=null;
 		$scope.pageCourante=0;
+		$scope.pageCouranteB=0;
 
 
 		function chargerB(){
-		$http.get("/buyer/all?&page="+$scope.pageCourante)
+		$http.get("/buyer/all?&page="+$scope.pageCouranteB)
 		.success(function(data){
 		$scope.Buyer=data;
-		$scope.pages=new Array(data.totalPages)
+		$scope.pagesB=new Array(data.totalPages)
 		});
 		};
 
@@ -393,8 +395,27 @@
 			});
 			};
 
-		chargerS();
+		
 		chargerB();
+		$scope.chargerMCB=function(){
+			
+			$http.get("/buyer/findByMc?mc="+$scope.motCleB+"&page="+$scope.pageCouranteB)
+			.success(function(data){
+			$scope.Buyer=data;
+			$scope.pagesB=new Array(data.totalPages)
+			});
+			};
+		
+			
+		chargerS();
+		$scope.chargerMCS=function(){
+		
+			$http.get("/seller/findByMc?mc="+$scope.motCleS+"&page="+$scope.pageCourante)
+			.success(function(data){
+			$scope.Seller=data;
+			$scope.pages=new Array(data.totalPages)
+			});
+			};
 		
 		
 		$scope.supprimerC=function(C){
@@ -415,13 +436,32 @@
 		$scope.pageCourante=p;
 		
 
-		if ($scope.motCleS == null){ 
-			chargerS();
-			//chargerB();
-		}
+		if ($scope.motCleS == null)
+			{ 
+				chargerS();
+			}
+		else
+			{ 
+				$scope.chargerMCS();
+			}
 		
 
 		};
+		
+		$scope.gotoPageB=function(p){
+			$scope.pageCouranteB=p;
+			
+			if ($scope.motCleB == null)
+			{ 
+				chargerB();
+			}
+		else
+			{ 
+				$scope.chargerMCB();
+			}
+
+			};
+		
 	/*	$scope.gotoPageB=function(pB){
 			$scope.pageCouranteB=pB;
 			

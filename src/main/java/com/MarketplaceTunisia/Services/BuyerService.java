@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.MarketplaceTunisia.DAO.BuyerRepository;
 import com.MarketplaceTunisia.Entities.Buyer;
+import com.MarketplaceTunisia.Entities.Seller;
 import com.MarketplaceTunisia.Entities.User;
 
 @RestController
@@ -40,5 +41,8 @@ public class BuyerService {
 		return buyerRepository.findAll(new PageRequest(page, 5));
 	}
 	
-	
+	@RequestMapping("/buyer/findByMc")
+	public Page<Buyer> getBuyerByMc(String mc, int page){
+		return buyerRepository.findByMc("%"+mc+"%", new PageRequest(page,5));
+	}
 }

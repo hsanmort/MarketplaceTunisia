@@ -71,7 +71,7 @@
 							<div class="input-group">
 							<input type="text" ng-model="motCleS" id="btn-input" class="form-control input-md" placeholder="Keyword">
 							<span class="input-group-btn">
-							<button ng-click="chargerS()" class="btn btn-primary btn-md" id="btn-todo">Search</button>
+							<button ng-click="chargerMCS()" class="btn btn-primary btn-md" id="btn-todo">Search</button>
 						</span>
 						</div>
 						</form>
@@ -132,7 +132,7 @@ class="clickable" ng-repeat="p in pages track by $index">
 				
 				
 				
-				<div class="panel panel-green">
+				<div class="panel panel-blue">
 					<div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>List Of Buyer</div>
 					<div class="panel-body">
 						<div class="input-group">
@@ -141,7 +141,7 @@ class="clickable" ng-repeat="p in pages track by $index">
 							<div class="input-group">
 							<input type="text" ng-model="motCleB" id="btn-input" class="form-control input-md" placeholder="Keyword">
 							<span class="input-group-btn">
-							<button ng-click="chargerB()" class="btn btn-primary btn-md" id="btn-todo">Search</button>
+							<button ng-click="chargerMCB()" class="btn btn-primary btn-md" id="btn-todo">Search</button>
 						</span>
 						</div>
 						</form>
@@ -190,7 +190,14 @@ class="clickable" ng-repeat="p in pages track by $index">
 						</div>
 						
 					</div>
-							<!--  -->
+					<div class="container">
+						<ul class="nav nav-pills">
+						<li ng-class="{active:$index==pageCouranteB}"
+						class="clickable" ng-repeat="p in pagesB track by $index">
+						<a ng-click="gotoPageB($index)">{{$index}}</a>
+						</li>
+						</ul>
+					</div>
 				</div>
 				
 				
