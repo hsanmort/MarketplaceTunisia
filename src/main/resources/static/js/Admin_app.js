@@ -5,7 +5,7 @@
 	                     $routeProvider
 	                     .when('/NewUsers', {
 	                         templateUrl: 'Admin/NewUsers.html',
-	                         controller: 'CatController'
+	                         controller: 'ContUsers'
 	                     })
 	                    .when('/Complaint', {
 	                         templateUrl: 'Admin/Complaint.html',
@@ -32,8 +32,9 @@
 	//var routeApp=angular.module("MyCat",[]);
 	routeApp.controller("CatController",function($scope,$http){
 	$scope.Users=[];
-	$scope.motCle=null;
+	$scope.motCleS=null;
 	$scope.pageCourante=0;
+	//$scope.pageCourante=0;
 
 
 		function chargerU(){
@@ -370,29 +371,32 @@
 	
 	/***************************gérer Users*****************************/
 	routeApp.controller("ContUsers",function($scope,$http){
-		$scope.Category=[];
+		$scope.Buyer=[];
+		$scope.Seller=[];
 		$scope.motCle=null;
 		$scope.pageCourante=0;
 
 
-		function chargerBuyer(){
+		function chargerB(){
 		$http.get("/buyer/all?&page="+$scope.pageCourante)
 		.success(function(data){
-		$scope.Category=data;
+		$scope.Buyer=data;
 		$scope.pages=new Array(data.totalPages)
 		});
 		};
 
-		function chargerSeller(){
+		function chargerS(){
 			$http.get("/seller/all?&page="+$scope.pageCourante)
 			.success(function(data){
-			$scope.Category=data;
+			$scope.Seller=data;
 			$scope.pages=new Array(data.totalPages)
 			});
 			};
 
-		chargerC();
-
+		chargerS();
+		chargerB();
+		
+		
 		$scope.supprimerC=function(C){
 			
 			$http.get("/category/delete?idCategory="+C.idCategory)
@@ -407,13 +411,28 @@
 			/********Modifier**********///buyer/update?idUser=2&status=1	
 		
 					
-					$scope.gotoPage=function(p){
+		$scope.gotoPageS=function(p){
 		$scope.pageCourante=p;
+		
 
-		if ($scope.motCle == null){ 
-			chargerC();
+		if ($scope.motCleS == null){ 
+			chargerS();
+			//chargerB();
 		}
 		
 
 		};
+	/*	$scope.gotoPageB=function(pB){
+			$scope.pageCouranteB=pB;
+			
+
+			if ($scope.motCleB == null){ 
+				chargerB();
+				//chargerB();
+			}
+			
+
+			};
+		*/
+		
 		});
