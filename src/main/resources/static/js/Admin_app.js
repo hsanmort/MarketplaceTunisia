@@ -418,20 +418,95 @@
 			};
 		
 		
-		$scope.supprimerC=function(C){
+		$scope.supprimerS=function(S){
 			
-			$http.get("/category/delete?idCategory="+C.idCategory)
+			$http.get("/seller/delete?idSeller="+S.idUser)
 			.success(function(){
-				$scope.gotoPage($scope.pageCourante);
+				$scope.gotoPageS($scope.pageCourante);
 			});
 			
 			};
+	
+			
+			$scope.supprimerB=function(B){
+				
+				$http.get("/buyer/delete?idBuyer="+B.idUser)
+				.success(function(){
+					$scope.gotoPageB($scope.pageCouranteB);
+				});
+				
+				};
 			
 			
-			
-			/********Modifier**********///buyer/update?idUser=2&status=1	
+			/********Modifier Seller**********/
 		
+				$scope.ModifierS=function(S)
+				  {
+					$scope.Seller=S;
+					$scope.idSeller=S.idUser;
+					$scope.S=1;
+				  };
+				  
+				$scope.EnregiS=function(D)
+				  {
+//					$scope.idSeller=($scope.Seller).idUser;
+//					$scope.idBuyer=($scope.Buyer).idUser;
 					
+					if($scope.B==1){
+						
+						$http.get("/buyer/update?idUser="+$scope.idBuyer+"&status="+1)
+						.success(function()
+						{
+						$scope.gotoPage($scope.pageCouranteB);
+						}
+						);
+					}
+					else 
+							
+						
+						
+						{
+						
+					$http.get("/seller/update?idUser="+($scope.Seller).idUser+"&status="+1)
+					.success(function()
+					{
+					$scope.gotoPage($scope.pageCourante);
+					}
+					);
+					}
+					
+					$scope.idSeller=0;
+					$scope.idBuyer=0;
+					$scope.B=0;
+					$scope.S=0;
+				  };
+					
+					
+					/********************Modifier Buyer********************/
+					
+				  $scope.ModifierB=function(B)
+				  {
+					$scope.Buyer=B;
+					$scope.idBuyer=B.idUser;
+					$scope.B=1;
+				  };
+			/*	$scope.EnregiB=function(D)
+				  {
+					
+					$http.get("/buyer/update?idUser="+($scope.Buyer).idUser+"&status="+1)
+					.success(function()
+					{
+					$scope.gotoPage($scope.pageCouranteB);
+					}
+					);
+						
+				  };
+				  
+				*/  
+				  
+				  
+				  
+				  
 		$scope.gotoPageS=function(p){
 		$scope.pageCourante=p;
 		

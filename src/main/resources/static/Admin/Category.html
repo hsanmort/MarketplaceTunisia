@@ -21,7 +21,7 @@
 
 <div class="col-md-4">
 			
-				<div class="panel panel-blue">
+				<div class="panel panel-red">
 					<div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>Category List</div>
 					<div class="panel-body">
 					<div class="input-group">
@@ -53,7 +53,7 @@
 					
 					<div class="container">
 					<ul class="nav nav-pills">
-					<li ng-class="{active:$index==pageCourante}"
+					<li ng-class="{active:$index==pageCourante}" 
 					class="clickable" ng-repeat="p in pages track by $index">
 					<a ng-click="gotoPage($index)">{{$index}}</a>
 					</li>

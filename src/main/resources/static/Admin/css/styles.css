@@ -51,6 +51,7 @@ h3, h4 {
 .color-teal { color: #1ebfae; }
 .color-orange { color: #ffb53e; }
 .color-red { color: #f9243f; }
+.color-ver { color: #ECF6CE; }
 
 .bg-primary .glyphicon-remove { color: #5f6468;}
 .bg-primary .glyphicon-remove:hover { color: #ef4040;}
@@ -394,12 +395,14 @@ a.bg-danger:hover {
 	text-decoration: none;
 }
 
+.panel-ver { background: #A9BCF5; color: #fff; }
 .panel-blue { background: #30a5ff; color: #fff; }
 .panel-teal { background: #1ebfae; color: #fff; }
 .panel-orange { background: #ffb53e; color: #fff; }
 .panel-red { background: #f9243f; color: #fff; }
 .panel-green { background: #75ddc0; color: #fff; }
 
+.panel-ver .panel-body p,
 .panel-green .panel-body p,
 .panel-blue .panel-body p,
 .panel-teal .panel-body p,
@@ -409,6 +412,7 @@ a.bg-danger:hover {
 	color: rgba(255, 255, 255, .8);
 }
 
+.panel-ver .panel-heading,
 .panel-green .panel-heading,
 .panel-blue .panel-heading,
 .panel-teal .panel-heading,
@@ -417,6 +421,7 @@ a.bg-danger:hover {
 	border-bottom: 1px solid rgba(255, 255, 255, .2);
 }
 
+.panel-ver .text-muted,
 .panel-green .text-muted,
 .panel-blue .text-muted,
 .panel-teal .text-muted,
@@ -479,6 +484,7 @@ a.bg-danger:hover {
 	color: #5f6468;
 }
 
+.panel-ver .widget-left { background: #A9BCF5; color: #fff; }
 .panel-green .widget-left { background: #30a5ff; color: #fff; }
 .panel-blue .widget-left { background: #30a5ff; color: #fff; }
 .panel-teal .widget-left { background: #1ebfae; color: #fff; }
