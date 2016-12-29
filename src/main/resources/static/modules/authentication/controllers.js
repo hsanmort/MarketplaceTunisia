@@ -1,10 +1,11 @@
 'use strict';
  
 angular.module('Authentication')
-.controller("LoginController", ,function($scope,$http,$location){
+.controller("LoginController" ,function($scope,$http,$location){
 $scope.user=[];
 $scope.mail=null;
 $scope.pwd=null;
+$scope.message="tesssssssssst";
 $scope.login=function(){
 		
 		$http.get("/user/findByMailAndPwd?mail="+$scope.mail+"&pwd="+$scope.pwd)

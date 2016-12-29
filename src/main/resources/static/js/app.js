@@ -22,7 +22,7 @@ angular.module('BasicHttpAuthExample', [
             hideMenus: true
         })
  
-        .when('/', {
+        .when('/home', {
             controller: 'HomeController',
             templateUrl: 'modules/home/views/home.html'
         })
@@ -31,7 +31,7 @@ angular.module('BasicHttpAuthExample', [
             templateUrl: 'modules/shop/views/shop-list.html'
         })
  
-        .otherwise({ redirectTo: '/' });
+        .otherwise({ redirectTo: '/home' });
 }])
  
 .run(['$rootScope', '$location', '$cookieStore', '$http',
@@ -44,8 +44,8 @@ angular.module('BasicHttpAuthExample', [
  
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in
-            if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
-                $location.path('/login');
+            if ($location.path() !== '/home' && !$rootScope.globals.currentUser) {
+                $location.path('/home');
             }
         });
     }]);
