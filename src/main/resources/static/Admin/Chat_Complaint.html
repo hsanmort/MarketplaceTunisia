@@ -35,8 +35,9 @@
 			<div class="col-md-8">
 			
 				<div class="panel panel-default chat">
-					<div class="panel-heading" id="accordion"><svg class="glyph stroked two-messages"><use xlink:href="#stroked-two-messages"></use></svg>ID_Complaint : {{id}}</div>
+					<div class="panel-heading" id="accordion"><svg class="glyph stroked two-messages"><use xlink:href="#stroked-two-messages"></use></svg>ID Complaint : {{id}}</div>
 					<div class="panel-body">
+					
 						<ul>
 							<li class="left clearfix">
 								<span class="chat-img pull-left">
@@ -44,7 +45,7 @@
 								</span>
 								<div class="chat-body clearfix">
 									<div class="header">
-										<strong class="primary-font">Complaint</strong> <small class="text-muted">{{date}}</small>
+										<strong class="primary-font">Complaint</strong> <small class="text-muted">{{date | date:'yyyy-MM-dd'}}</small>
 									</div>
 									<p>
 										{{desc}}
@@ -57,7 +58,7 @@
 								</span>
 								<div class="chat-body clearfix">
 									<div class="header">
-										<strong class="pull-left primary-font">Jane Doe</strong> <small class="text-muted">6 mins ago</small>
+										<strong class="pull-left primary-font">Administrator</strong> <small class="text-muted">{{dateRep | date:'yyyy-MM-dd'}}</small>
 									</div>
 									<p>
 										{{recla}}
@@ -71,10 +72,11 @@
 					<div class="panel-footer">
 						<div class="input-group">
 						<form  role="form" ng-submit="AjouterRecla()">
-						
+						<textarea class="form-control" type="text" rows="3" cols="100" name="rec" ng-model="rec"></textarea>
 							<span class="input-group-btn">
-							<input id="btn-input" type="text" name="rec" ng-model="rec" class="form-control input-md" placeholder="Type your message here..." />
-							<input value="Send" type="submit" class="btn btn-green" id="btn-todo">
+						
+							
+							<input value="Send" type="submit" class="btn btn-blue" id="btn-todo">
 							</span>
 			
 							</form>

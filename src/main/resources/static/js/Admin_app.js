@@ -37,7 +37,7 @@
 
 
 		function chargerU(){
-		$http.get("/NewUser/all?&page="+$scope.pageCourante)
+		$http.get("/user/all?&page="+$scope.pageCourante)
 		.success(function(data){
 		$scope.Users=data;
 		$scope.pages=new Array(data.totalPages)
@@ -84,13 +84,7 @@
 		});
 		
 		};
-/*
-	$scope.Modifier=function(P){
-		$scope.Users=P;
-		$scope.prix=P.idUser;
-		$scope.DES=P.name;
-		};
-	*/	
+	
 	$scope.gotoPage=function(p){
 	$scope.pageCourante=p;
 
@@ -233,11 +227,38 @@
 	});
 	*/
 	
-	routeApp.controller('ContComplaint',function($scope,$http) {
+	routeApp.controller('ContComplaint',function($scope,$http,$routeParams) {
 			$scope.Complaint=[];
+			$scope.DetailComp=[];
 			$scope.motCle=null;
 			$scope.pageCourante=0;
-						//				afficher All complaiment
+			$scope.id = $routeParams.id;  
+			$scope.desc = $routeParams.description;  
+			$scope.date = $routeParams.date;  
+			$scope.idUser = $routeParams.idUser;
+			$scope.date=new Date();
+			$scope.AjouterRecla= function(){		
+				//var objId={idUser:$scope.idUser};
+				var Obj = {
+					
+						description :$scope.rec,
+						//dateComplaint = $scope.date,
+						buyer:{idUser:$scope.idUser}
+				};	
+				var resu = $http.post('/complaint/save', Obj);
+				resu.success(function(data, status, headers, config) {
+					$scope.message = data;
+				});
+				resu.error(function(data, status, headers, config) {
+					alert( "failure message: " + JSON.stringify({data: data}));
+				});		
+				$scope.recla=$scope.rec;
+				$scope.dateRep = new Date();
+				$scope.rec='';
+				
+			};
+			
+						//afficher All complaiment
 			function chargerCompl(){
 				$http.get("/complaint/all?&page="+$scope.pageCourante)
 				.success(function(data){
@@ -311,7 +332,7 @@
 	]*///}
 	//);
 	
-	routeApp.controller('appartementCtrl', ['$scope', '$routeParams',
+/*	routeApp.controller('appartementCtrl', ['$scope', '$routeParams',
 	                                                    function($scope, $routeParams){
 	                                                        // Pour afficher les informations
 	                                                        $scope.id = $routeParams.id;       // ici 57
@@ -323,7 +344,7 @@
 	                                                ]
 	                                                
 	);
-	
+	*/
 	
 	
 //	routeApp.controller("ReclaAjouter",function($scope,$http){
@@ -347,3 +368,52 @@
 //		};
 //	});
 	
+	/***************************gérer Users*****************************/
+	routeApp.controller("ContUsers",function($scope,$http){
+		$scope.Category=[];
+		$scope.motCle=null;
+		$scope.pageCourante=0;
+
+
+		function chargerBuyer(){
+		$http.get("/buyer/all?&page="+$scope.pageCourante)
+		.success(function(data){
+		$scope.Category=data;
+		$scope.pages=new Array(data.totalPages)
+		});
+		};
+
+		function chargerSeller(){
+			$http.get("/seller/all?&page="+$scope.pageCourante)
+			.success(function(data){
+			$scope.Category=data;
+			$scope.pages=new Array(data.totalPages)
+			});
+			};
+
+		chargerC();
+
+		$scope.supprimerC=function(C){
+			
+			$http.get("/category/delete?idCategory="+C.idCategory)
+			.success(function(){
+				$scope.gotoPage($scope.pageCourante);
+			});
+			
+			};
+			
+			
+			
+			/********Modifier**********///buyer/update?idUser=2&status=1	
+		
+					
+					$scope.gotoPage=function(p){
+		$scope.pageCourante=p;
+
+		if ($scope.motCle == null){ 
+			chargerC();
+		}
+		
+
+		};
+		});

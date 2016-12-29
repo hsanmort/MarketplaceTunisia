@@ -55,7 +55,7 @@ public class Complaint implements Serializable {
 		this.dateComplaint = dateComplaint;
 	}
 
-	@JsonIgnore
+	//@JsonIgnore
 	public Buyer getBuyer() {
 		return buyer;
 	}
@@ -64,7 +64,7 @@ public class Complaint implements Serializable {
 		this.buyer = buyer;
 	}
 
-	@JsonIgnore
+	//@JsonIgnore
 	public Seller getSeller() {
 		return seller;
 	}

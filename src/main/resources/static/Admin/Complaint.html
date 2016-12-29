@@ -82,12 +82,11 @@
 						 <table class="table table-hover">
 						    <thead>
 						    <tr>
-						        <th> ID</th>
-						        <th> Date</th>
-						        <th> Description</th>
-						        <th> ID_Buyer</th>
-						        <th> ID_Seller</th>
-						       <th> Operation</th>
+						        <th>-ID</th>
+						        <th>-Date</th>
+						        <th>-Description</th>
+						        <th>-ID_User</th>
+						      <th>-Operation</th>
 						    
 						    </tr>
 						    </thead>
@@ -96,8 +95,9 @@
 							<td>{{C.idComplaint}}</td>
 							<td>{{C.dateComplaint}}</td>
 							<td>{{C.description}}</td>
-							 <td></td>
-							<td></td>
+							<td>{{C.buyer.idUser}}</td>
+							 
+						
 							
 						
 							<td class="clickable">  
@@ -113,9 +113,9 @@
 				
 				 		<form role="form" ng-submit="Ajouter()" > 
 <!-- 			<a href="#ListComplaint/{{C.idComplaint}}?date={{C.dateComplaint}}&description={{C.description}}" onclick="this.form.submit();"> 
- -->						<a href="#ListComplaint/{{C.idComplaint}}" onclick="this.form.submit();"> 
+ -->						<a href="#ListComplaint/{{C.idComplaint}}?description={{C.description}}&date={{C.dateComplaint}}&idUser={{C.buyer.idUser}}" onclick="this.form.submit();"> 
  
- 						<input value="Detail" type="submit" class="btn btn-green" id="btn-todo">
+ 						<input value="Traiter"  type="submit" class="btn btn-green" id="btn-todo">
 							
 						 </form> 
 							</td>
