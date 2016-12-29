@@ -14,4 +14,7 @@ public interface SellerRepository extends JpaRepository<Seller, Integer> {
 
 	@Query("select s from Seller s where s.name like :x or s.lastName like :x or s.status like :x")
 	public Page<Seller> findByMc(@Param("x") String mc, Pageable pageable);
+
+	
+	
 }
