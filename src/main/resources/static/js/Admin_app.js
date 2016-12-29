@@ -5,7 +5,7 @@
 	                     $routeProvider
 	                     .when('/NewUsers', {
 	                         templateUrl: 'Admin/NewUsers.html',
-	                         controller: 'CatController'
+	                         controller: 'ContUsers'
 	                     })
 	                    .when('/Complaint', {
 	                         templateUrl: 'Admin/Complaint.html',
@@ -34,6 +34,7 @@
 	$scope.Users=[];
 	$scope.motCle=null;
 	$scope.pageCourante=0;
+	//$scope.pageCourante=0;
 
 
 		function chargerU(){
@@ -370,50 +371,183 @@
 	
 	/***************************gérer Users*****************************/
 	routeApp.controller("ContUsers",function($scope,$http){
-		$scope.Category=[];
-		$scope.motCle=null;
+		$scope.Buyer=[];
+		$scope.Seller=[];
+		$scope.motCleS=null;
+		$scope.motCleB=null;
 		$scope.pageCourante=0;
+		$scope.pageCouranteB=0;
 
 
-		function chargerBuyer(){
-		$http.get("/buyer/all?&page="+$scope.pageCourante)
+		function chargerB(){
+		$http.get("/buyer/all?&page="+$scope.pageCouranteB)
 		.success(function(data){
-		$scope.Category=data;
-		$scope.pages=new Array(data.totalPages)
+		$scope.Buyer=data;
+		$scope.pagesB=new Array(data.totalPages)
 		});
 		};
 
-		function chargerSeller(){
+		function chargerS(){
 			$http.get("/seller/all?&page="+$scope.pageCourante)
 			.success(function(data){
-			$scope.Category=data;
+			$scope.Seller=data;
 			$scope.pages=new Array(data.totalPages)
 			});
 			};
 
-		chargerC();
-
-		$scope.supprimerC=function(C){
+		
+		chargerB();
+		$scope.chargerMCB=function(){
 			
-			$http.get("/category/delete?idCategory="+C.idCategory)
+			$http.get("/buyer/findByMc?mc="+$scope.motCleB+"&page="+$scope.pageCouranteB)
+			.success(function(data){
+			$scope.Buyer=data;
+			$scope.pagesB=new Array(data.totalPages)
+			});
+			};
+		
+			
+		chargerS();
+		$scope.chargerMCS=function(){
+		
+			$http.get("/seller/findByMc?mc="+$scope.motCleS+"&page="+$scope.pageCourante)
+			.success(function(data){
+			$scope.Seller=data;
+			$scope.pages=new Array(data.totalPages)
+			});
+			};
+		
+		
+		$scope.supprimerS=function(S){
+			
+			$http.get("/seller/delete?idSeller="+S.idUser)
 			.success(function(){
-				$scope.gotoPage($scope.pageCourante);
+				$scope.gotoPageS($scope.pageCourante);
 			});
 			
 			};
+	
+			
+			$scope.supprimerB=function(B){
+				
+				$http.get("/buyer/delete?idBuyer="+B.idUser)
+				.success(function(){
+					$scope.gotoPageB($scope.pageCouranteB);
+				});
+				
+				};
 			
 			
-			
-			/********Modifier**********///buyer/update?idUser=2&status=1	
+			/********Modifier Seller**********/
 		
+				$scope.ModifierS=function(S)
+				  {
+					$scope.Seller=S;
+					$scope.idSeller=S.idUser;
+					$scope.S=1;
+				  };
+				  
+				$scope.EnregiS=function(D)
+				  {
+//					$scope.idSeller=($scope.Seller).idUser;
+//					$scope.idBuyer=($scope.Buyer).idUser;
 					
-					$scope.gotoPage=function(p){
+					if($scope.B==1){
+						
+						$http.get("/buyer/update?idUser="+$scope.idBuyer+"&status="+1)
+						.success(function()
+						{
+						$scope.gotoPage($scope.pageCouranteB);
+						}
+						);
+					}
+					else 
+							
+						
+						
+						{
+						
+					$http.get("/seller/update?idUser="+($scope.Seller).idUser+"&status="+1)
+					.success(function()
+					{
+					$scope.gotoPage($scope.pageCourante);
+					}
+					);
+					}
+					
+					$scope.idSeller=0;
+					$scope.idBuyer=0;
+					$scope.B=0;
+					$scope.S=0;
+				  };
+					
+					
+					/********************Modifier Buyer********************/
+					
+				  $scope.ModifierB=function(B)
+				  {
+					$scope.Buyer=B;
+					$scope.idBuyer=B.idUser;
+					$scope.B=1;
+				  };
+			/*	$scope.EnregiB=function(D)
+				  {
+					
+					$http.get("/buyer/update?idUser="+($scope.Buyer).idUser+"&status="+1)
+					.success(function()
+					{
+					$scope.gotoPage($scope.pageCouranteB);
+					}
+					);
+						
+				  };
+				  
+				*/  
+				  
+				  
+				  
+				  
+		$scope.gotoPageS=function(p){
 		$scope.pageCourante=p;
+		
 
-		if ($scope.motCle == null){ 
-			chargerC();
-		}
+		if ($scope.motCleS == null)
+			{ 
+				chargerS();
+			}
+		else
+			{ 
+				$scope.chargerMCS();
+			}
 		
 
 		};
+		
+		$scope.gotoPageB=function(p){
+			$scope.pageCouranteB=p;
+			
+			if ($scope.motCleB == null)
+			{ 
+				chargerB();
+			}
+		else
+			{ 
+				$scope.chargerMCB();
+			}
+
+			};
+		
+	/*	$scope.gotoPageB=function(pB){
+			$scope.pageCouranteB=pB;
+			
+
+			if ($scope.motCleB == null){ 
+				chargerB();
+				//chargerB();
+			}
+			
+
+			};
+		*/
+		
 		});
