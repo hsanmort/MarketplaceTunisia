@@ -20,5 +20,7 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	public User findBymail(String mail);
 	public Page<User> findBystatus(Boolean status, Pageable pageable);
 	public Page<User> findByadress(Adress adress, Pageable pageable);
-		
+	
+	@Query("select u from User u where u.mail= :x and u.pwd= :y")
+	public User findBymailAndPwd(@Param("x") String mail, @Param("y") String pwd);	
 }

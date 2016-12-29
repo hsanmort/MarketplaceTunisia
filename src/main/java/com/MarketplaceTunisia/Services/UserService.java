@@ -55,10 +55,10 @@ public class UserService {
 	public Page<User> getUsersByName(String name, int page){
 		return userRepository.findByname(name, new PageRequest(page,5));
 	}
-//	@RequestMapping("/user/findByMail")
-//	public Page<User> getUsersByMail(String mail, int page){
-//		return userRepository.findBymail(mail, new PageRequest(page,5));
-//	}
+	@RequestMapping(value="/user/findByMailAndPwd", method=RequestMethod.GET)
+	public User getUsersByMailAndPwd(String mail,String pwd){
+		return userRepository.findBymailAndPwd(mail, pwd);
+	}
 	
 	@RequestMapping("/user/findByStatus")
 	public Page<User> getUsersByStatus(Boolean status, int page){
@@ -70,9 +70,5 @@ public class UserService {
 		return userRepository.findByadress(adress, new PageRequest(page,5));
 	}
 	
-	@RequestMapping("/user/authentificate")
-	public boolean authentificate(User user){
-		return (userRepository.getOne(user.getIdUser())!=null);
-	}
 	
 }
