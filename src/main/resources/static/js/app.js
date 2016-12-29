@@ -1,127 +1,51 @@
 'use strict';
-//
-///**
-// * Déclaration de l'application routeApp
-// */
-var routeApp = angular.module('routeApp', [
-// Dépendances du "module"
-'ngRoute']);
 
-///**
-// * Configuration du module principal : routeApp
-// */
-//
-routeApp.config([ '$routeProvider', function($routeProvider) {
-	
-	// Système de routage
-	$routeProvider.when('/home', {
-		templateUrl : 'views/home.html',
-		controller : 'homeCtrl'
-	}).when('/vendors', {
-		templateUrl : 'views/vendors/vendors.html',
-		controller : 'vendorsController'
-	
-	//resolve: resolveController('/controllers/vendorsController.js')
-	}).when('/RegBuyer', {
-		templateUrl : 'views/security/Account_login_Buyer.html',
-		controller : 'registerBuyerController',
-		controllerAs: 'vm'	
-			
-	}).when('/RegSeller', {
-		templateUrl : 'views/security/Account_login_Seller.html',
-		controller : 'registerSellerController'
-	}).when('/cart', {
-		templateUrl : 'views/client/cart.html',
-		controller : 'cartController'
-	})
+// declare modules
+angular.module('Authentication', []);
+angular.module('Home', []);
+angular.module('Shop', []);
 
-	.otherwise({
-		redirectTo : '/home'
-	});
-} ]);
+angular.module('BasicHttpAuthExample', [
+    'Authentication',
+    'Home',
+    'Shop',
+    'ngRoute',
+    'ngCookies'
+])
+ 
+.config(['$routeProvider', function ($routeProvider) {
 
-///**
-// * Définition des contrôleurs
-// */
-//
-//// Contrôleur de la page d'accueil
-routeApp.controller('homeCtrl', [ '$scope', function($scope) {
-	$scope.message = "Bienvenue sur la page d'accueil";
-} ]);
-
-
-////controlleur inscription buyer & seller
-routeApp.controller('registerBuyerController', [ '$scope',
-		function($scope) {
-			$scope.message = "Bienvenue sur la page du Registration Du Buyer";
-		} ]);
-routeApp.controller('registerSellerController', [ '$scope',
-		function($scope) {
-			$scope.message = "Bienvenue sur la page du Registration Du Seller";
-		} ]);
-////registration buyer
-routeApp.$inject = ['RegistrationController', '$location', '$rootScope'];
-function routeAppControllers(RegistrationController, $location, $rootScope) {
-    var vm = this;
-
-    vm.register = register;
-
-    function register() {
-        vm.dataLoading = true;
-        RegistrationController.RegistrationBuyer(vm.buyer)
-            .then(function (response) {
-                if (response.success) {
-                    $location.path('/home');
-                } else {
-                    vm.dataLoading = false;
-                }
-            });
-    }
-}
-
-//
-////Contrôleur de la page vendors
-routeApp.controller('vendorsController', [ '$scope', '$http',
-		function($scope, $http) {
-			$scope.users = [];
-			$scope.message = "Bienvenue sur la page du vendeur";
-
-			function chargerAll() {
-				$http.get("/user/all").success(function(data) {
-					$scope.users = data;
-				});
-		}			;
-			chargerAll();
-		} ]);
-
-////Controleur de la page client panier
-routeApp.controller('cartController',['$scope','$http',
-		function($scope, $http) {
-			$scope.users = [];
-			$scope.message = "Bienvenue sur la page client";
-			function chargerAll() {
-				$http.get("/shoppingCart/all").success(function(data) {
-					$scope.users = data;
-				});
-			}
-			;
-			chargerAll();
-		} ]);
-//'use strict';
-//var myApp = myApp || {};
-// 
-//(function(){
-//    myApp.factories = angular.module('myAppFactories', []),
-//    myApp.controllers = angular.module('myAppControllers', [ 'myAppFactories', 'ngRoute' ]),
-//    myApp.app = angular.module('myApp', [ 'ngRoute', 'myAppControllers']);
-//})();
-
-
-
-
-
-
-
-
-
-
+    $routeProvider
+        .when('/login', {
+            controller: 'LoginController',
+            templateUrl: 'modules/authentication/views/login.html',
+            hideMenus: true
+        })
+ 
+        .when('/', {
+            controller: 'HomeController',
+            templateUrl: 'modules/home/views/home.html'
+        })
+         .when('/shop-list', {
+            controller: 'ShopController',
+            templateUrl: 'modules/shop/views/shop-list.html'
+        })
+ 
+        .otherwise({ redirectTo: '/' });
+}])
+ 
+.run(['$rootScope', '$location', '$cookieStore', '$http',
+    function ($rootScope, $location, $cookieStore, $http) {
+        // keep user logged in after page refresh
+        $rootScope.globals = $cookieStore.get('globals') || {};
+        if ($rootScope.globals.currentUser) {
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+        }
+ 
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+            // redirect to login page if not logged in
+            if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
+                $location.path('/login');
+            }
+        });
+    }]);
