@@ -73,310 +73,28 @@
                             <hr>
                         </div><!-- end col -->
                     </div><!-- end row -->
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
+                    <div class="row"  ng-controller="ProductController" >
+                        <div class="col-md-3 col-sm-6" ng-repeat="product in products">
+                            <div class="item-box" >
                                 <div class="item-media entry">
-                                    <img src="upload/item_01.jpg" alt="" class="img-responsive">
+                                    <img src="assets/upload/item_01.jpg" alt="" class="img-responsive">
                                     <div class="magnifier">
                                         <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member_01.jpg" class="img-circle" alt=""> Amanda</a>
+                                            <a href="public-profile.html"><img src="assets/upload/member_01.jpg" class="img-circle" alt=""> {{product.nameShop}}</a>
                                         </div><!-- end author -->
                                     </div>
                                     <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$21</a></p>
+                                        <p><a href="single-item.html" title="">{{product.price}} $</a></p>
                                     </div>
                                 </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Weather Forecast</a></h4>
+                                <h4><a href="single-item.html">{{product.nameProduct}}</a></h4>
                                 <small><a href="single-item.html"><i class="fa fa-eye"></i> 893</a></small>
                                 <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
                             </div><!-- end item-box -->
                         </div><!-- end col -->
+                        
 
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_02.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member_02.jpg" class="img-circle" alt=""> Bob</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$5</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Google Map Collection</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 221</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 05</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
 
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="assets/upload/item_03.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="assets/upload/member_03.jpg" class="img-circle" alt=""> Selena</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$5</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Podcast App</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 412</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 31</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="assets/upload/item_04.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="assets/upload/member_04.jpg" class="img-circle" alt=""> Mark</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$25</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">DJ Club Software</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 123</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 03</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="assets/upload/item_05.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="assets/upload/member_05.jpg" class="img-circle" alt=""> John</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$12</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">User Profile App</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 441</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 21</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_06.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member_06.jpg" class="img-circle" alt=""> Mark</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$25</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Mail Application</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 31</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 04</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_07.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member_07.jpg" class="img-circle" alt=""> Jenny</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">Free</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Login Box (Custom)</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 1235</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 46</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_08.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member_01.jpg" class="img-circle" alt=""> Seden</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$6</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Profile Application</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 125</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 55</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_09.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member.png" class="img-circle" alt=""> Samanta</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">Free</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Twitter App Re-design</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 223</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 51</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_10.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member_02.jpg" class="img-circle" alt=""> Martin</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$21</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Payment Monitor</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 123</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 31</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_11.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member.png" class="img-circle" alt=""> Samanta</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$15</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Showcase Podcast</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 331</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 51</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_12.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member_04.jpg" class="img-circle" alt=""> Boby</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$33</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Phone Back-Front</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 213</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_13.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member_04.jpg" class="img-circle" alt=""> Boby</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">Free</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Custom Gallery Icon</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 123</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 44</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_16.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member.png" class="img-circle" alt=""> Samanta</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$23</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Commission Rate</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 223</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 51</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_14.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member_04.jpg" class="img-circle" alt=""> Boby</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">Free</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">10+ Landing Pages</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 33</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 14</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="upload/item_15.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member_04.jpg" class="img-circle" alt=""> Boby</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">Free</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">22+ Android Logos</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 441</a></small>
-                                <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 32</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
                     </div><!-- end row -->
                 </div><!-- end content -->
 
@@ -409,30 +127,30 @@
                         </div><!-- end col -->
                     </div><!-- end row -->
 
-                    <div class="row homefeatured">
-                        <div class="col-md-12">
+                    <div class="row homefeatured" ng-controller="ShopController">
+                        <div class="col-md-12"   ng-repeat="shop in shops">
                             <div class="storelist panel panel-info">
                                 <div class="panel-body">
                                     <div class="form-group row">
                                         <div class="col-sm-3 col-xs-12">
-                                            <img alt="" class="img-responsive img-thumbnail" src="upload/store_09.jpg">
+                                            <img alt="" class="img-responsive img-thumbnail" src="assets/upload/store_09.jpg">
                                         </div>
                                         <div class="col-sm-2 col-xs-12">
-                                            <h4><a href="public-profile.html">MockupZone</a></h4>
+                                            <h4><a href="public-profile.html">{{shop.nameShop}}</a></h4>
                                             <ul>
                                                 <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
                                                 <li><a href="public-profile.html"><i class="fa fa-image"></i> 123 Items</a></li>
                                                 <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 2021 Sales</a></li>
-                                                <li><i class="fa fa-map-marker"></i> Amsterdam</li>
+                                                <li><i class="fa fa-map-marker"></i> {{shop.description}}</li>
                                             </ul>
                                         </div>
                                         <div class="col-md-5 col-xs-12">
                                            <ul class="list-inline">
-                                                <li><a href="single-item.html" class="screenshot" data-gal="upload/item_01.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_01.jpg" alt=""></a></li>
-                                                <li><a href="single-item.html" class="screenshot" data-gal="upload/item_02.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_02.jpg" alt=""></a></li>
-                                                <li><a href="single-item.html" class="screenshot" data-gal="upload/item_03.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_03.jpg" alt=""></a></li>
-                                                <li><a href="single-item.html" class="screenshot" data-gal="upload/item_04.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_04.jpg" alt=""></a></li>
-                                                <li><a href="single-item.html" class="screenshot" data-gal="upload/item_05.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_05.jpg" alt=""></a></li>
+                                                <li><a href="single-item.html" class="screenshot" data-gal="assets/upload/item_01.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_01.jpg" alt=""></a></li>
+                                                <li><a href="single-item.html" class="screenshot" data-gal="assets/upload/item_02.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_02.jpg" alt=""></a></li>
+                                                <li><a href="single-item.html" class="screenshot" data-gal="assets/upload/item_03.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_03.jpg" alt=""></a></li>
+                                                <li><a href="single-item.html" class="screenshot" data-gal="assets/upload/item_04.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_04.jpg" alt=""></a></li>
+                                                <li><a href="single-item.html" class="screenshot" data-gal="assets/upload/item_05.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_05.jpg" alt=""></a></li>
                                             </ul>
                                         </div><!-- end col -->
                                         <div class="col-sm-2 col-xs-12 text-center">

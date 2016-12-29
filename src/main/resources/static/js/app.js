@@ -4,11 +4,13 @@
 angular.module('Authentication', []);
 angular.module('Home', []);
 angular.module('Shop', []);
+angular.module('Product', []);
 
 angular.module('BasicHttpAuthExample', [
     'Authentication',
     'Home',
     'Shop',
+    'Product',
     'ngRoute',
     'ngCookies'
 ])
@@ -29,6 +31,10 @@ angular.module('BasicHttpAuthExample', [
          .when('/shop-list', {
             controller: 'ShopController',
             templateUrl: 'modules/shop/views/shop-list.html'
+        })
+        .when('/product-list', {
+            controller: 'ProductController',
+            templateUrl: 'modules/shop/views/product-list.html'
         })
  
         .otherwise({ redirectTo: '/home' });

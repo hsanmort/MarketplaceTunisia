@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "t_product")
 public class Product implements Serializable{
@@ -32,18 +34,18 @@ public class Product implements Serializable{
 	private boolean discount;
 	private byte[] picture;
 	private double Reviews;
-	
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_shop")
 	private Shop shop;
-	
+	@JsonIgnore
 	@ManyToMany(mappedBy="products")
 	private List<Order> orders;
-	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="id_category")
 	private Category category;
-	
+	@JsonIgnore
 	@ManyToMany(mappedBy="products")
 	private List<ShoppingCart> shoppingCarts;
 
