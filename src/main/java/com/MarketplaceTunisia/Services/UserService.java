@@ -70,6 +70,9 @@ public class UserService {
 		return userRepository.findByadress(adress, new PageRequest(page,5));
 	}
 	
-	
+	@RequestMapping("/user/authentificate")
+	public boolean authentificate(User user){
+		return (userRepository.getOne(user.getIdUser())!=null);
+	}
 	
 }
