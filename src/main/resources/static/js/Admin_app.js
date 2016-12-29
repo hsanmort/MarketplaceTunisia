@@ -278,6 +278,18 @@
 					});
 					};
 					
+					
+					
+					$scope.supprimerCompl=function(C){
+						
+						$http.get("/complaint/delete?idComplaint="+C.idComplaint)
+						.success(function(){
+							$scope.gotoPage($scope.pageCourante);
+						});
+						
+						};
+					
+					
 				$scope.gotoPage=function(p){
 						$scope.pageCourante=p;
 						if ($scope.motCle == null){ 
@@ -537,17 +549,6 @@
 
 			};
 		
-	/*	$scope.gotoPageB=function(pB){
-			$scope.pageCouranteB=pB;
-			
-
-			if ($scope.motCleB == null){ 
-				chargerB();
-				//chargerB();
-			}
-			
-
-			};
-		*/
+		
 		
 		});

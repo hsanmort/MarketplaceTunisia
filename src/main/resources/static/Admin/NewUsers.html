@@ -77,7 +77,7 @@
               <input type="hidden"  ng-model="idBuyer">   
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="EnregiS()">validate</button>
+          <button type="button" class="btn btn-green" data-dismiss="modal" ng-click="EnregiS()">validate</button>
         </div>
       </div>
       
@@ -126,10 +126,10 @@
 							
 						
 							<td class="clickable">  
-							<a ng-click="supprimerS(S)">Remove  </a>
+							<a ng-click="supprimerS(S)" class="btn btn-red">Remove  </a>
 							
 							 
-							<a ng-click="ModifierS(S)" data-toggle="modal" data-target="#myModal">validate</a>
+							<a ng-click="ModifierS(S)" class="btn btn-green" data-toggle="modal"  data-target="#myModal">validate</a>
 							 
 							</td>
 							</tr>
@@ -196,10 +196,10 @@ class="clickable" ng-repeat="p in pages track by $index">
 							
 						
 							<td class="clickable">  
-							<a ng-click="supprimerB(B)">Remove  </a>
+							<a ng-click="supprimerB(B)" class="btn btn-red" >Remove  </a>
 							
 							 
-							<a ng-click="ModifierB(B)" data-toggle="modal" data-target="#myModal">validate</a>
+							<a ng-click="ModifierB(B)" data-toggle="modal" data-target="#myModal" class="btn btn-green">validate</a>
 							 
 							</td>
 							</tr>

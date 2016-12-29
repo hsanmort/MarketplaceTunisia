@@ -56,6 +56,8 @@ public class ComplaintService {
 //	return complaintrepository.findBydateComplaint(date, new PageRequest(page,5));
 //	}
 	
+	
+	
 	@RequestMapping("/complaint/findByBuyer")
 	public Page<Complaint> getComplaintsByBuyer(int idBuyer, int page){
 		Buyer buyer=buyerRepository.findOne(idBuyer);
