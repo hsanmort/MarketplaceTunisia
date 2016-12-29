@@ -46,7 +46,10 @@ public class SellerService {
 		return sellerRepository.findByMc("%"+mc+"%", new PageRequest(page,5));
 	}
 	
-	
+	@RequestMapping("/seller/UpdateSeller")
+	public Page<Seller> UpdateSeller(String mc, int page){
+		return sellerRepository.UpdateSeller(mc, new PageRequest(page,5));
+	}	
 	
 	
 }
