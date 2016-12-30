@@ -79,13 +79,15 @@
                                 <div class="item-media entry">
                                     <img src="assets/upload/item_01.jpg" alt="" class="img-responsive">
                                     <div class="magnifier">
+                                    
                                         <div class="item-author">
-                                            <a href="public-profile.html"><img src="assets/upload/member_01.jpg" class="img-circle" alt=""> {{product.nameShop}}</a>
+                                            <a ng-click="detailProduct(product.idProduct)" ><img src="assets/upload/member_01.jpg" class="img-circle" alt=""> {{product.nameShop}}</a>
                                         </div><!-- end author -->
                                     </div>
                                     <div class="theme__button">
                                         <p><a href="single-item.html" title="">{{product.price}} $</a></p>
-                                    </div>
+                                     </div>
+                                   
                                 </div><!-- end item-media -->
                                 <h4><a href="single-item.html">{{product.nameProduct}}</a></h4>
                                 <small><a href="single-item.html"><i class="fa fa-eye"></i> 893</a></small>

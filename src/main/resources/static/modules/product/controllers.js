@@ -3,9 +3,10 @@
 angular.module('Product')
  
 .controller('ProductController',
-    ['$scope','$http',
-       function ($scope, $http) {
+    ['$scope','$http','$location',
+       function ($scope, $http, $location) {
      $scope.products=[];
+     $scope.productbyid=[];
    	 $scope.message = "All Products Here";
    	 function ProductsList(){
    	      $http.get("/product/all")
@@ -14,5 +15,10 @@ angular.module('Product')
    	      });
    	   };
    	ProductsList();
+   	$scope.detailProduct = function (productId) {
+        $location.path('/product-detail/' + productId);
+        
+    };
       
     }]);
+    

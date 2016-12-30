@@ -84,5 +84,10 @@ public class ProductService {
 	public Page<Product> getProductsByReviews(double reviews, int page){
 	return productRepository.findByReviews(reviews, new PageRequest(page,5));
 	}
+	
+	@RequestMapping("/product/:id/")
+	public Product getProductsByidProduct( int id){
+	return productRepository.findByidProduct(id);
+	}
 
 }

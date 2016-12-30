@@ -34,7 +34,11 @@ angular.module('BasicHttpAuthExample', [
         })
         .when('/product-list', {
             controller: 'ProductController',
-            templateUrl: 'modules/shop/views/product-list.html'
+            templateUrl: 'modules/product/views/product-list.html'
+        })
+        .when('/product-detail/:id', {
+            controller: 'ProductDetailController',
+            templateUrl: 'modules/product/views/product-detail.html'
         })
  
         .otherwise({ redirectTo: '/home' });

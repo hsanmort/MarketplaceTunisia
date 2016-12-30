@@ -22,4 +22,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	public Page<Product> findBydiscount(Boolean discount, Pageable pageable);
 	public Page<Product> findByprice(double price, Pageable pageable);
 	public Page<Product> findByReviews(double reviews, Pageable pageable);
+	
+	public Product findByidProduct(int id);
 }
