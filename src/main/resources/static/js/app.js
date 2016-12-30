@@ -42,9 +42,9 @@ angular.module('BasicHttpAuthExample', [
         })
  
         .otherwise({ redirectTo: '/home' });
-}])
+}]);
  
-.run(['$rootScope', '$location', '$cookieStore', '$http',
+/*.run(['$rootScope', '$location', '$cookieStore', '$http',
     function ($rootScope, $location, $cookieStore, $http) {
         // keep user logged in after page refresh
         $rootScope.globals = $cookieStore.get('globals') || {};
@@ -58,4 +58,4 @@ angular.module('BasicHttpAuthExample', [
                 $location.path('/home');
             }
         });
-    }]);
+    }]);*/
