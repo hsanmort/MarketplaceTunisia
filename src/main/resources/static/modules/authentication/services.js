@@ -10,14 +10,14 @@ angular.module('Authentication')
         service.Login = function (mail, pwd, callback) {
 
             /* Dummy authentication for testing, uses $timeout to simulate api call
-             ----------------------------------------------*/
+             ----------------------------------------------
             $timeout(function(){
                 var response = { success: username === 'test' && password === 'test' };
                 if(!response.success) {
                     response.message = 'Username or password is incorrect';
                 }
                 callback(response);
-            }, 1000);
+            }, 1000);*/
 
             //$http.post('/api/authenticate', { username: username, password: password })
 
@@ -25,10 +25,10 @@ angular.module('Authentication')
              ----------------------------------------------*/
             //$http.post('/api/authenticate', { username: username, password: password })
 
-//            $http.post("/user/findByMailAndPwd?mail="+mail+"&password="+pwd)
-//                .success(function (response) {
-//                    callback(response);
-//                });
+            $http.post("/user/findByMailAndPwd?mail="+mail+"&password="+pwd)
+                .success(function (response) {
+                    callback(response);
+                });
 
         };
  

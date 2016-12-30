@@ -2,8 +2,8 @@
  
 angular.module('Authentication')
 	 .controller('LoginController',
- ['$scope', '$rootScope', '$location', 'AuthenticationService',
- function ($scope, $rootScope, $location, AuthenticationService) {
+ ['$scope', '$rootScope', '$location','$locationProvider', 'AuthenticationService',
+ function ($scope, $rootScope, $location, $locationProvider,AuthenticationService) {
  // reset login status
  AuthenticationService.ClearCredentials();
  $scope.mail=null;
@@ -16,6 +16,7 @@ angular.module('Authentication')
 		 if(response.success) {
 			 AuthenticationService.SetCredentials($scope.mail, $scope.pwd);
 			 $location.path('/home');
+			 
 	 		} else {
 			 $scope.error = response.message;
 			 $scope.dataLoading = false;
