@@ -25,7 +25,9 @@ angular.module('Authentication')
              ----------------------------------------------*/
             //$http.post('/api/authenticate', { username: username, password: password })
 
-            $http.post("/user/findByMailAndPwd?mail="+mail+"&password="+pwd)
+            //$http.post("/user/findByMailAndPwd?mail="+mail+"&pwd="+pwd)
+            $http.post('/api/findByMailAndPwd', { mail: mail, pwd: pwd })
+
                 .success(function (response) {
                     callback(response);
                 });
