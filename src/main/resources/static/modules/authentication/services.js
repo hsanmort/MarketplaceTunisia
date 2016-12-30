@@ -7,34 +7,37 @@ angular.module('Authentication')
     function (Base64, $http, $cookieStore, $rootScope, $timeout) {
         var service = {};
 
-        service.Login = function (username, password, callback) {
+        service.Login = function (mail, pwd, callback) {
 
             /* Dummy authentication for testing, uses $timeout to simulate api call
              ----------------------------------------------*/
-            $timeout(function(){
-                var response = { success: username === 'test' && password === 'test' };
-                if(!response.success) {
-                    response.message = 'Username or password is incorrect';
-                }
-                callback(response);
-            }, 1000);
+//            $timeout(function(){
+//                var response = { success: username === 'test' && password === 'test' };
+//                if(!response.success) {
+//                    response.message = 'Username or password is incorrect';
+//                }
+//                callback(response);
+//            }, 1000);
 
+            //$http.post('/api/authenticate', { username: username, password: password })
 
             /* Use this for real authentication
              ----------------------------------------------*/
             //$http.post('/api/authenticate', { username: username, password: password })
-            //    .success(function (response) {
-            //        callback(response);
-            //    });
+
+            $http.get("/user/findByMailAndPwd?mail="+mail+"&password="+pwd)
+                .success(function (response) {
+                    callback(response);
+                });
 
         };
  
-        service.SetCredentials = function (username, password) {
-            var authdata = Base64.encode(username + ':' + password);
+        service.SetCredentials = function (mail, pwd) {
+            var authdata = Base64.encode(mail + ':' + pwd);
  
             $rootScope.globals = {
                 currentUser: {
-                    username: username,
+                	mail: mail,
                     authdata: authdata
                 }
             };

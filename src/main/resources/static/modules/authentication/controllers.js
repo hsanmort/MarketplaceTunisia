@@ -1,6 +1,30 @@
 'use strict';
  
 angular.module('Authentication')
+	 .controller('LoginController',
+ ['$scope', '$rootScope', '$location', 'AuthenticationService',
+ function ($scope, $rootScope, $location, AuthenticationService) {
+ // reset login status
+ AuthenticationService.ClearCredentials();
+ $scope.mail=null;
+ $scope.pwd=null;
+ $scope.login = function () {
+ $scope.dataLoading = true;
+ AuthenticationService.Login($scope.mail, $scope.pwd,
+ function(response) {
+ if(response.success) {
+ AuthenticationService.SetCredentials($scope.mail, $scope.pwd);
+ $location.path('/');
+ } else {
+ $scope.error = response.message;
+ $scope.dataLoading = false;
+ }
+ });
+ };
+}]);
+
+
+/*
 .controller("LoginController" ,function($scope,$http,$location){
 $scope.user=[];
 $scope.mail=null;
@@ -17,26 +41,4 @@ $scope.login=function(){
 		};
 
 
-});
-	
-	// .controller('LoginController',
-// ['$scope', '$rootScope', '$location', 'AuthenticationService',
-// function ($scope, $rootScope, $location, AuthenticationService) {
-// // reset login status
-// AuthenticationService.ClearCredentials();
-// 
-// $scope.login = function () {
-// $scope.dataLoading = true;
-// AuthenticationService.Login($scope.username, $scope.password,
-// function(response) {
-// if(response.success) {
-// AuthenticationService.SetCredentials($scope.username, $scope.password);
-// $location.path('/');
-// } else {
-// $scope.error = response.message;
-// $scope.dataLoading = false;
-// }
-// });
-// };
-// }]);
-
+});*/
