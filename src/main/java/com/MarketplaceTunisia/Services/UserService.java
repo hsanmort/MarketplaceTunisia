@@ -55,7 +55,7 @@ public class UserService {
 	public Page<User> getUsersByName(String name, int page){
 		return userRepository.findByname(name, new PageRequest(page,5));
 	}
-	@RequestMapping(value="/user/findByMailAndPwd", method=RequestMethod.GET)
+	@RequestMapping(value="/user/findByMailAndPwd", method=RequestMethod.POST)
 	public User getUsersByMailAndPwd(String mail,String pwd){
 		return userRepository.findBymailAndPwd(mail, pwd);
 	}

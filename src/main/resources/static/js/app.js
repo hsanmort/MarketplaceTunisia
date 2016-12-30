@@ -20,7 +20,7 @@ angular.module('BasicHttpAuthExample', [
     $routeProvider
         .when('/login', {
             controller: 'LoginController',
-            templateUrl: 'modules/authentication/views/login-register.html',
+            templateUrl: 'modules/authentication/views/login.html',
             //hideMenus: true
         })
  
@@ -42,9 +42,9 @@ angular.module('BasicHttpAuthExample', [
         })
  
         .otherwise({ redirectTo: '/home' });
-}]);
+}])
  
-/*.run(['$rootScope', '$location', '$cookieStore', '$http',
+.run(['$rootScope', '$location', '$cookieStore', '$http',
     function ($rootScope, $location, $cookieStore, $http) {
         // keep user logged in after page refresh
         $rootScope.globals = $cookieStore.get('globals') || {};
@@ -55,7 +55,7 @@ angular.module('BasicHttpAuthExample', [
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in
             if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
-                $location.path('/home');
+                $location.path('/login');
             }
         });
-    }]);*/
+    }]);
