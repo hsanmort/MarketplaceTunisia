@@ -62,7 +62,7 @@ public class ShopService {
 		return shopRepository.findByseller(seller, new PageRequest(page,5));
 	}
 	@RequestMapping("/shop/findByIdShop")
-	public Shop getShopsByIdShop(int idShop){
+	public Shop getShopsByIdShop(Long idShop){
 		return shopRepository.findByIdShop(idShop);
 	}
 		

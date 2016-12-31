@@ -1,9 +1,9 @@
- <section class="section single-wrap" >
+ <section class="section single-wrap"  ng-controller="ProductDetailController">
             <div class="container">
                 <div class="page-title">
                     <div class="row">
                         <div class="col-sx-12 text-center">
-                            <h3>{{productbyid.nameProduct}}</h3>
+                            <h3>{{message}}</h3>
                         </div>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                                 <ol class="breadcrumb">
                                   <li><a href="#">Home</a></li>
                                   <li><a href="#">Shop</a></li>
-                                  <li class="active">{{productbyid.nameProduct}}</li>
+                                  <li class="active">{{}}</li>
                                 </ol>
                             </div>
                         </div>
@@ -53,105 +53,31 @@
                             </div><!-- end row -->
                         </div><!-- end content before -->
 
-                        <div class="content nopad">
-                            <div class="item-single-wrapper">
+                        <div class="content nopad" >
+                        <h1>{{productbyid.nameProduct}}</h1>
+                            <div class="item-single-wrapper" >
                                 <div class="item-box">
+                                
                                     <div class="item-media text-center">
-                                        <div id="slider" class="flexslider clearfix">
-                                            <ul class="slides">
-                                                <li><img src="assets/upload/single_item_01.jpg" alt="" class="img-responsive"></li>
-                                                <li><img src="assets/upload/single_item_02.jpg" alt="" class="img-responsive"></li>
-                                                <li><img src="assets/upload/single_item_03.jpg" alt="" class="img-responsive"></li>
-                                                <li><img src="assets/upload/single_item_04.jpg" alt="" class="img-responsive"></li>
-                                            </ul>
-                                        </div>
+                                        
                                         <div id="carousel" class="flexslider clearfix">
                                             <ul class="slides">
                                                 <li><img src="assets/upload/single_item_01.jpg" alt="" class="img-responsive"></li>
-                                                <li><img src="assets/upload/single_item_02.jpg" alt="" class="img-responsive"></li>
-                                                <li><img src="assets/upload/single_item_03.jpg" alt="" class="img-responsive"></li>
-                                                <li><img src="assets/upload/single_item_04.jpg" alt="" class="img-responsive"></li>
+                                                
                                             </ul>
                                         </div>  
                                     </div><!-- end item-media -->
 
                                     <div class="item-desc">
-                                        <p> Nulla sit amet arcu sit amet ante porta ultricies in at libero. Cras magna urna, posuere at tempus lobortis, dignissim a turpis. Cras at dignissim est. Pellentesque maximus, turpis at egestas commodo, nisi neque dictum dui, sit amet tempus nibh justo vehicula lorem. Proin ac blandit velit. Sed sollicitudin mattis eros, eget vulputate nisl laoreet non. Nullam imperdiet nibh vel pellentesque egestas. Fusce nec rhoncus magna. </p>
+                                        <p> {{productbyid.price}} </p>
 
-                                        <p> Donec id sapien ultricies purus posuere porttitor. Quisque placerat lectus quis commodo posuere. Nulla facilisi. Ut vitae fermentum odio. Donec diam turpis, condimentum sed euismod sed, sollicitudin vitae velit. Morbi nisi nibh, posuere quis erat et, iaculis lobortis lacus. Aenean at dolor fermentum, placerat augue eget, tristique ipsum. Nulla neque sapien, vulputate et mauris vitae, pretium consectetur lectus. Ut cursus venenatis nibh, sit amet auctor dolor congue et. Fusce a odio diam. In commodo suscipit tellus sed tristique. Duis quam velit, ornare at erat eget, accumsan scelerisque metus.  Donec id sapien ultricies purus posuere porttitor. Quisque placerat lectus quis commodo posuere. Nulla facilisi. Ut vitae fermentum odio. Donec diam turpis, condimentum sed euismod sed, sollicitudin vitae velit. Morbi nisi nibh, posuere quis erat et, iaculis lobortis lacus. Aenean at dolor fermentum, placerat augue eget, tristique ipsum. Nulla neque sapien, vulputate et mauris vitae, pretium consectetur lectus. Ut cursus venenatis nibh, sit amet auctor dolor congue et. Fusce a odio diam. In commodo suscipit tellus sed tristique. Duis quam velit, ornare at erat eget, accumsan scelerisque metus. </p>
-
-                                        <p> Donec pulvinar massa lectus, sed lacinia elit congue vel. Integer risus ex, pulvinar et pellentesque ac, eleifend et dui. Etiam a gravida tellus. Fusce et urna magna. Ut vulputate velit in quam porta, non lacinia ex aliquet. Proin sem velit, convallis eget finibus quis, vulputate at purus. Maecenas tincidunt nisl in lacinia tempor. Maecenas quis sem eget leo laoreet tincidunt. </p>
+                                      
                                     </div><!-- end item-desc -->
                                 </div><!-- end item-box -->
                             </div><!-- end item-single-wrapper -->
                         </div><!-- end content -->
 
-                        <div class="content-after boxs">
-                            <div class="row">
-                                <div class="col-md-12 general-title">
-                                    <h4>Other Bob Items <span class="hidden-xs"><a href="public-profile.html">View all</a></span></h4>
-                                    <hr>
-                                </div><!-- end col -->
-                            </div><!-- end row -->
-                            <div class="row">
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="item-box">
-                                        <div class="item-media entry">
-                                            <img src="upload/item_01.jpg" alt="" class="img-responsive">
-                                            <div class="magnifier">
-                                                <div class="item-author">
-                                                    <a href="public-profile.html"><img src="upload/member_01.jpg" class="img-circle" alt=""> Amanda</a>
-                                                </div><!-- end author -->
-                                            </div>
-                                            <div class="theme__button">
-                                                <p><a href="single-item.html" title="">$212</a></p>
-                                            </div>
-                                        </div><!-- end item-media -->
-                                        <h4><a href="single-item.html">Weather Forecast</a></h4>
-                                        <small><a href="single-item.html"><i class="fa fa-eye"></i> 893</a></small>
-                                        <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
-                                    </div><!-- end item-box -->
-                                </div><!-- end col -->
 
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="item-box">
-                                        <div class="item-media entry">
-                                            <img src="assets/upload/item_02.jpg" alt="" class="img-responsive">
-                                            <div class="magnifier">
-                                                <div class="item-author">
-                                                    <a href="public-profile.html"><img src="upload/member_02.jpg" class="img-circle" alt=""> Bob</a>
-                                                </div><!-- end author -->
-                                            </div>
-                                            <div class="theme__button">
-                                                <p><a href="single-item.html" title="">$5</a></p>
-                                            </div>
-                                        </div><!-- end item-media -->
-                                        <h4><a href="single-item.html">Google Map Collection</a></h4>
-                                        <small><a href="single-item.html"><i class="fa fa-eye"></i> 221</a></small>
-                                        <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 05</a></small>
-                                    </div><!-- end item-box -->
-                                </div><!-- end col -->
-
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="item-box">
-                                        <div class="item-media entry">
-                                            <img src="assets/upload/item_03.jpg" alt="" class="img-responsive">
-                                            <div class="magnifier">
-                                                <div class="item-author">
-                                                    <a href="public-profile.html"><img src="upload/member_03.jpg" class="img-circle" alt=""> Selena</a>
-                                                </div><!-- end author -->
-                                            </div>
-                                            <div class="theme__button">
-                                                <p><a href="single-item.html" title="">$5</a></p>
-                                            </div>
-                                        </div><!-- end item-media -->
-                                        <h4><a href="single-item.html">Podcast App</a></h4>
-                                        <small><a href="single-item.html"><i class="fa fa-eye"></i> 412</a></small>
-                                        <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 31</a></small>
-                                    </div><!-- end item-box -->
-                                </div><!-- end col -->
-                            </div><!-- end row -->
-                        </div><!-- end content after -->
                     </div><!-- end singlewrapper -->
 
                     <div id="sidebar" class="col-md-4">

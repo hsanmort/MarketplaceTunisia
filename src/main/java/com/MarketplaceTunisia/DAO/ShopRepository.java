@@ -21,6 +21,7 @@ public interface ShopRepository extends JpaRepository<Shop, Integer>{
 	public Page<Shop> findBynameShop(String nameShop, Pageable pageable);
 	public Page<Shop> findBydateCreation(Date dateCreation, Pageable pageable);
 	public Page<Shop> findByseller(Seller seller, Pageable pageable);
-	public Shop findByIdShop(int idShop);
+
+	public Shop findByIdShop(Long idShop);
 
 }

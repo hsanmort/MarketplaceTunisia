@@ -60,9 +60,14 @@ public class ProductService {
 	return productRepository.findByCategory(category, new PageRequest(page,5));
 	}
 	
-	@RequestMapping("/product/findByShop")
+/*	@RequestMapping("/product/findByShop")
 	public Page<Product> getProductsByShop(Shop shop, int page){
 	return productRepository.findByShop(shop, new PageRequest(page,5));
+	}*/
+	
+	@RequestMapping("/product/findByShop")
+	public Product getProductsByShop(Shop shop){
+	return productRepository.findByShop(shop);
 	}
 	
 	@RequestMapping("/product/findByNameProd")
@@ -85,9 +90,9 @@ public class ProductService {
 	return productRepository.findByReviews(reviews, new PageRequest(page,5));
 	}
 	
-	@RequestMapping("/product/:id/")
-	public Product getProductsByidProduct( int id){
-	return productRepository.findByidProduct(id);
+	@RequestMapping("/product/findByIdProduct")
+	public Product getProductsByidProduct( int idProduct){
+	return productRepository.findByidProduct(idProduct);
 	}
 
 }
