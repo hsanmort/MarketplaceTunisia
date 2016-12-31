@@ -69,6 +69,10 @@ public class UserService {
 	public Page<User> getUsersByAdress(Adress adress, int page){
 		return userRepository.findByadress(adress, new PageRequest(page,5));
 	}
+	@RequestMapping("/user/findByMail")
+	public User getUsersByMail(String mail){
+		return userRepository.findBymail(mail);
+	}
 	
 	
 }

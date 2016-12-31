@@ -1,40 +1,47 @@
-'use strict';
+(function () {
+    'use strict';
  
-angular.module('Authentication')
+    angular
+        .module('Authentication')
+        .factory('AuthenticationService', AuthenticationService);
  
-.factory('AuthenticationService',
-    ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout',
-    function (Base64, $http, $cookieStore, $rootScope, $timeout) {
+    AuthenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout', 'UserService'];
+    function AuthenticationService($http, $cookies, $rootScope, $timeout, UserService) {
         var service = {};
-
-        service.Login = function (mail, pwd, callback) {
-
+ 
+        service.Login = Login;
+        service.SetCredentials = SetCredentials;
+        service.ClearCredentials = ClearCredentials;
+ 
+        return service;
+ 
+        function Login(mail, pwd, callback) {
+ 
             /* Dummy authentication for testing, uses $timeout to simulate api call
-             ----------------------------------------------
-            $timeout(function(){
-                var response = { success: username === 'test' && password === 'test' };
-                if(!response.success) {
-                    response.message = 'Username or password is incorrect';
-                }
-                callback(response);
-            }, 1000);*/
-
-            //$http.post('/api/authenticate', { username: username, password: password })
-
+             ----------------------------------------------*/
+            $timeout(function () {
+                var response;
+                UserService.GetByMail(mail)
+                    .then(function (user) {
+                        if (user !== null && user.pwd === pwd) {
+                            response = { success: true };
+                        } else {
+                            response = { success: false, message: 'Mail or password is incorrect' };
+                        }
+                        callback(response);
+                    });
+            }, 1000);
+ 
             /* Use this for real authentication
              ----------------------------------------------*/
             //$http.post('/api/authenticate', { username: username, password: password })
-
-            //$http.post("/user/findByMailAndPwd?mail="+mail+"&pwd="+pwd)
-            $http.post('/api/findByMailAndPwd', { mail: mail, pwd: pwd })
-
-                .success(function (response) {
-                    callback(response);
-                });
-
-        };
+            //    .success(function (response) {
+            //        callback(response);
+            //    });
  
-        service.SetCredentials = function (mail, pwd) {
+        }
+ 
+        function SetCredentials(mail, pwd) {
             var authdata = Base64.encode(mail + ':' + pwd);
  
             $rootScope.globals = {
@@ -44,25 +51,27 @@ angular.module('Authentication')
                 }
             };
  
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
-            $cookieStore.put('globals', $rootScope.globals);
-        };
+            // set default auth header for http requests
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
  
-        service.ClearCredentials = function () {
+            // store user details in globals cookie that keeps user logged in for 1 week (or until they logout)
+            var cookieExp = new Date();
+            cookieExp.setDate(cookieExp.getDate() + 7);
+            $cookies.putObject('globals', $rootScope.globals, { expires: cookieExp });
+        }
+ 
+        function ClearCredentials() {
             $rootScope.globals = {};
-            $cookieStore.remove('globals');
-            $http.defaults.headers.common.Authorization = 'Basic ';
-        };
+            $cookies.remove('globals');
+            $http.defaults.headers.common.Authorization = 'Basic';
+        }
+    }
  
-        return service;
-    }])
+    // Base64 encoding service used by AuthenticationService
+    var Base64 = {
  
-.factory('Base64', function () {
-    /* jshint ignore:start */
+        keyStr: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
  
-    var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
- 
-    return {
         encode: function (input) {
             var output = "";
             var chr1, chr2, chr3 = "";
@@ -86,10 +95,10 @@ angular.module('Authentication')
                 }
  
                 output = output +
-                    keyStr.charAt(enc1) +
-                    keyStr.charAt(enc2) +
-                    keyStr.charAt(enc3) +
-                    keyStr.charAt(enc4);
+                    this.keyStr.charAt(enc1) +
+                    this.keyStr.charAt(enc2) +
+                    this.keyStr.charAt(enc3) +
+                    this.keyStr.charAt(enc4);
                 chr1 = chr2 = chr3 = "";
                 enc1 = enc2 = enc3 = enc4 = "";
             } while (i < input.length);
@@ -113,10 +122,10 @@ angular.module('Authentication')
             input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
  
             do {
-                enc1 = keyStr.indexOf(input.charAt(i++));
-                enc2 = keyStr.indexOf(input.charAt(i++));
-                enc3 = keyStr.indexOf(input.charAt(i++));
-                enc4 = keyStr.indexOf(input.charAt(i++));
+                enc1 = this.keyStr.indexOf(input.charAt(i++));
+                enc2 = this.keyStr.indexOf(input.charAt(i++));
+                enc3 = this.keyStr.indexOf(input.charAt(i++));
+                enc4 = this.keyStr.indexOf(input.charAt(i++));
  
                 chr1 = (enc1 << 2) | (enc2 >> 4);
                 chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
@@ -140,5 +149,4 @@ angular.module('Authentication')
         }
     };
  
-    /* jshint ignore:end */
-});
+})();

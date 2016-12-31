@@ -21,8 +21,14 @@ angular.module('BasicHttpAuthExample', [
         .when('/login', {
             controller: 'LoginController',
             templateUrl: 'modules/authentication/views/login.html',
+            controllerAs: 'vm'
             //hideMenus: true
         })
+        .when('/register', {
+                controller: 'RegisterController',
+                templateUrl: 'modules/authentication/views/register.html',
+                controllerAs: 'vm'
+            })
  
         .when('/home', {
             controller: 'HomeController',
@@ -53,9 +59,11 @@ angular.module('BasicHttpAuthExample', [
         }
  
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
-            // redirect to login page if not logged in
-            if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
-                $location.path('/login');
-            }
-        });
+        	            // redirect to login page if not logged in and trying to access a restricted page
+        	            var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+        	            var loggedIn = $rootScope.globals.currentUser;
+        	            if (restrictedPage && !loggedIn) {
+        	                $location.path('/login');
+        	            }
+        	        });
     }]);
