@@ -2,13 +2,14 @@
 
 angular.module('Shop')
 
-.controller('ShopController', [ '$scope', '$http',
+.controller('ShopController', [ '$scope', '$http','$location',
 //affichage de la liste des shops
-function($scope, $http) {
+function($scope, $http,$location) {
 	$scope.shops = [];
 	$scope.message = "All Shops Here";
 	function ShopList() {
-		$http.get("/shop/all").success(function(data) {
+		$http.get("/shop/all")
+		.success(function(data) {
 			$scope.shops = data;
 		});
 	};
