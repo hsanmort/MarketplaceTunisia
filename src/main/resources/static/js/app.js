@@ -34,10 +34,6 @@ angular.module('BasicHttpAuthExample', [
             controller: 'HomeController',
             templateUrl: 'modules/home/views/home.html'
         })
-         .when('/shop-list', {
-            controller: 'ShopController',
-            templateUrl: 'modules/shop/views/shop-list.html'
-        })
         .when('/product-list', {
             controller: 'ProductController',
             templateUrl: 'modules/product/views/product-list.html'
@@ -46,24 +42,31 @@ angular.module('BasicHttpAuthExample', [
             controller: 'ProductDetailController',
             templateUrl: 'modules/product/views/product-detail.html'
         })
- 
+        .when('/shop-detail/:id', {
+	         templateUrl: 'modules/shop/views/shop-detail.html',
+	         controller: 'ShopController' 
+	        })
+	    .when('/shop-list', {
+            controller: 'ShopController',
+            templateUrl: 'modules/shop/views/shop-list.html'
+        })
         .otherwise({ redirectTo: '/home' });
-}])
+}]);
  
-.run(['$rootScope', '$location', '$cookieStore', '$http',
-    function ($rootScope, $location, $cookieStore, $http) {
-        // keep user logged in after page refresh
-        $rootScope.globals = $cookieStore.get('globals') || {};
-        if ($rootScope.globals.currentUser) {
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
-        }
- 
-        $rootScope.$on('$locationChangeStart', function (event, next, current) {
-        	            // redirect to login page if not logged in and trying to access a restricted page
-        	            var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
-        	            var loggedIn = $rootScope.globals.currentUser;
-        	            if (restrictedPage && !loggedIn) {
-        	                $location.path('/login');
-        	            }
-        	        });
-    }]);
+//.run(['$rootScope', '$location', '$cookieStore', '$http',
+//    function ($rootScope, $location, $cookieStore, $http) {
+//        // keep user logged in after page refresh
+//        $rootScope.globals = $cookieStore.get('globals') || {};
+//        if ($rootScope.globals.currentUser) {
+//            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+//        }
+// 
+//        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+//        	            // redirect to login page if not logged in and trying to access a restricted page
+//        	            var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+//        	            var loggedIn = $rootScope.globals.currentUser;
+//        	            if (restrictedPage && !loggedIn) {
+//        	                $location.path('/login');
+//        	            }
+//        	        });
+//    }]);

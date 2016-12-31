@@ -28,8 +28,8 @@ public class ShopService {
 	}
 	
 	@RequestMapping(value="/shop/delete")
-	public void deleteShop(int idAdress){
-		shopRepository.delete(idAdress);
+	public void deleteShop(int idShop){
+		shopRepository.delete(idShop);
 	}
 	
 	@RequestMapping(value="/shop/update")
