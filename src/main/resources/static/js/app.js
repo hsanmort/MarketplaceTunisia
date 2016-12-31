@@ -44,7 +44,7 @@ angular.module('BasicHttpAuthExample', [
         })
         .when('/shop-detail/:id', {
 	         templateUrl: 'modules/shop/views/shop-detail.html',
-	         controller: 'ShopController' 
+	         controller: 'ShopDetailController' 
 	        })
 	    .when('/shop-list', {
             controller: 'ShopController',

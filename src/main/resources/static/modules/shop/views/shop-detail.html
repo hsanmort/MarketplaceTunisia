@@ -1,9 +1,9 @@
- <section class="section single-wrap" >
+ <section class="section single-wrap"  ng-controller="ShopDetailController">
             <div class="container">
                 <div class="page-title">
                     <div class="row">
                         <div class="col-sx-12 text-center">
-                            <h3>{{}}</h3>
+                            <h3>{{message}}</h3>
                         </div>
                     </div>
                 </div>
@@ -54,8 +54,9 @@
                         </div><!-- end content before -->
 
                         <div class="content nopad">
-                            <div class="item-single-wrapper">
+                            <div class="item-single-wrapper" ng-repeat=" s in shopbyid">
                                 <div class="item-box">
+                                <h1>{{s.nameShop}}</h1>
                                     <div class="item-media text-center">
                                         <div id="slider" class="flexslider clearfix">
                                             <ul class="slides">
