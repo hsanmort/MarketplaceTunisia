@@ -21,8 +21,8 @@ angular.module('BasicHttpAuthExample', [
         .when('/login', {
             controller: 'LoginController',
             templateUrl: 'modules/authentication/views/login.html',
-            controllerAs: 'vm'
-            //hideMenus: true
+            //controllerAs: 'vm'
+            hideMenus: true
         })
         .when('/register', {
                 controller: 'RegisterController',

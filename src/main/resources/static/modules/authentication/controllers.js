@@ -36,11 +36,11 @@ $scope.login = login;
         .module('Authentication')
         .controller('LoginController', LoginController);
  
-    LoginController.$inject = ['$location', 'AuthenticationService'];
-    function LoginController($location, AuthenticationService) {
-        var vm = this;
+    LoginController.$inject = ['$scope','$location', 'AuthenticationService'];
+    function LoginController($scope,$location, AuthenticationService) {
+        //var vm = this;
  
-        vm.login = login;
+        $scope.login = login;
  
         (function initController() {
             // reset login status
@@ -48,14 +48,14 @@ $scope.login = login;
         })();
  
         function login() {
-            vm.dataLoading = true;
-            AuthenticationService.Login(vm.mail, vm.pwd, function (response) {
+        	$scope.dataLoading = true;
+            AuthenticationService.Login($scope.mail, $scope.pwd, function (response) {
                 if (response.success) {
-                    AuthenticationService.SetCredentials(vm.mail, vm.pwd);
+                    AuthenticationService.SetCredentials($scope.mail, $scope.pwd);
                     $location.path('/');
                 } else {
-                    FlashService.Error(response.message);
-                    vm.dataLoading = false;
+                	FlashService.Error(response.message);
+                    $scope.dataLoading = false;
                 }
             });
         };
