@@ -22,7 +22,7 @@ public interface SellerRepository extends JpaRepository<Seller, Integer> {
 //	public Seller UpdateSeller(@Param("x") int id);	
 	
 
-	@Query ("update Seller s set s.status=:sta where s.idUser=:id")
-	public Seller UpdateStatus(@Param("id") int id,@Param("sta") int sta);
+	@Query ("update Seller s set s.status= :sta where s.idUser= :id")
+	public Seller UpdateStatus(@Param("sta") boolean sta,@Param("id") int id );
 	
 }

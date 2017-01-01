@@ -53,8 +53,8 @@ public class SellerService {
 	
 
 	@RequestMapping(value="/seller/UpdateStatus")
-	public Seller UpdateStatus(int id,int sta){
-		return sellerRepository.UpdateStatus(id,sta);
+	public Seller UpdateStatus(boolean sta,int id){
+		return sellerRepository.UpdateStatus(sta,id);
 		}
 	
 	
