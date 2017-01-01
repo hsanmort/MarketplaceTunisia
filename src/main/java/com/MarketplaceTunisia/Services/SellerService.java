@@ -51,5 +51,11 @@ public class SellerService {
 //		return sellerRepository.UpdateSeller(id);
 //	}	
 	
+
+	@RequestMapping(value="/seller/UpdateStatus")
+	public Seller UpdateStatus(int id,int sta){
+		return sellerRepository.UpdateStatus(id,sta);
+		}
+	
 	
 }

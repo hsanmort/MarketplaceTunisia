@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 
+
 import com.MarketplaceTunisia.Entities.Seller;
+import com.MarketplaceTunisia.Entities.User;
 
 
 public interface SellerRepository extends JpaRepository<Seller, Integer> {
@@ -18,5 +20,9 @@ public interface SellerRepository extends JpaRepository<Seller, Integer> {
 	
 //	@Query("UPDATE Seller s SET s.status=1 WHERE s.idUser= :x ")
 //	public Seller UpdateSeller(@Param("x") int id);	
+	
+
+	@Query ("update Seller s set s.status=:sta where s.idUser=:id")
+	public Seller UpdateStatus(@Param("id") int id,@Param("sta") int sta);
 	
 }
