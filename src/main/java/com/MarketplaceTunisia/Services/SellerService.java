@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,10 +52,10 @@ public class SellerService {
 //		return sellerRepository.UpdateSeller(id);
 //	}	
 	
-
+ 
 	@RequestMapping(value="/seller/UpdateStatus")
-	public Seller UpdateStatus(boolean sta,int id){
-		return sellerRepository.UpdateStatus(sta,id);
+	public void UpdateStatus(String sta,int id){
+		 sellerRepository.UpdateStatus(sta,id);
 		}
 	
 	
