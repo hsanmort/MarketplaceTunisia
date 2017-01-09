@@ -483,7 +483,7 @@
 					"&lastName="+($scope.Seller).lastName+"&mail="+($scope.Seller).mail+
 					"&pwd="+($scope.Seller).pwd+"&gender="+($scope.Seller).gender+
 					"&tel="+($scope.Seller).tel+"&picture="+($scope.Seller).adress+"&companyName="+
-					($scope.Seller).companyName"&status="+1)
+					($scope.Seller).companyName+"&status="+1)
 					.success(function()
 					{
 					$scope.gotoPage($scope.pageCourante);
