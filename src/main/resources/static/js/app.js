@@ -6,6 +6,7 @@ angular.module('Home', []);
 angular.module('Shop', []);
 angular.module('Product', []);
 angular.module('Seller', []);
+angular.module('Complaint', []);
 
 angular.module('BasicHttpAuthExample', [
     'Authentication',
@@ -13,6 +14,7 @@ angular.module('BasicHttpAuthExample', [
     'Shop',
     'Product',
     'Seller',
+    'Complaint',
     'ngRoute',
     'ngCookies'
 ])
@@ -66,6 +68,11 @@ angular.module('BasicHttpAuthExample', [
 	    .when('/seller-detail/:id', {
 	         templateUrl: 'modules/seller/views/seller-detail.html',
 	         controller: 'SellerDetailController' 
+	        })
+	    //Complaint Routes
+        .when('/complaint', {
+	         templateUrl: 'modules/complaint/views/complaint.html',
+	         controller: 'ComplaintController' 
 	        })
 	        
         .otherwise({ redirectTo: '/home' });
