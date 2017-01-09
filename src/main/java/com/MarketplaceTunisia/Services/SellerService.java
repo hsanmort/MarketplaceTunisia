@@ -40,6 +40,10 @@ public class SellerService {
 	public Page<Seller> allSellers(int page) {
 		return sellerRepository.findAll(new PageRequest(page, 5));
 	}
+	@RequestMapping(value="/seller/alls", method=RequestMethod.GET)
+	public List<Seller> Sellers() {
+		return sellerRepository.findAll();
+	}
 	
 	
 	@RequestMapping("/seller/findByMc")
