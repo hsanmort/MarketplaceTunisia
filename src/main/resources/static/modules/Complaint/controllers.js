@@ -2,9 +2,9 @@ angular.module('Complaint')
  
 .controller('ComplaintController',
     ['$scope','$http',
-	
-	$scope.Ajouter = function(){		
-			
+    	function($scope,$http){	
+    	 	
+    	function Ajouter(){
 			var dataObj = {
 					nameComplaint: $scope.nameComplaint
 					
@@ -18,8 +18,6 @@ angular.module('Complaint')
 			});		
 			
 			$scope.nameComplaint='';
-			
-			chargerC();
-		}
-	
-  ]);
+    	};
+    	
+		}]);
