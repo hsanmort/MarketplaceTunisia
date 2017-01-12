@@ -7,6 +7,7 @@ angular.module('Shop', []);
 angular.module('Product', []);
 angular.module('Seller', []);
 angular.module('Complaint', []);
+angular.module('Shoppingcart', []);
 
 angular.module('BasicHttpAuthExample', [
     'Authentication',
@@ -15,6 +16,7 @@ angular.module('BasicHttpAuthExample', [
     'Product',
     'Seller',
     'Complaint',
+    'shop-checkout'
     'ngRoute',
     'ngCookies'
 ])
@@ -75,6 +77,10 @@ angular.module('BasicHttpAuthExample', [
 	         controller: 'ComplaintController' 
 	        })
 	        
+	        .when('/shop-checkout', {
+	         templateUrl: 'modules/shoppingcart/views/shop-checkout.html',
+	         controller: 'ComplaintController' 
+	        })
         .otherwise({ redirectTo: '/home' });
 }]);
  

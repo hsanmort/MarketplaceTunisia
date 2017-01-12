@@ -1,4 +1,4 @@
- <section class="section single-wrap">
+ <section class="section single-wrap"  ng-controller="ShoppingcartController">
             <div class="container">
                 <div class="page-title">
                     <div class="row">
@@ -63,7 +63,7 @@
                         <div class="col-md-12 col-sm-12">
 
                             <div class="row cart-body">
-                                <form class="form-horizontal" method="post">
+                                <form class="form-horizontal" method="post"   ng-submit="Ajouter()" role=" order">
                                     <div class="col-lg-12 col-md-12">
                                         <!--REVIEW ORDER-->
                                         <div class="panel panel-info">
@@ -115,63 +115,41 @@
 
                                         <!--SHIPPING METHOD-->
                                         <div class="panel panel-info">
-                                            <div class="panel-heading">Shipping Address</div>
+										 <form method="get" ng-submit="Ajouter()" role="Order">
+                                            <div class="panel-heading"> To order </div>
                                             <div class="panel-body">
-                                                <div class="form-group">
-                                                    <div class="col-md-12"><label>Country:</label></div>
-                                                    <div class="col-md-12">
-                                                        <input type="text" class="form-control" name="country" value="" />
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <label>First Name:</label>
-                                                        <input type="text" name="first_name" class="form-control" value="" />
-                                                    </div>
-                                                    <div class="span1"></div>
-                                                    <div class="col-md-6 col-xs-12">
-                                                        <label>Last Name:</label>
-                                                        <input type="text" name="last_name" class="form-control" value="" />
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-12"><label>Address:</label></div>
-                                                    <div class="col-md-12">
-                                                        <input type="text" name="address" class="form-control" value="" />
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-12"><label>City:</label></div>
-                                                    <div class="col-md-12">
-                                                        <input type="text" name="city" class="form-control" value="" />
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-12"><label>State:</label></div>
-                                                    <div class="col-md-12">
-                                                        <input type="text" name="state" class="form-control" value="" />
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-12"><label>Zip / Postal Code:</label></div>
-                                                    <div class="col-md-12">
-                                                        <input type="text" name="zip_code" class="form-control" value="" />
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-12"><label>Phone Number:</label></div>
-                                                    <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value="" /></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-12"><label>Email Address:</label></div>
-                                                    <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" /></div>
-                                                </div>
+                                              
+                                                 <div class="form-group">
+                                                            <label> Date delivery </label>
+                                                            <input type="text" name="text" required class="form-control" placeholder="" />
+                                                            <span class="fa fa-user"></span>
+                                                       </div>
+                                              
+											    <div class="form-group">
+                                                            <label>  Date of receipt</label>
+                                                            <input type="text" name="text" required class="form-control" placeholder="" />
+                                                            <span class="fa fa-user"></span>
+                                                        </div>
+														
+														<div class="form-group">
+                                                            <label>  Price </label>
+                                                            <input type="text" name="text" required class="form-control" placeholder="" />
+                                                            <span class="fa fa-user"></span>
+                                                        </div>
+                                              
+                                                       <div class="form-group">
+                                                            <label>  Product reference </label>
+                                                            <input type="text" name="text" required class="form-control" placeholder="" />
+                                                            <span class="fa fa-user"></span>
+                                                        </div> 
+                                               </form>
+                                               
                                             </div>
                                         </div>
                                         <!--SHIPPING METHOD END-->
 
-                                        <!--CREDIT CART PAYMENT-->
-                                        <div class="panel panel-info">
+                                      <!--   <!--CREDIT CART PAYMENT-->
+                                        <!-- <div class="panel panel-info">
                                             <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
                                             <div class="panel-body">
                                                 <div class="form-group">
@@ -184,8 +162,8 @@
                                                             <option value="8">Discover</option>
                                                         </select>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
+                                                </div> -->
+                                               <!--  <div class="form-group">
                                                     <div class="col-md-6"><label>Credit Card Number:</label></div>
                                                     <div class="col-md-6"><input type="text" class="form-control" name="car_number" value="" /></div>
                                                 </div>
@@ -245,8 +223,8 @@
                                                             </ul>
                                                         </div>
                                                         <div class="clearfix"></div>
-                                                    </div>
-                                                </div>
+                                                    </div> -->
+<!--                                                 </div> --> -->
                                                 <hr>
                                                 <div class="form-group">
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
