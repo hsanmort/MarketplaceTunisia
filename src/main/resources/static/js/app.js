@@ -16,7 +16,7 @@ angular.module('BasicHttpAuthExample', [
     'Product',
     'Seller',
     'Complaint',
-    'shop-checkout'
+    'shop-checkout',
     'ngRoute',
     'ngCookies'
 ])
