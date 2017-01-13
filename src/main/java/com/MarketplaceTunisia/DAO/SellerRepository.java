@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 
 
 import com.MarketplaceTunisia.Entities.Seller;
-import com.MarketplaceTunisia.Entities.User;
+
 
 
 public interface SellerRepository extends JpaRepository<Seller, Integer> {

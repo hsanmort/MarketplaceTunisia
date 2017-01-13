@@ -50,6 +50,10 @@ angular.module('BasicHttpAuthExample', [
             controller: 'ProductDetailController',
             templateUrl: 'modules/product/views/product-detail.html'
         })
+        .when('/product-add/', {
+            controller: 'ProductController',
+            templateUrl: 'modules/product/views/product-add.html'
+        })
         
         //Shop Routes
         
@@ -61,21 +65,30 @@ angular.module('BasicHttpAuthExample', [
 	         templateUrl: 'modules/shop/views/shop-detail.html',
 	         controller: 'ShopDetailController' 
 	        })
+	    .when('/shop-add/', {
+	         templateUrl: 'modules/shop/views/shop-add.html',
+	         controller: 'ShopDetailController' 
+	        })
 	        
         //Seller Routes
         .when('/seller-list', {
 	         templateUrl: 'modules/seller/views/seller-list.html',
 	         controller: 'SellerController' 
 	        })
-	    .when('/seller-detail/:id', {
-	         templateUrl: 'modules/seller/views/seller-detail.html',
+	    .when('/profile-public/:id', {
+	         templateUrl: 'modules/profile/views/profile-public.html',
 	         controller: 'SellerDetailController' 
+	        })
+	    .when('/seller-dashboard', {
+	         templateUrl: 'modules/seller/views/seller-dashboard.html',
+	         controller: 'SellerController' 
 	        })
 	    //Complaint Routes
         .when('/complaint', {
 	         templateUrl: 'modules/complaint/views/complaint.html',
 	         controller: 'ComplaintController' 
 	        })
+
 	        
 	        .when('/shop-checkout', {
 	         templateUrl: 'modules/shoppingcart/views/shop-checkout.html',

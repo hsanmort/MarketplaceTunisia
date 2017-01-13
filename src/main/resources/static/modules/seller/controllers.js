@@ -18,6 +18,11 @@ angular.module('Seller')
     		});
     	};
     	SellerList();
+    	//affichage detail seller
+    	$scope.detailSeller = function(sellerId) {
+    		$location.path('/profile-public/' + sellerId);
+
+    	};
 
       
     }]);

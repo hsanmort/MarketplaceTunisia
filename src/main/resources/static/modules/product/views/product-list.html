@@ -44,11 +44,7 @@
                                     <div class="btn-group">
                                         <select name="orderby" class="selectpicker">
                                           <option>All Platforms</option>
-                                          <option>IOS Apps</option>
-                                          <option>Android Apps</option>
-                                          <option>UI Kits</option>
-                                          <option>Site Templates</option>
-                                          <option>WordPress Themes</option>
+                                         
                                       </select>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Search anything here.">
@@ -80,13 +76,14 @@
                     </div><!-- end row -->
                     <div class="row"  ng-controller="ProductController" >
                         <div class="col-md-3 col-sm-6" ng-repeat="product in products">
+                        <a ng-click="detailProduct(product.idProduct)" >
                             <div class="item-box" >
                                 <div class="item-media entry">
                                     <img src="assets/upload/item_01.jpg" alt="" class="img-responsive">
                                     <div class="magnifier">
                                     
                                         <div class="item-author">
-                                            <a ng-click="detailProduct(product.idProduct)" ><img src="assets/upload/member_01.jpg" class="img-circle" alt=""> {{product.nameShop}}</a>
+                                            <img src="assets/upload/member_01.jpg" class="img-circle" alt=""> {{product.nameShop}}
                                         </div><!-- end author -->
                                     </div>
                                     <div class="theme__button">
@@ -98,6 +95,7 @@
                                 <small><a href="single-item.html"><i class="fa fa-eye"></i> 893</a></small>
                                 <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
                             </div><!-- end item-box -->
+                        </a>
                         </div><!-- end col -->
                         
 
