@@ -161,6 +161,7 @@
                                                 <li><a href="blog.html" title="">Blog</a></li>
                                                 <li><a href="contact.html" title="">Contact</a></li>
                                             </ul>
+                                            <!-- <span ng-if="auth" > -->
                                             <ul class="nav navbar-nav navbar-right">
                                                 <li class="dropdown membermenu hovermenu">
                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/upload/member.png" alt="" class="img-circle"> <span class="caret"></span></a>
@@ -176,12 +177,15 @@
                                                     </ul>
                                                 </li>
                                                 
-                                                 	<li class="login-area">
-	                                                     <a href="http://theme-stall.com/catalog/my-account/" title="Login / Register">
-	                                                     <i class="fa fa-lock" aria-hidden="true"></i></a>
-                                                 	</li>
+                                                 <li class="login-area">
+	                                                  <!-- <a href="http://theme-stall.com/catalog/my-account/" title="Login / Register">
+	                                                  <i class="fa fa-lock" aria-hidden="true"></i></a> -->
+	                                                  <a href="#/login" title="Login / Register">
+	                                                  <i class="fa fa-lock" aria-hidden="true"></i></a>
+                                                 </li>
                                             	
                                             </ul>
+                                            <!-- </span> -->
 
                                         </div><!-- end navbar-cell -->
                                     </div><!-- /.navbar-collapse -->        
@@ -237,8 +241,8 @@
             <script src="js/app.js"></script>
             <script src="modules/authentication/controllers.js"></script>
             <script src="modules/authentication/services.js"></script>
-            <script src="modules/authentication/UserService.js"></script>
-            <script src="modules/authentication/UserService-LocalStorage.js"></script>
+            <!-- <script src="modules/authentication/UserService.js"></script>
+            <script src="modules/authentication/UserService-LocalStorage.js"></script> -->
             
             
             <script src="modules/home/controllers.js"></script>
