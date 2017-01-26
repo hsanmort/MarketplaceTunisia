@@ -7,6 +7,7 @@ angular.module('Shop')
 .controller('ShopController', [ '$scope', '$http','$location',
 //affichage de la liste des shops
 function($scope, $http,$location) {
+    $scope.products=[];
 	$scope.shops = [];
 	$scope.message = "All Shops Here";
 	$scope.message1 = "Add new Shop";
@@ -17,6 +18,14 @@ function($scope, $http,$location) {
 		});
 	};
 	ShopList();
+  	 function ProductsList(){
+  		 var idShop=1;
+  	      $http.get("/productsByShop/all?idShop="+idShop)
+  	      .success(function(data) {
+  	         $scope.products=data;   
+  	      });
+  	   };
+  	   ProductsList();
 //affichage detail shop
 	$scope.detailShop = function(shopId) {
 		$location.path('/shop-detail/' + shopId);
@@ -33,17 +42,17 @@ function($scope, $http,$location) {
 	
 //Ajouter
 	$scope.AjouterShop = function(){		
-		$scope.idUser=29;
+		var idUser=20;
 		
 		var dataShop = {
 				
 				nameShop : $scope.nameShop,
 				description : $scope.description,
 				dateCreation : $scope.dateCreation,
-				seller:{idUser:$scope.idUser}
+				//seller:{idUser:$scope.idUser}
 	
 		};	
-		var res = $http.post("/shop/save", dataShop);
+		var res = $http.post("/shop/save",dataShop,idUser);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
 			$location.path('/shop-list');
@@ -53,4 +62,14 @@ function($scope, $http,$location) {
 		});		
 		
 	};	
+	
+	
+	 $scope.ListProductShop=function {
+  		 var idShop=1;
+  	      $http.get("/productsByShop/all?idShop="+idShop)
+  	      .success(function(data) {
+  	         $scope.products=data;   
+  	      });
+  	   };
+	
 } ]);

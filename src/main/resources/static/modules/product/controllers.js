@@ -22,29 +22,58 @@ angular.module('Product')
     };
     
   //Ajouter
-  	$scope.AjouterProduct = function(){		
-  		$scope.idShop=1;
-  		
-  		var dataProduct = {
-  				
-  				nameProduct : $scope.nameProduct,
-  				description : $scope.description,
-  				price : $scope.price,
-  				dateAdd : $scope.dateAdd,
-  				Qte : $scope.Qte,
-  				Shop:{idShop:$scope.idShop}
+//  	$scope.AjouterProduct = function(){		
+//  		$scope.idShop=1;
+//  		
+//  		var dataProduct = {
+//  				
+//  				nameProduct : $scope.nameProduct,
+//  				description : $scope.description,
+//  				price : $scope.price,
+//  				dateAdd : $scope.dateAdd,
+//  				Qte : $scope.Qte,
+//  				
+//  	
+//  		};	
+//  		var res = $http.post("/product/sav", dataProduct);
+//  		res.success(function(data, status, headers, config) {
+//  			$scope.message = data;
+//  			$location.path('/product-list');
+//  		});
+//  		res.error(function(data, status, headers, config) {
+//  			alert( "failure message: " + JSON.stringify({data: data}));
+//  		});		
+//  		ProductsList();
+//  	};
   	
-  		};	
-  		var res = $http.post("/product/save", dataProduct);
-  		res.success(function(data, status, headers, config) {
-  			$scope.message = data;
-  			$location.path('/product-list');
-  		});
-  		res.error(function(data, status, headers, config) {
-  			alert( "failure message: " + JSON.stringify({data: data}));
-  		});		
-  		ProductsList();
-  	};
-      
+  	
+	//Ajouter
+	$scope.AjouterProduct = function() {
+		var idShop = 1;
+
+		var dataProduct = {
+
+			nameProduct : $scope.nameProduct,
+			description : $scope.description,
+			price : $scope.price,
+			dateAdd : $scope.dateAdd,
+			Qte : $scope.Qte
+
+		};
+		var res = $http.post("/product/save", dataProduct, idShop);
+		res.success(function(data, status, headers, config) {
+			$scope.message = data;
+			$location.path('/product-list');
+		});
+		res.error(function(data, status, headers, config) {
+			alert("failure message: " + JSON.stringify({
+				data : data
+			}));
+		});
+		ProductsList();
+	}; 
+	
+	
+  	
     }]);
     

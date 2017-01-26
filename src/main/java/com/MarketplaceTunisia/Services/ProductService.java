@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,11 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.MarketplaceTunisia.DAO.ProductRepository;
+import com.MarketplaceTunisia.DAO.ShopRepository;
 import com.MarketplaceTunisia.Entities.Category;
-
 import com.MarketplaceTunisia.Entities.Product;
 import com.MarketplaceTunisia.Entities.Shop;
 
@@ -29,9 +29,18 @@ public class ProductService {
 	
 	@Autowired
 	ProductRepository productRepository;
+	@Autowired
+	ShopRepository shopRepository;
 	
 	@RequestMapping(value="/product/save",method=RequestMethod.POST)
-	public void saveProduct(@RequestBody Product product){
+	public void saveProduct(@RequestBody Product product, @RequestParam Long idShop){
+		Shop shop= shopRepository.findByIdShop(idShop);
+		product.setShop(shop);
+		productRepository.save(product);
+	}
+	
+	@RequestMapping(value="/product/sav",method=RequestMethod.POST)
+	public void savProduct(@RequestBody Product product){
 		productRepository.save(product);
 	}
 	
@@ -49,7 +58,11 @@ public class ProductService {
 	public List<Product> allProducts() {
 		return productRepository.findAll();
 	}
-	
+	@RequestMapping(value="/productsByShop/all", method=RequestMethod.GET)
+	public List<Product> allProductsByShop(@RequestParam Long idShop) {
+		Shop shop=shopRepository.findByIdShop(idShop);
+		return productRepository.findByShop(shop);
+	}
 	@RequestMapping("/product/findByMc")
 	public Page<Product> getProductsByMc(String mc, int page){
 		return productRepository.findByMc("%"+mc+"%", new PageRequest(page,5));
@@ -58,16 +71,6 @@ public class ProductService {
 	@RequestMapping("/product/findByCategory")
 	public Page<Product> getProductsByCategory(Category category, int page){
 	return productRepository.findByCategory(category, new PageRequest(page,5));
-	}
-	
-/*	@RequestMapping("/product/findByShop")
-	public Page<Product> getProductsByShop(Shop shop, int page){
-	return productRepository.findByShop(shop, new PageRequest(page,5));
-	}*/
-	
-	@RequestMapping("/product/findByShop")
-	public Product getProductsByShop(Shop shop){
-	return productRepository.findByShop(shop);
 	}
 	
 	@RequestMapping("/product/findByNameProd")

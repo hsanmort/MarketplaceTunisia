@@ -1,6 +1,8 @@
 package com.MarketplaceTunisia.DAO;
 
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,7 +18,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	@Query("select p from Product p where p.nameProduct like :x or p.description like :x")
 	public Page<Product> findByMc(@Param("x") String mc, Pageable pageable);
 	
-	public Product findByShop(Shop shop);
+	public List<Product> findByShop(Shop shop);
 	
 	public Page<Product> findByCategory(Category category, Pageable pageable);
 	//public Page<Product> findByShop(Shop shop, Pageable pageable);

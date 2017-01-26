@@ -9,8 +9,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.MarketplaceTunisia.DAO.SellerRepository;
 import com.MarketplaceTunisia.DAO.ShopRepository;
 import com.MarketplaceTunisia.Entities.Seller;
 import com.MarketplaceTunisia.Entities.Shop;
@@ -21,9 +23,13 @@ public class ShopService {
 
 	@Autowired
 	ShopRepository shopRepository;
+	@Autowired
+	SellerRepository sellerRepository;
 	
 	@RequestMapping(value="/shop/save",method=RequestMethod.POST)
-	public void saveShop(@RequestBody Shop shop){
+	public void saveShop(@RequestBody Shop shop,@RequestParam int idUser){
+		Seller seller=sellerRepository.findOne(idUser);
+		shop.setSeller(seller);
 		shopRepository.save(shop);
 	}
 	
