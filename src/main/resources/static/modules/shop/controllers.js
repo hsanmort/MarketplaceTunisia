@@ -63,13 +63,4 @@ function($scope, $http,$location) {
 		
 	};	
 	
-	
-	 $scope.ListProductShop=function {
-  		 var idShop=1;
-  	      $http.get("/productsByShop/all?idShop="+idShop)
-  	      .success(function(data) {
-  	         $scope.products=data;   
-  	      });
-  	   };
-	
 } ]);
