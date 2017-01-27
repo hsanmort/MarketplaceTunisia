@@ -265,6 +265,7 @@
 				.success(function(data){
 				$scope.Complaint=data;
 				$scope.pages=new Array(data.totalPages)
+				
 				});
 				};
 				

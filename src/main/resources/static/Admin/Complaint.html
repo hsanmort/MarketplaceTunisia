@@ -83,7 +83,7 @@
 						    <thead>
 						    <tr>
 						        <th> ID</th>
-						        <th> Date</th>
+						        <th> Date </th>
 						        <th> Description</th>
 						        <th> ID_User</th>
 						      <th> Operation</th>
@@ -93,7 +93,7 @@
 						   <tbody>
 							<tr ng-repeat="C in Complaint.content">
 							<td>{{C.idComplaint}}</td>
-							<td>{{C.dateComplaint}}</td>
+							<td>{{C.dateComplaint | date:'yyyy-MM-dd'}}</td>
 							<td>{{C.description}}</td>
 							<td>{{C.buyer.idUser}}</td>
 							 
