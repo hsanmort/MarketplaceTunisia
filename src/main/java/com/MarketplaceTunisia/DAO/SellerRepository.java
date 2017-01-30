@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 
 
 import com.MarketplaceTunisia.Entities.Seller;
+import com.MarketplaceTunisia.Entities.Shop;
 
 
 
@@ -26,5 +27,8 @@ public interface SellerRepository extends JpaRepository<Seller, Integer> {
 	@Modifying
 	@Query("update Seller s set s.name= :sta where s.idUser= :id")
 	public void UpdateStatus(@Param("sta") String sta,@Param("id") int id );
+	
+	@Query("select s from  Seller s,Shop sh where s.idUser=sh.seller.idUser and sh.idShop= :id")
+	public Seller FindSellerByShop(@Param("id") Long id );
 	
 }

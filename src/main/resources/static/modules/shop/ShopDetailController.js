@@ -12,24 +12,29 @@ angular.module('Shop').controller(
 					$scope.idShop = null;
 					$scope.idShop = $routeParams.id;
 					$scope.shopbyid = {};
+					$scope.seller = {};
 					$scope.message = $scope.idShop + " Shop Here";
 
 					function detailShop() {
+						
+						
+						$http.get("/seller/findSellerByShop?idShop=" + $scope.idShop)
+						.success(function(data) {
+							$scope.seller = data;
 
+
+						});
+						
 						$http.get("/shop/findByIdShop?idShop=" + $scope.idShop)
 								.success(function(data) {
 									$scope.shopbyid = data;
 
+
 								});
-					}
-					;
+					};
+					
 					detailShop();
 
-					//		    	   var Shop = $resource("/shop/findByIdShop?idShop="+$scope.idShop,
-					//		    			    {
-					//		    			    charge: {method:'GET', params:{charge:true}}
-					//		    			   });
-					//		    	   console.log( Shop);
 
 					$scope.productbyshop = {};
 					function ProductByShop() {

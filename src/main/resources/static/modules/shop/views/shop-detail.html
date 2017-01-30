@@ -5,7 +5,7 @@
 		<div class="page-title">
 			<div class="row">
 				<div class="col-sx-12 text-center">
-					<h3>{{message}}</h3>
+					<h3>{{shopbyid.nameShop}}</h3>
 				</div>
 			</div>
 		</div>
@@ -24,6 +24,7 @@
 						<ol class="breadcrumb">
 							<li><a href="#">Home</a></li>
 							<li><a href="#">Shop</a></li>
+							<li><a href="#">{{shopbyid.nameShop}}</a></li>
 							<li class="active"></li>
 						</ol>
 					</div>
@@ -69,8 +70,8 @@
 
 								<div id="carousel" class="flexslider clearfix">
 									<ul class="slides">
-										<li><img src="assets/upload/single_item_01.jpg" alt=""
-											class="img-responsive"></li>
+										<img src="assets/upload/single_item_01.jpg" alt=""
+											class="img-responsive">
 
 									</ul>
 								</div>
@@ -78,7 +79,7 @@
 							<!-- end item-media -->
 
 							<div class="item-desc">
-								<p>{{shopbyid.description}}</p>
+								Shop Description: <p>{{shopbyid.description}}</p>
 
 
 							</div>
@@ -205,8 +206,8 @@
 			<div id="sidebar" class="col-md-4">
 				<div class="boxes boxs">
 					<div class="item-price text-center">
-						<p>$21.00</p>
-						<em><a href="#">Regular License</a></em>
+						<p>Created : {{shopbyid.dateCreation | date:'medium'}}</p>
+						<em><a href="#"></a></em>
 						<div class="rating">
 							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
@@ -217,8 +218,7 @@
 								Favorites</a> &nbsp;&nbsp; <a href="#"><i class="fa fa-heart-o"></i>
 								Like it</a> </small>
 						<hr>
-						<a href="#" class="btn btn-primary">Add to Cart</a> <a href="#"
-							class="btn btn-default">View Demo</a>
+						
 						<ul class="list-inline social">
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -236,11 +236,11 @@
 					<div class="desiger-details text-center">
 						<img src="assets/upload/member_05.jpg" class="img-circle" alt=""></a>
 						<h4>
-							<a href="public-profile.html">Bob - Envision Team</a>
+							<a href="public-profile.html">{{seller.name}} {{seller.lastName}} - {{seller.companyName}}</a>
 						</h4>
 						<small><a href="#"><i class="fa fa-envelope-o"></i>
 								Send a Message</a> &nbsp;&nbsp; <a href="#"><i
-								class="fa fa-user-plus"></i> Follow Bob's</a> </small>
+								class="fa fa-user-plus"></i> Follow {{seller.name}}'s</a> </small>
 					</div>
 					<!-- end designer -->
 				</div>

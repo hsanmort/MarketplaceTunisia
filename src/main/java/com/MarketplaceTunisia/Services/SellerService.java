@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.MarketplaceTunisia.DAO.SellerRepository;
+import com.MarketplaceTunisia.DAO.ShopRepository;
 import com.MarketplaceTunisia.DAO.UserRepository;
 import com.MarketplaceTunisia.Entities.Seller;
 import com.MarketplaceTunisia.Entities.Shop;
@@ -24,6 +25,8 @@ public class SellerService {
 	private SellerRepository sellerRepository;
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
+	private ShopRepository shopRepository;
 	
 	@RequestMapping(value="/seller/save",method=RequestMethod.POST)
 	public void saveSeller(@RequestBody Seller seller){
@@ -68,6 +71,11 @@ public class SellerService {
 	@RequestMapping("/seller/findByIdSeller")
 	public User getShopsByIdSeller(int idSeller){
 		return userRepository.findByIdUser(idSeller);
+	}
+	@RequestMapping("/seller/findSellerByShop")
+	public Seller getSellerByIdShop(Long idShop){
+		
+		return sellerRepository.FindSellerByShop(idShop); 
 	}
 	
 }
