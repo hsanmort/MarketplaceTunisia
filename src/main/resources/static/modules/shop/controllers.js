@@ -4,9 +4,9 @@ angular.module('Shop')
 
 
 
-.controller('ShopController', [ '$scope', '$http','$location',
+.controller('ShopController', [ '$scope', '$http','$location', '$routeParams',
 //affichage de la liste des shops
-function($scope, $http,$location) {
+function($scope, $http,$location,$routeParams) {
     $scope.products=[];
 	$scope.shops = [];
 	$scope.message = "All Shops Here";
@@ -19,7 +19,7 @@ function($scope, $http,$location) {
 	};
 	ShopList();
   	 function ProductsList(){
-  		 var idShop=1;
+  		 var idShop=$routeParams.id;
   	      $http.get("/productsByShop/all?idShop="+idShop)
   	      .success(function(data) {
   	         $scope.products=data;   

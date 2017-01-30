@@ -8,6 +8,7 @@ angular.module('Shop').controller(
 				'$location',
 				'$routeParams',
 				function($scope, $http, $location, $routeParams) {
+					
 					$scope.idShop = null;
 					$scope.idShop = $routeParams.id;
 					$scope.shopbyid = {};
