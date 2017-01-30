@@ -1,34 +1,35 @@
 'use strict';
 
-Stripe.setPublishableKey('pk_test_aj305u5jk2uN1hrDQWdH0eyl');
 
-angular.module('ShoppingCart', ['angularPayments', 'mm.foundation', 'ngAnimate', 'angularSpinner'])
+angular.module('ShoppingCart')
 
-	.controller('PetShopCtrl', function ($scope, $http, $modal) {
+	.controller('ShoppingCartController',['$scope','$http','$modal','angularPayments', 'mm.foundation', 'ngAnimate', 'angularSpinner',
+			function ($scope, $http, $modal) {
 		$scope.cart = [];
 
 		// Load products from server
-		$http.get('products.json').success(function (response) {
+		
+		$http.get("/product/all").success(function (response) {
 			$scope.products = response.products;
 		});
 
 		$scope.addToCart = function (product) {
 			var found = false;
 			$scope.cart.forEach(function (item) {
-				if (item.id === product.id) {
-					item.quantity++;
+				if (item.id === product.idProduct) {
+					item.Qte++;
 					found = true;
 				}
 			});
 			if (!found) {
-				$scope.cart.push(angular.extend({quantity: 1}, product));
+				$scope.cart.push(angular.extend({Qte: 1}, product));
 			}
 		};
 
 		$scope.getCartPrice = function () {
 			var total = 0;
 			$scope.cart.forEach(function (product) {
-				total += product.price * product.quantity;
+				total += product.price * product.Qte;
 			});
 			return total;
 		};
@@ -42,29 +43,5 @@ angular.module('ShoppingCart', ['angularPayments', 'mm.foundation', 'ngAnimate',
 				}
 			});
 		};
-	})
+	}]);
 
-	.controller('CheckoutCtrl', function ($scope, totalAmount) {
-		$scope.totalAmount = totalAmount;
-
-		$scope.onSubmit = function () {
-			$scope.processing = true;
-		};
-
-		$scope.stripeCallback = function (code, result) {
-			$scope.processing = false;
-			$scope.hideAlerts();
-			if (result.error) {
-				$scope.stripeError = result.error.message;
-			} else {
-				$scope.stripeToken = result.id;
-			}
-		};
-
-		$scope.hideAlerts = function () {
-			$scope.stripeError = null;
-			$scope.stripeToken = null;
-		};
-	});
-
-	
