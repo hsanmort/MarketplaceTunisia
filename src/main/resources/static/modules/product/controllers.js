@@ -3,8 +3,8 @@
 angular.module('Product')
  
 .controller('ProductController',
-    ['$scope','$http','$location',
-       function ($scope, $http, $location) {
+    ['$scope','$http','$location','$routeParams',
+       function ($scope, $http, $location,$routeParams) {
      $scope.products=[];
      $scope.productbyid=[];
    	 $scope.message = "All Products Here";
@@ -49,7 +49,7 @@ angular.module('Product')
   	
 	//Ajouter
 	$scope.AjouterProduct = function() {
-		var idShop = 1;
+		var idShop =$routeParams.id;
 
 		var dataProduct = {
 
