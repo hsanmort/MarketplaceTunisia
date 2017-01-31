@@ -78,7 +78,8 @@
 							<!-- end item-media -->
 
 							<div class="item-desc">
-								Shop Description: <p>{{shopbyid.description}}</p>
+								Shop Description:
+								<p>{{shopbyid.description}}</p>
 
 
 							</div>
@@ -217,7 +218,7 @@
 								Favorites</a> &nbsp;&nbsp; <a href="#"><i class="fa fa-heart-o"></i>
 								Like it</a> </small>
 						<hr>
-						
+
 						<ul class="list-inline social">
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -235,7 +236,8 @@
 					<div class="desiger-details text-center">
 						<img src="assets/upload/member_05.jpg" class="img-circle" alt=""></a>
 						<h4>
-							<a href="public-profile.html">{{seller.name}} {{seller.lastName}} - {{seller.companyName}}</a>
+							<a href="public-profile.html">{{seller.name}}
+								{{seller.lastName}} - {{seller.companyName}}</a>
 						</h4>
 						<small><a href="#"><i class="fa fa-envelope-o"></i>
 								Send a Message</a> &nbsp;&nbsp; <a href="#"><i
@@ -244,7 +246,7 @@
 					<!-- end designer -->
 				</div>
 				<!-- end boxes -->
-				
+
 			</div>
 			<!-- end sidebar -->
 		</div>
@@ -301,7 +303,10 @@
 												placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00"
 												max="2018-12-31T00:00:00" required />
 										</div>
-
+										<div ng-controller="myCtrl">
+											<input type="file" file-model="myFile" />
+											<button ng-click="uploadFile()">Upload your Picture</button>
+										</div>
 										<div class="form-actions">
 											<input value="Add Product to shop" type="submit"
 												class="btn btn-danger">
@@ -413,10 +418,6 @@
 		</div>
 		<!-- end content -->
 
-<div ng-controller = "myCtrl">
-         <input type = "file" file-model = "myFile"/>
-         <button ng-click = "uploadFile()">upload me</button>
-      </div>
 
 		<div class="content-message boxs">
 			<div class="row">
