@@ -23,9 +23,8 @@ angular.module('Product')
     
 	//Ajouter
     $scope.idShop =$routeParams.id;
+    $scope.idShop = parseInt($scope.idShop);
     $scope.AjouterProduct = function() {
-		
-		
 
 		var dataProduct = {
 
@@ -50,11 +49,13 @@ angular.module('Product')
 		});
 	}; 
 	//Ajouter sans id shop
+    
+
 	/*$scope.AjouterProduct = function() {
 		
 
 
-		var dataProduct = {
+		var product = {
 
 			nameProduct : $scope.nameProduct,
 			description : $scope.description,
@@ -63,7 +64,7 @@ angular.module('Product')
 			Qte : $scope.Qte
 
 		};
-		var res = $http.post("/product/save", dataProduct,$scope.idShop);
+		var res = $http.post("/product/save",product,$scope.idShop);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
 			$location.path('/product-list');

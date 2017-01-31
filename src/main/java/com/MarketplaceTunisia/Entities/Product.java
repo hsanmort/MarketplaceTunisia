@@ -53,7 +53,7 @@ public class Product implements Serializable{
 	private boolean discount;
 	private byte[] picture;
 	private double Reviews;
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_shop")
 	private Shop shop;

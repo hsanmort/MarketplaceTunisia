@@ -2,6 +2,7 @@
 package com.MarketplaceTunisia.Services;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +18,7 @@ import com.MarketplaceTunisia.DAO.SellerRepository;
 import com.MarketplaceTunisia.Entities.Buyer;
 import com.MarketplaceTunisia.Entities.Complaint;
 import com.MarketplaceTunisia.Entities.Order;
+import com.MarketplaceTunisia.Entities.Product;
 import com.MarketplaceTunisia.Entities.Seller;
 
 @RestController
@@ -30,6 +32,10 @@ public class  OrderService {
 	@RequestMapping(value="/order/save",method=RequestMethod.POST)
 	public void saveComplaint(@RequestBody Order order){
 		OrderRepository.save(order);
+	}
+	@RequestMapping(value="/order/all", method=RequestMethod.GET)
+	public List<Order> allOrders() {
+		return OrderRepository.findAll();
 	}
 	
 	
