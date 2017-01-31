@@ -23,9 +23,9 @@ angular.module('Product')
     
 	//Ajouter
     $scope.idShop =$routeParams.id;
-	$scope.AjouterProduct = function() {
+    $scope.AjouterProduct = function() {
 		
-		console.log($scope.idShop);
+		
 
 		var dataProduct = {
 
@@ -34,13 +34,13 @@ angular.module('Product')
 			price : $scope.price,
 			dateAdd : $scope.dateAdd,
 			Qte : $scope.Qte,
-			Shop:{idShop:$scope.idShop}
+
 
 		};
 		var res = $http.post("/product/sav", dataProduct);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
-			$location.path('/shop-detail/' + $scope.idShop);
+			$location.path('/product-list/' );
 			
 		});
 		res.error(function(data, status, headers, config) {
@@ -50,7 +50,7 @@ angular.module('Product')
 		});
 	}; 
 	//Ajouter sans id shop
-/*	$scope.AjouterProduct = function() {
+	/*$scope.AjouterProduct = function() {
 		
 
 
@@ -63,7 +63,7 @@ angular.module('Product')
 			Qte : $scope.Qte
 
 		};
-		var res = $http.post("/product/sav", dataProduct);
+		var res = $http.post("/product/save", dataProduct,$scope.idShop);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
 			$location.path('/product-list');
@@ -73,8 +73,8 @@ angular.module('Product')
 				data : data
 			}));
 		});
-	}; 
-	*/
+	}; */
+	
 	
     }])
     

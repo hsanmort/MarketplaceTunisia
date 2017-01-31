@@ -34,14 +34,22 @@ public class ProductService {
 	
 	@RequestMapping(value="/product/save",method=RequestMethod.POST)
 	public void saveProduct(@RequestBody Product product, @RequestParam Long idShop){
+		productRepository.save(product);
+		
 		Shop shop= shopRepository.findByIdShop(idShop);
 		product.setShop(shop);
-		productRepository.save(product);
+		
+		
 	}
 	
 	@RequestMapping(value="/product/sav",method=RequestMethod.POST)
 	public void savProduct(@RequestBody Product product){
 		productRepository.save(product);
+		long idShop=1;
+		Shop shop= shopRepository.findByIdShop(idShop);
+		product.setShop(shop);
+		productRepository.saveAndFlush(product);
+		
 	}
 	
 	@RequestMapping(value="/product/delete")
