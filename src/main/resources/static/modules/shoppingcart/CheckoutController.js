@@ -2,7 +2,9 @@
 
 
 angular.module('ShoppingCart' )	
-.controller('CheckoutCtrl', ['$scope','angularPayments', 'mm.foundation', 'ngAnimate', 'angularSpinner',
+
+
+.controller('CheckoutController', ['$scope',
 		
 		function ($scope, totalAmount) {
 		$scope.totalAmount = totalAmount;

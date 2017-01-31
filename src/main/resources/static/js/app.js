@@ -88,7 +88,7 @@ angular.module('BasicHttpAuthExample', [
 	         controller: 'ComplaintController' 
 	        })
 
-	        
+	   //ShoppingCart Test Routes
 	        .when('/shop-checkout', {
 	         templateUrl: 'modules/shoppingcart/views/shoping.html',
 	         controller: 'ShoppingCartController' 

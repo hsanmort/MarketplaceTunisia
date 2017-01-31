@@ -28,6 +28,11 @@ public class Shop implements Serializable {
 		@Id
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Long idShop;
+		public Shop(Long idShop) {
+			super();
+			this.idShop = idShop;
+		}
+
 		private String nameShop;
 		private String description;
 		private Date dateCreation;
@@ -110,7 +115,10 @@ public class Shop implements Serializable {
 			this.picture = picture;
 			this.seller = seller;
 			this.products = products;
-		} 
+		}
+
+	
+		
 		
 
 }

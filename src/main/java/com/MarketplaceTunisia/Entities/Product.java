@@ -27,6 +27,25 @@ public class Product implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idProduct;
 	private String nameProduct;
+	public Product(int idProduct, String nameProduct, String description, double price, Date dateAdd, int qte,
+			boolean discount, byte[] picture, double reviews, Shop shop, List<Order> orders, Category category,
+			List<ShoppingCart> shoppingCarts) {
+		super();
+		this.idProduct = idProduct;
+		this.nameProduct = nameProduct;
+		this.description = description;
+		this.price = price;
+		this.dateAdd = dateAdd;
+		Qte = qte;
+		this.discount = discount;
+		this.picture = picture;
+		Reviews = reviews;
+		this.shop = shop;
+		this.orders = orders;
+		this.category = category;
+		this.shoppingCarts = shoppingCarts;
+	}
+
 	private String description;
 	private double price;
 	private Date dateAdd;
@@ -34,7 +53,7 @@ public class Product implements Serializable{
 	private boolean discount;
 	private byte[] picture;
 	private double Reviews;
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_shop")
 	private Shop shop;
