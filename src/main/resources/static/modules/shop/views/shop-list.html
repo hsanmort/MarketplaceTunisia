@@ -1,5 +1,5 @@
 
-<section class="section single-wrap" ng-controller="ShopController">
+<section class="section single-wrap" ng-controller="ShopController" >
 	<div class="container">
 		<div class="page-title">
 			<div class="row">
@@ -8,7 +8,7 @@
 					<div class="bread">
 						<ol class="breadcrumb">
 							<li><a href="#">Home</a></li>
-							<li class="active">All Stores</li>
+							<li class="active">All Shops</li>
 						</ol>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 									<img alt="" class="img-responsive img-thumbnail"
 										src="assets/upload/store_01.jpg">
 								</div>
-								<div class="col-md-2 col-xs-12">
+								<div class="col-md-2 col-xs-12" ng-controller="ShopDetailController">
 									<h4>
 										{{shop.nameShop}}
 									</h4>
@@ -85,7 +85,7 @@
 												class="fa fa-image"></i> 123 Items</a></li>
 										<li><a href="single-item.html"><i
 												class="fa fa-shopping-cart"></i> 2021 Sales</a></li>
-										<li><i class="fa fa-map-marker"></i> Tunisia</li>
+										<li><i class="fa fa-map-marker"></i> {{seller.name}} {{seller.lastName}} - {{seller.companyName}}</li>
 										<li><button class="btn btn-primary" tabindex="-1" ng-click="supprimer(shop)">
 												<i class="fa fa-search"></i>
 											</button></li>
@@ -104,7 +104,7 @@
 								<!-- end col -->
 								<div class="col-md-2 col-xs-12 text-center">
 									<ul>
-										<li><a href="#" class="btn btn-primary btn-block">Follow
+										<li><a ng-click="detailShop(shop.idShop)" class="btn btn-primary btn-block">Follow
 												Store</a></li>
 										<li><a href="public-profile.html" title="">192
 												Followers</a></li>
