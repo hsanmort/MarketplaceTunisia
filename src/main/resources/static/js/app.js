@@ -82,7 +82,7 @@ angular.module('BasicHttpAuthExample', [
 	        })
 	    .when('/seller-dashboard', {
 	         templateUrl: 'modules/seller/views/seller-dashboard.html',
-	         controller: 'SellerController' 
+	         controller: 'OrderController' 
 	        })
 	    //Complaint Routes
         .when('/complaint', {
@@ -90,8 +90,8 @@ angular.module('BasicHttpAuthExample', [
 	         controller: 'ComplaintController' 
 	        })
 	   //Order Routes
-        .when('/order-list', {
-	         templateUrl: 'modules/order/views/order-list.html',
+        .when('/seller-dashboard', {
+	         templateUrl: 'modules/seller/views/seller-dashboard.html',
 	         controller: 'OrderController' 
 	        })
 

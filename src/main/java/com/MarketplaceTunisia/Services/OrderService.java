@@ -37,6 +37,10 @@ public class  OrderService {
 	public List<Order> allOrders() {
 		return OrderRepository.findAll();
 	}
+	@RequestMapping(value="/orders/all", method=RequestMethod.GET)
+	public List<Order> allOrder() {
+		return OrderRepository.findallO();
+	}
 	
 	@RequestMapping(value="/order/delete")
 	public void deleteShop(int idOrder){

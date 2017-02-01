@@ -8,7 +8,7 @@
 					<div class="bread">
 						<ol class="breadcrumb">
 							<li><a href="#">Home</a></li>
-							<li class="active">All Stores</li>
+							<li class="active">All Sellers</li>
 						</ol>
 					</div>
 				</div>
@@ -30,9 +30,7 @@
 						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-						<li><a href="#"><i class="fa fa-behance"></i></a></li>
-						<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+						
 					</ul>
 				</div>
 			</div>
@@ -40,32 +38,7 @@
 		</div>
 		<!-- end content top -->
 
-		<div class="content-before">
-			<div class="row">
-				<div class="col-md-12 col-sx-12 cen-xs">
-					<form class="dropForm">
-						<div class="input-prepend">
-							<div class="btn-group">
-								<select name="orderby" class="selectpicker">
-									<option>All Platforms</option>
-									<option>IOS Apps</option>
-									<option>Android Apps</option>
-									<option>UI Kits</option>
-									<option>Site Templates</option>
-									<option>WordPress Themes</option>
-								</select>
-							</div>
-							<input type="text" class="form-control"
-								placeholder="Search anything here.">
-							<button class="btn btn-primary" tabindex="-1">
-								<i class="fa fa-search"></i>
-							</button>
-						</div>
-					</form>
-				</div>
-			</div>
-			<!-- end row -->
-		</div>
+
 		<!-- end content before -->
 
 		<div class="content boxs">
@@ -76,7 +49,7 @@
 							<div class="form-group row wow fadeIn" ng-repeat="seller in sellers">
 								<div class="col-md-3 col-xs-12">
 									<img alt="" class="img-responsive img-thumbnail"
-										src="assets/upload/store_01.jpg">
+										src="assets/upload/{{seller.idUser}}.jpg">
 								</div>
 								<div class="col-md-2 col-xs-12">
 									<h4>
@@ -128,7 +101,7 @@
 								<div class="col-md-2 col-xs-12 text-center">
 									<ul>
 										<li><a href="#" class="btn btn-primary btn-block">Follow
-												Store</a></li>
+												this Seller</a></li>
 										<li><a href="public-profile.html" title="">192
 												Followers</a></li>
 										<li><a href="public-profile.html" title="">44

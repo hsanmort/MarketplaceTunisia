@@ -174,22 +174,7 @@
 							<form method="post">
 								<p><label for="from" style="display:inline;">From:</label> <input class="date-pick" id="from" name="start_date" type="date" value="2017-01-01"> <label for="to" style="display:inline;">To:</label> <input class="date-pick" id="to" name="end_date" type="date" value="2017-01-12"> <input class="btn btn-inverse btn-small" style="float:none;" type="submit" value="Show"></p>
 							</form>
-							<table class="table table-condensed table-vendor-sales-report">
-								<thead>
-									<tr>
-										<th class="product-header">Product</th>
-										<th class="quantity-header">Quantity</th>
-										<th class="commission-header">Commission</th>
-										<th class="rate-header">Rate</th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td colspan="4" style="text-align:center;">You haven't made any sales yet.</td>
-									</tr>
-								</tbody>
-							</table>
+							
 							<script type="text/javascript">
 							jQuery(function () {
 							jQuery('a.view-items').on('click', function (e) {
@@ -213,20 +198,31 @@
 							});
 							</script>
 							<h2>Orders</h2>
-							<table class="table table-condensed table-vendor-sales-report">
+							<table class="table table-condensed table-vendor-sales-report" >
 								<thead>
 									<tr>
-										<th class="product-header">Order</th>
-										<th class="quantity-header">Shipping</th>
-										<th class="commission-header">Total</th>
-										<th class="rate-header">Date</th>
-										<th class="rate-header">Links</th>
+										<th class="product-header">Order ID</th>
+										<th class="quantity-header">Date Liv</th>
+										<th class="commission-header">Date Order</th>
+										<th class="commission-header">Product Name</th>
+										<th class="rate-header">Price </th>
+										<th class="rate-header">NB products</th>
+										<th class="rate-header">Adress</th>
+										<th class="rate-header">Dismiss Order</th>
 									</tr>
+									
 								</thead>
-								<tbody>
-									<tr>
-										<td colspan="4" style="text-align:center;">You have no orders during this period.</td>
-									</tr>
+								<tbody id="test" ng-repeat="o in orders">
+									
+									<td >{{o.id_order}}</td>
+									<td>{{o.date_delev}}</td>
+									<td>{{o.dateo}}</td>
+									<td>{{o.name}}</td>
+									<td>{{o.price}} £</td>
+									<td>{{o.productnb}}</td>
+									<td>{{o.adress}}</td>
+									<td><a onclick="removeDummy();" >X </a></td>
+									
 								</tbody>
 							</table>
 						</div>
@@ -414,4 +410,12 @@
 	           });
 	       
 	});
+	</script>
+	<script type="text/javascript">
+	
+	function removeDummy() {
+	    var elem = document.getElementById('test');
+	    elem.parentNode.removeChild(elem);
+	    return false;
+	}
 	</script>
