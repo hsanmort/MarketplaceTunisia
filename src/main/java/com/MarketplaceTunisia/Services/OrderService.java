@@ -30,7 +30,7 @@ public class  OrderService {
 	
 	
 	@RequestMapping(value="/order/save",method=RequestMethod.POST)
-	public void saveComplaint(@RequestBody Order order){
+	public void saveOrder(@RequestBody Order order){
 		OrderRepository.save(order);
 	}
 	@RequestMapping(value="/order/all", method=RequestMethod.GET)
@@ -38,10 +38,9 @@ public class  OrderService {
 		return OrderRepository.findAll();
 	}
 	
-	
+	@RequestMapping(value="/order/delete")
+	public void deleteShop(int idOrder){
+		OrderRepository.delete(idOrder);
+	}
 
-	
-	
-
-	
 	}

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.MarketplaceTunisia.DAO.SellerRepository;
 import com.MarketplaceTunisia.DAO.ShopRepository;
+import com.MarketplaceTunisia.Entities.Product;
 import com.MarketplaceTunisia.Entities.Seller;
 import com.MarketplaceTunisia.Entities.Shop;
 
@@ -28,9 +29,21 @@ public class ShopService {
 	
 	@RequestMapping(value="/shop/save",method=RequestMethod.POST)
 	public void saveShop(@RequestBody Shop shop,@RequestParam int idUser){
+		shopRepository.save(shop);
 		Seller seller=sellerRepository.findOne(idUser);
 		shop.setSeller(seller);
+		shopRepository.saveAndFlush(shop);
+		
+	}
+	@RequestMapping(value="/shop/sav",method=RequestMethod.POST)
+	public void savShop(@RequestBody Shop shop){
 		shopRepository.save(shop);
+		int idUser=1;
+		Seller seller= sellerRepository.findOne(idUser);
+		System.out.println(seller.getLastName());
+		shop.setSeller(seller);
+		shopRepository.saveAndFlush(shop);
+		
 	}
 	
 	@RequestMapping(value="/shop/delete")

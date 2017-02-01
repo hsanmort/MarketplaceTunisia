@@ -8,6 +8,7 @@ angular.module('Product', []);
 angular.module('Seller', []);
 angular.module('Complaint', []);
 angular.module('ShoppingCart', []);
+angular.module('Order', []);
 
 angular.module('BasicHttpAuthExample', [
     'Authentication',
@@ -17,6 +18,7 @@ angular.module('BasicHttpAuthExample', [
     'Seller',
     'Complaint',
     'ShoppingCart',
+    'Order',
     'ngRoute',
     'ngCookies'
 ])
@@ -86,6 +88,11 @@ angular.module('BasicHttpAuthExample', [
         .when('/complaint', {
 	         templateUrl: 'modules/complaint/views/complaint.html',
 	         controller: 'ComplaintController' 
+	        })
+	   //Order Routes
+        .when('/order-list', {
+	         templateUrl: 'modules/order/views/order-list.html',
+	         controller: 'OrderController' 
 	        })
 
 	   //ShoppingCart Test Routes

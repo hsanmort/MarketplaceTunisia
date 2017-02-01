@@ -30,9 +30,7 @@
 						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-						<li><a href="#"><i class="fa fa-behance"></i></a></li>
-						<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+					
 					</ul>
 				</div>
 			</div>
@@ -40,28 +38,7 @@
 		</div>
 		<!-- end content top -->
 
-		<div class="content-before">
-			<div class="row">
-				<div class="col-md-12 col-sx-12 cen-xs">
-					<form class="dropForm">
-						<div class="input-prepend">
-							<div class="btn-group">
-								<select name="orderby" class="selectpicker">
-									<option>All Platforms</option>
-									
-								</select>
-							</div>
-							<input type="text" class="form-control"
-								placeholder="Search anything here.">
-							<button class="btn btn-primary" tabindex="-1">
-								<i class="fa fa-search"></i>
-							</button>
-						</div>
-					</form>
-				</div>
-			</div>
-			<!-- end row -->
-		</div>
+		
 		<!-- end content before -->
 
 		<div class="content boxs">
@@ -73,7 +50,7 @@
 							<a ng-click="detailShop(shop.idShop)">
 								<div class="col-md-3 col-xs-12">
 									<img alt="" class="img-responsive img-thumbnail"
-										src="assets/upload/store_01.jpg">
+										src="assets/upload/shops/{{shop.idShop}}.jpg">
 								</div>
 								<div class="col-md-2 col-xs-12" ng-controller="ShopDetailController">
 									<h4>
@@ -94,7 +71,7 @@
 							</a>
 								<div class="col-md-5 col-xs-12">
 									<ul class="list-inline">
-										<li><a href="single-item.html" class="screenshot"
+										<li><a  ng-click="detailShop(shop.idShop)"  class="screenshot"
 											data-gal="assets/assets/upload//item_01.jpg"
 											title="This is an item title <span>$12.00</span>"><img
 												class="img-responsive img-thumbnail"

@@ -23,7 +23,8 @@ public interface OrderRepository extends JpaRepository<Order, Integer>{
 	
 	
 	public Page<Order> findBydateO(Date date, Pageable pageable);
-	public Page<Order> findAll(Pageable p);
+	//public Page<Order> findAll(Pageable p);
+	
 	
 	public Page<Order> findByBuyer(Buyer buyer, Pageable pageable);
 	public Page<Order> findByadress(Adress adress, Pageable pageable);

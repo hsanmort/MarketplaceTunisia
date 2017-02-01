@@ -69,7 +69,7 @@
                         <div class="col-md-3 col-sm-6" ng-repeat="product in products">
                             <div class="item-box" >
                                 <div class="item-media entry">
-                                    <img src="assets/upload/item_01.jpg" alt="" class="img-responsive">
+                                    <img src="assets/upload/products/{{product.idProduct}}.jpg" width="242" height="242" alt="" class="img-responsive">
                                     <div class="magnifier">
                                     
                                         <div class="item-author">
@@ -77,12 +77,12 @@
                                         </div><!-- end author -->
                                     </div>
                                     <div class="theme__button">
-                                        <p><a href="single-item.html" title="">{{product.price}} $</a></p>
+                                        <p><a ng-click="detailProduct(product.idProduct)" title="">{{product.price}} $</a></p>
                                      </div>
                                    
                                 </div><!-- end item-media -->
-                                <h4><a href="single-item.html">{{product.nameProduct}}</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-eye"></i> 893</a></small>
+                                <h4><a ng-click="detailProduct(product.idProduct)">{{product.nameProduct}}</a></h4>
+                                <small><a href="single-item.html"><i class="fa fa-eye"></i> {{product.Qte}}</a></small>
                                 <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
                             </div><!-- end item-box -->
                         </div><!-- end col -->
@@ -127,10 +127,10 @@
                                 <div class="panel-body">
                                     <div class="form-group row">
                                         <div class="col-sm-3 col-xs-12">
-                                            <img alt="" class="img-responsive img-thumbnail" src="assets/upload/store_09.jpg">
+                                            <img alt="" class="img-responsive img-thumbnail" src="assets/upload/shops/{{shop.idShop}}.jpg">
                                         </div>
                                         <div class="col-sm-2 col-xs-12">
-                                            <h4><a href="public-profile.html">{{shop.nameShop}}</a></h4>
+                                            <h4><a ng-click="detailShop(shop.idShop)">{{shop.nameShop}}</a></h4>
                                             <ul>
                                                 <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
                                                 <li><a href="public-profile.html"><i class="fa fa-image"></i> 123 Items</a></li>

@@ -1,11 +1,8 @@
 'use strict';
 
 angular.module('Order')
-
-
-
-.controller('OrderController' [ '$scope', '$http','$location', '$routeParams',
-//affichage de la liste des shops
+.controller('OrderController', [ '$scope', '$http','$location', '$routeParams',
+//affichage de la liste des orders
 function($scope, $http,$location,$routeParams) {
 	$scope.orders = [];
 	$scope.message = "All My Order";
@@ -18,7 +15,7 @@ function($scope, $http,$location,$routeParams) {
 
   	 OrderList();
 
-//suppression du shop
+//suppression du orders
 	$scope.supprimer = function(order) {
 
 		$http.get("/shop/delete?idOrder=" + order.idOrder).success(function() {

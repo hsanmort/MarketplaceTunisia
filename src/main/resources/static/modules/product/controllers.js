@@ -78,9 +78,7 @@ angular.module('Product')
 	
 	
     }])
-    
-    
-    
+
 .directive('fileModel', ['$parse', function ($parse) {
     return {
        restrict: 'A',

@@ -3,7 +3,7 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-sx-12 text-center">
-                            <h3>{{message}}</h3>
+                            <h3>{{productbyid.nameProduct}}</h3>
                         </div>
                     </div>
                 </div>
@@ -30,24 +30,7 @@
 
                 <div class="row">
                     <div id="singlewrapper" class="col-md-8">
-                        <div class="content-before">
-                            <div class="row">
-                                <div class="col-md-12 col-sx-12 cen-xs">
-                                    <form class="dropForm">
-                                        <div class="input-prepend">
-                                            <div class="btn-group">
-                                                <select name="orderby" class="selectpicker">
-                                                  <option>All Platforms</option>
-                                                 
-                                              </select>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="Search anything here.">
-                                            <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
-                                        </div>
-                                    </form>
-                                </div><!-- end col -->
-                            </div><!-- end row -->
-                        </div><!-- end content before -->
+                        
 
                         <div class="content nopad" >
                         <h1>{{productbyid.nameProduct}}</h1>
@@ -57,15 +40,14 @@
                                     <div class="item-media text-center">
                                         
                                         <div id="carousel" class="flexslider clearfix">
-                                            <ul class="slides">
-                                                <li><img src="assets/upload/single_item_01.jpg" alt="" class="img-responsive"></li>
+                                            <img src="assets/upload/products/{{productbyid.idProduct}}.jpg" alt="" class="img-responsive"></li>
                                                 
-                                            </ul>
+                                           
                                         </div>  
                                     </div><!-- end item-media -->
 
                                     <div class="item-desc">
-                                        <p> {{productbyid.price}} </p>
+                                        <p>Description : {{productbyid.description}} </p>
 
                                       
                                     </div><!-- end item-desc -->
@@ -79,8 +61,7 @@
                     <div id="sidebar" class="col-md-4">
                         <div class="boxes boxs">
                             <div class="item-price text-center">
-                                <p>$21.00</p>
-                                <em><a href="#">Regular License</a></em>
+                                <p>{{productbyid.price}} $</p>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -92,23 +73,20 @@
                                 <small><a href="#"><i class="fa fa-star-o"></i> Add to Favorites</a> &nbsp;&nbsp; <a href="#"><i class="fa fa-heart-o"></i> Like it</a> </small>
                                 <hr>
                                 <a href="#" class="btn btn-primary">Add to Cart</a>
-                                <a href="#" class="btn btn-default">View Demo</a>
                                 <ul class="list-inline social">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                   
                                 </ul>
                             </div><!-- end price -->
                         </div><!-- end boxes -->
 
                         <div class="boxes boxs">
                             <div class="desiger-details text-center">
-                                <img src="assets/upload/member_05.jpg" class="img-circle" alt=""></a>
-                                <h4><a href="public-profile.html">Bob - Envision Team</a></h4>
-                                <small><a href="#"><i class="fa fa-envelope-o"></i> Send a Message</a> &nbsp;&nbsp; <a href="#"><i class="fa fa-user-plus"></i> Follow Bob's</a> </small>
+                                <img src="assets/upload/users/{{seller.idUser}}.jpg" class="img-circle" alt=""></a>
+                                <h4><a href="public-profile.html">{{seller.name}} {{seller.lastName}}  - SAB</a></h4>
+                                <small><a href="#"><i class="fa fa-envelope-o"></i> Send a Message</a> &nbsp;&nbsp; <a href="#"><i class="fa fa-user-plus"></i> Follow {{seller.name}}'s</a> </small>
                             </div><!-- end designer -->
                         </div><!-- end boxes -->
 
@@ -117,45 +95,27 @@
                                 <table>
                                     <tr>
                                         <td>Release on:</td>
-                                        <td>2016-02-21</td>
+                                        <td>{{productbyid.dateAdd| date:'medium' }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Version:</td>
-                                        <td>0.1</td>
+                                        <td>Price:</td>
+                                        <td>{{productbyid.price}}$</td>
                                     </tr>
                                     <tr>
-                                        <td>Included:</td>
-                                        <td>Zip, AI, EPS</td>
+                                        <td>Qte:</td>
+                                        <td>{{productbyid.Qte}}</td>
                                     </tr>
                                     <tr>
-                                        <td>File size:</td>
-                                        <td>5Mb</td>
+                                        <td>Name:</td>
+                                        <td>{{productbyid.nameProduct}}</td>
                                     </tr>
+                                    
                                     <tr>
-                                        <td>Requirements:</td>
-                                        <td>Illustrator</td>
+                                        <td>Discount:</td>
+                                        <td>No</td>
                                     </tr>
-                                    <tr>
-                                        <td>Document:</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Support:</td>
-                                        <td>Life Time</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tags:</td>
-                                        <td>
-                                              <div class="product-tags">
-                                                <a href="#">IOS App</a>
-                                                <a href="#">UI Kit</a>
-                                                <a href="#">PSD Version</a>
-                                                <a href="#">Weather</a>
-                                                <a href="#">Creative</a>
-                                                <a href="#">Blue</a>
-                                            </div><!-- en tags -->                          
-                                        </td>
-                                    </tr>
+                                    
+                                    
 
                                 </table>
                             </div><!-- end item-details -->

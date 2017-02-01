@@ -30,9 +30,7 @@
 						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-						<li><a href="#"><i class="fa fa-behance"></i></a></li>
-						<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+						
 					</ul>
 				</div>
 			</div>
@@ -40,28 +38,7 @@
 		</div>
 		<!-- end content top -->
 
-		<div class="content-before">
-			<div class="row">
-				<div class="col-md-12 col-sx-12 cen-xs">
-					<form class="dropForm">
-						<div class="input-prepend">
-							<div class="btn-group">
-								<select name="orderby" class="selectpicker">
-									<option>All Platforms</option>
-					
-								</select>
-							</div>
-							<input type="text" class="form-control"
-								placeholder="Search anything here.">
-							<button class="btn btn-primary" tabindex="-1">
-								<i class="fa fa-search"></i>
-							</button>
-						</div>
-					</form>
-				</div>
-			</div>
-			<!-- end row -->
-		</div>
+
 		<!-- end content before -->
 
 		<div class="content boxs">
@@ -72,7 +49,7 @@
 							<div class="form-group row wow fadeIn"">
 								<div class="col-md-3 col-xs-12">
 									<img alt="" class="img-responsive img-thumbnail"
-										src="assets/upload/store_01.jpg">
+										src="assets/upload/newShop.jpg">
 								</div>
 								<div class="col-md-2 col-xs-12">
 									<h4>
@@ -94,17 +71,14 @@
 									    </div>
 									    <div class="form-group">
 									        <label for="description">Description</label>
-									        <i class="fa fa-lock"></i>
-									        <input type="text" 
-									        name="description"  
-									        class="form-control" 
-									        ng-model="description" 
-									        required 
-									        />
+									        <i class="fa fa-text-width"></i>
+									         <textarea class="form-control" name="description"  rows="5" id="description" ng-model="description" 
+									        required ></textarea>
+									        
 									    </div>
 									    <div class="form-group">
 									        <label for="dateCreation">Date</label>
-									        <i class="fa fa-lock"></i>
+									        <i class="fa fa-calendar"></i>
 									      
 									        <input type="datetime-local" 
 									        name="dateCreation" 
@@ -115,6 +89,11 @@
      									  	max="2018-12-31T00:00:00" 
      									  	required 
      									  	/>
+									    </div>
+									    <div class="form-group">
+									        <label for="File">Image Shop</label>
+									        <i class="fa fa-picture-o"></i>
+									    	<input type="file" file-model="myFile" />
 									    </div>
 									    <!-- <div class="form-group">
 									        <label for="picture">File</label>
@@ -155,25 +134,6 @@
 		</div>
 		<!-- end content -->
 
-		<div class="content-after text-center boxs">
-			<div class="row">
-				<div class="col-md-12">
-					<nav class="pagination-wrapper">
-						<ul class="pagination">
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#" aria-label="Next"> <span
-									aria-hidden="true">&raquo;</span>
-							</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-			<!-- end row -->
-		</div>
 		<!-- end content after -->
 
 		<!-- end content message -->

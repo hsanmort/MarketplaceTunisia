@@ -1,9 +1,6 @@
 'use strict';
 
 angular.module('Shop')
-
-
-
 .controller('ShopController', [ '$scope', '$http','$location', '$routeParams',
 //affichage de la liste des shops
 function($scope, $http,$location,$routeParams) {

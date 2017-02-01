@@ -36,29 +36,7 @@
 
 		<div class="row">
 			<div id="singlewrapper" class="col-md-8">
-				<div class="content-before">
-					<div class="row">
-						<div class="col-md-12 col-sx-12 cen-xs">
-							<form class="dropForm">
-								<div class="input-prepend">
-									<div class="btn-group">
-										<select name="orderby" class="selectpicker">
-											<option>All Platforms</option>
-
-										</select>
-									</div>
-									<input type="text" class="form-control"
-										placeholder="Search anything here.">
-									<button class="btn btn-primary" tabindex="-1">
-										<i class="fa fa-search"></i>
-									</button>
-								</div>
-							</form>
-						</div>
-						<!-- end col -->
-					</div>
-					<!-- end row -->
-				</div>
+				
 				<!-- end content before -->
 
 				<div class="content nopad">
@@ -69,7 +47,7 @@
 
 								<div id="carousel" class="flexslider clearfix">
 									<ul class="slides">
-										<img src="assets/upload/single_item_01.jpg" alt=""
+										<img src="assets/upload/shops/{{shopbyid.idShop}}.jpg" alt=""
 											class="img-responsive">
 
 									</ul>
@@ -234,7 +212,7 @@
 
 				<div class="boxes boxs">
 					<div class="desiger-details text-center">
-						<img src="assets/upload/member_05.jpg" class="img-circle" alt=""></a>
+						<img src="assets/upload/users/{{seller.idUser}}.jpg" class="img-circle" alt=""></a>
 						<h4>
 							<a href="public-profile.html">{{seller.name}}
 								{{seller.lastName}} - {{seller.companyName}}</a>
@@ -263,7 +241,7 @@
 							<div class="form-group row wow fadeIn"">
 								<div class="col-md-3 col-xs-12">
 									<img alt="" class="img-responsive img-thumbnail"
-										src="assets/upload/store_01.jpg">
+										src="assets/upload/NewProduct.jpg">
 								</div>
 								<div class="col-md-2 col-xs-12">
 									<h4>
@@ -279,34 +257,35 @@
 												class="form-control" ng-model="nameProduct" required />
 										</div>
 										<div class="form-group">
-											<label for="description">Description</label> <i
-												class="fa fa-lock"></i> <input type="text"
-												name="description" class="form-control"
-												ng-model="description" required />
+											 <label for="description">Description</label>
+									        <i class="fa fa-text-width"></i>
+									         <textarea class="form-control" name="description"  rows="5" id="description" ng-model="description" 
+									        required ></textarea>
 										</div>
 										<div class="form-group">
-											<label for="description">price</label> <i class="fa fa-lock"></i>
+											<label for="price">price</label> <i class="fa fa-usd"></i>
 
 											<input type="number" name="price" class="form-control"
 												ng-model="price" required />
 										</div>
 										<div class="form-group">
-											<label for="Qte">Qte</label> <i class="fa fa-lock"></i> <input
+											<label for="Qte">Qte</label> <i class="fa fa-sort-numeric-asc"></i> <input
 												type="number" name="Qte" class="form-control" ng-model="Qte"
 												required />
 										</div>
 										<div class="form-group">
-											<label for="dateAdd">Date</label> <i class="fa fa-lock"></i>
+											<label for="dateAdd">Date</label> <i class="fa fa-calendar"></i>
 
 											<input type="datetime-local" name="dateAdd"
 												class="form-control" ng-model="dateAdd"
 												placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00"
 												max="2018-12-31T00:00:00" required />
 										</div>
-										<div ng-controller="myCtrl">
-											<input type="file" file-model="myFile" />
-											<button ng-click="uploadFile()">Upload your Picture</button>
-										</div>
+										 <div class="form-group">
+									        <label for="File">Image Shop</label>
+									        <i class="fa fa-picture-o"></i>
+									    	<input type="file" file-model="myFile" />
+									    </div>
 										<div class="form-actions">
 											<input value="Add Product to shop" type="submit"
 												class="btn btn-danger">
@@ -318,8 +297,8 @@
 									<div class="row">
 										<div class="col-md-12 general-title">
 											<h4>
-												Featured Store <span class="hidden-xs"><a
-													href="#/shop-list">View all</a></span>
+												Featured Products <span class="hidden-xs"><a
+													href="#/product-list">View all</a></span>
 											</h4>
 											<hr>
 										</div>
@@ -334,19 +313,18 @@
 													<div class="form-group row">
 														<div class="col-sm-3 col-xs-12">
 															<img alt="" class="img-responsive img-thumbnail"
-																src="assets/upload/store_09.jpg">
+																src="assets/upload/products/{{product.idProduct}}.jpg">
 														</div>
 														<div class="col-sm-2 col-xs-12">
 															<h4>
-																<a href="public-profile.html">{{product.price}} $</a>
+																<a href="public-profile.html">{{product.nameProduct}}</a>
 															</h4>
 															<ul>
 																<li><a href="#"><i class="fa fa-envelope-o"></i>
 																		Get Support</a></li>
-																<li><a href="public-profile.html"><i
-																		class="fa fa-image"></i> {{product.nameProduct}}</a></li>
+																
 																<li><a href="single-item.html"><i
-																		class="fa fa-shopping-cart"></i> 2021 Sales</a></li>
+																		class="fa fa-shopping-cart"></i> {{product.price}} $</a></li>
 																<li><i class="fa fa-map-marker"></i>
 																	{{product.nameShop}}</li>
 															</ul>
@@ -383,12 +361,8 @@
 														<!-- end col -->
 														<div class="col-sm-2 col-xs-12 text-center">
 															<ul>
-																<li><a href="#" class="btn btn-primary btn-block">Follow
-																		Store</a></li>
-																<li><a href="public-profile.html" title="">192
-																		Followers</a></li>
-																<li><a href="public-profile.html" title="">44
-																		Following</a></li>
+																<li><a href="#" class="btn btn-primary btn-block">Buy Now</a></li>
+																
 															</ul>
 														</div>
 													</div>
