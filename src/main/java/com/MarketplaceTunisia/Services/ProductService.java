@@ -48,7 +48,7 @@ public class ProductService {
 	@RequestMapping(value="/product/sav",method=RequestMethod.POST)
 	public void savProduct(@RequestBody Product product){
 		productRepository.save(product);
-		long idShop=1;
+		long idShop=3;
 		Shop shop= shopRepository.findByIdShop(idShop);
 		System.out.println(shop.getNameShop());
 		product.setShop(shop);

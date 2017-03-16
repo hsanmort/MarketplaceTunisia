@@ -170,10 +170,7 @@
 								<p><a class="button" href="http://theme-stall.com/catalog/vendors/sq/">View Your Store</a> <a class="button" href="http://theme-stall.com/catalog/vendor_dashboard/shop_settings/">Store Settings</a> <a class="button" href="http://theme-stall.com/catalog/wp-admin/post-new.php?post_type=product" target="_TOP">Add New Product</a> <a class="button" href="http://theme-stall.com/catalog/wp-admin/edit.php?post_type=product" target="_TOP">Edit Products</a></p>
 							</center>
 							<hr>
-							<h2>Sales Report</h2>
-							<form method="post">
-								<p><label for="from" style="display:inline;">From:</label> <input class="date-pick" id="from" name="start_date" type="date" value="2017-01-01"> <label for="to" style="display:inline;">To:</label> <input class="date-pick" id="to" name="end_date" type="date" value="2017-01-12"> <input class="btn btn-inverse btn-small" style="float:none;" type="submit" value="Show"></p>
-							</form>
+							
 							
 							<script type="text/javascript">
 							jQuery(function () {
@@ -197,6 +194,7 @@
 							});
 							});
 							</script>
+							
 							<h2>Orders</h2>
 							<table class="table table-condensed table-vendor-sales-report" >
 								<thead>
@@ -221,7 +219,10 @@
 									<td>{{o.price}} £</td>
 									<td>{{o.productnb}}</td>
 									<td>{{o.adress}}</td>
-									<td><a onclick="removeDummy();" >X </a></td>
+									<td>
+									<a onclick="removeDummy();" >X </a> -
+									 <a onclick="removeDummy();" >Valid Order </a>
+									 </td>
 									
 								</tbody>
 							</table>
@@ -419,3 +420,4 @@
 	    return false;
 	}
 	</script>
+
